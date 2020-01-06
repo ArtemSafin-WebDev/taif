@@ -1,0 +1,14 @@
+@import 'vendor';
+@import 'variables';
+@import 'mixins';
+@import 'global';
+@import 'layout';
+@import 'text';
+@import 'page-header';
+@import 'fontface';
+
+// Blocks styles
+
+@import 'blocks/intro-slider';
+@import 'blocks/main-nav';
+
