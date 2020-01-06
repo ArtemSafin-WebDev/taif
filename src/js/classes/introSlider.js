@@ -29,7 +29,9 @@ class IntroSlider {
                 watchOverflow: true,
                 slidesPerView: 'auto',
                 spaceBetween: 60,
-                longSwipesRatio: 0.2
+                longSwipesRatio: 0.2,
+                watchSlidesProgress: true,
+                watchSlidesVisibility: true
             }
         };
 

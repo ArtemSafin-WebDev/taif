@@ -64,15 +64,13 @@
     }
 }
 
-
-
 .intro-slider__navigation {
-    margin-top: 30rem;
+    
     position: absolute;
     left: 0;
-    top: 0;
+    bottom: 0;
     z-index: 60;
-    
+    margin-bottom: 52rem;
 }
 
 .intro-slider__navigation-list {
@@ -146,23 +144,17 @@
     }
 }
 
-
-
-
 .intro-slider__contents {
-    
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
-
 
 .intro-slider__contents-list {
     position: relative;
     flex-grow: 1;
     margin-top: 17rem;
 }
-
 
 .intro-slider__contents-list-item {
     position: absolute;
@@ -172,16 +164,13 @@
     height: 100%;
 }
 
-
 .intro-slider__contents-card {
-    
     color: white;
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
 }
-
 
 .intro-slider__description {
     max-width: 40rem;
@@ -192,26 +181,25 @@
     margin-right: 0;
 }
 
-
-
 .intro-slider__description-link {
     display: inline-flex;
     align-items: center;
     border: 1px solid white;
     border-radius: 6rem;
-    padding: 1.2rem 1.85rem;
+    padding: 1.2rem 2rem;
+    padding-top: 1.3rem;
     flex-shrink: 0;
     user-select: none;
     font-size: 1.6rem;
     margin-top: 2rem;
-    transition: all .2s;
+    transition: all 0.2s;
     svg {
         fill: white;
         flex-shrink: 0;
         margin-left: 1.2rem;
         width: 0.8rem;
         height: 1.2rem;
-        transition: fill .2s;
+        transition: fill 0.2s;
     }
     &:link,
     &:visited {
@@ -225,18 +213,19 @@
     }
 }
 
-
 .intro-slider__inner-slider-wrapper {
     position: relative;
-
+    margin-bottom: 8rem;
     .swiper-container {
         overflow: visible;
     }
 
-
     .swiper-slide {
         width: 80%;
     }
+
+
+    
 }
 
 .intro-slider__inner-slider-card {
@@ -249,10 +238,14 @@
     border-radius: 4px;
     overflow: hidden;
     backface-visibility: hidden;
+
+
+    
     &:link,
     &:visited {
         color: white;
     }
+
     &::before {
         content: '';
         position: absolute;
@@ -274,8 +267,22 @@
         background: linear-gradient(to right, $blue 40%, $blue 45%, rgba($blue, 0) 100%);
         z-index: -1;
     }
-}
 
+    &--white {
+        &:link,
+        &:visited {
+            color: black;
+        }
+
+        &::before {
+            background-color: #fff;
+        }
+
+        &::after {
+            background: linear-gradient(to right, white 40%, white 45%, rgba(white, 0) 100%);
+        }
+    }
+}
 
 .intro-slider__inner-slider-card-label {
     position: absolute;
@@ -285,14 +292,13 @@
     line-height: 1.4;
     text-transform: uppercase;
     letter-spacing: 0.16em;
-    padding: .4rem 1rem;
+    padding: 0.4rem 1rem;
     border-radius: 3px;
     background-color: $primary-color;
     color: white;
     text-align: center;
     user-select: none;
 }
-
 
 .intro-slider__inner-slider-card-image {
     position: absolute;
@@ -304,12 +310,10 @@
     @include objectFitCover();
 }
 
-
 .intro-slider__inner-slider-card-content {
     max-width: 50rem;
     margin-top: auto;
 }
-
 
 .intro-slider__inner-slider-card-heading {
     font-family: $montserrat;
@@ -318,7 +322,6 @@
     line-height: 1.33;
     margin-bottom: 2rem;
 }
-
 
 .intro-slider__inner-slider-card-text {
     font-family: $proxima;
@@ -336,7 +339,7 @@
     border-radius: 50%;
     border: 1px solid $primary-color;
     background-color: $primary-color;
-    transition: background-color .2s, border-color .2s;
+    transition: all .2s;
     .no-touch &:not(.swiper-button-disabled):hover,
     .touch &:not(.swiper-button-disabled):active {
         background-color: darken($primary-color, 2%);
@@ -344,26 +347,32 @@
     }
 
     &.swiper-button-disabled {
-        background-color: lighten($primary-color, 2%);
-        border-color: lighten($primary-color, 2%);
+        transition: opacity .2s, visibility 0s linear .2s;
+        opacity: 0;
+        visibility: hidden;
         cursor: default;
-        pointer-events: none;
     }
     svg {
         fill: white;
-        width: .8rem;
+        width: 0.8rem;
         height: 1.6rem;
     }
 
     &--prev {
         right: 100%;
         margin-right: 3.5rem;
+        svg {
+            margin-right: .2rem;
+        }
+       
     }
     &--next {
         right: 0;
+        svg {
+            margin-left: .2rem;
+        }
     }
 }
-
 
 .intro-slider__inner-slider-button-content {
     width: 100%;

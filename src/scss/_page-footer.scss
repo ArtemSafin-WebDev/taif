@@ -1,0 +1,293 @@
+.page-footer {
+    color: black;
+    padding: 5rem 0;
+}
+
+
+.page-footer__top-row {
+    display: flex;
+}
+
+
+.page-footer__bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 9rem;
+    padding-left: var(--left-inner-padding, 100px);
+}
+
+
+.page-footer__user-policy,
+.page-footer__made-by {
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+    transition: color .2s;
+    &:link,
+    &:visited {
+        color: rgba(black, .7);
+    }
+
+    .no-touch &:hover,
+    .touch &:active {
+        color: $primary-color;
+    }
+}
+
+.page-footer__made-by-logo {
+    width: 6.6rem;
+    display: inline-block;
+    vertical-align: baseline;
+    position: relative;
+    top: .7rem;
+    margin-left: 1rem;
+}
+
+.page-footer__logo {
+    flex-shrink: 0;
+    width: var(--left-inner-padding, 100px);
+}
+
+.page-footer__logo-link {
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+.page-footer__logo-image {
+    display: inline-block;
+    vertical-align: top;
+    width: 7rem;
+    height: auto;
+}
+
+
+.page-footer__nav {
+   
+    max-width: 68rem;
+    
+    margin-right: 5rem;
+}
+
+.page-footer__nav-blocks {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -2.8rem -3.5rem;
+}
+
+.page-footer__nav-block {
+    padding: 2.8rem 3.5rem;
+    width: 33.33%;
+}
+
+
+.page-footer__nav-block-heading {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+
+.page-footer__nav-list-item {
+    margin-bottom: .8rem;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+.page-footer__nav-link {
+    font-size: 1.4rem;
+    transition: color .2s;
+    &:link,
+    &:visited {
+        color: black;
+    }
+
+
+    .no-touch &:hover,
+    .touch &:active {
+        color: $primary-color;
+    }
+}
+
+
+.page-footer__contacts {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 20rem;
+    flex-shrink: 0;
+   
+}
+
+
+.page-footer__contacts-address {
+    font-size: 1.4rem;
+    line-height: 1.33;
+    margin-bottom: 3rem;
+    transition: color .2s;
+    &:link,
+    &:visited {
+        color: black;
+    }
+
+    .no-touch &:hover,
+    .touch &:active {
+        color: $primary-color;
+    }
+}
+
+
+.page-footer__contacts-phone {
+    font-weight: 800;
+    font-size: 2rem;
+    font-family: $montserrat;
+    margin-bottom: 0.5rem;
+    transition: color .2s;
+    &:link,
+    &:visited {
+        color: black;
+    }
+
+    .no-touch &:hover,
+    .touch &:active {
+        color: $primary-color;
+    }
+}
+
+
+
+.page-footer__contacts-email {
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 1.33;
+    margin-bottom: 3rem;
+    transition: color .2s;
+    &:link,
+    &:visited {
+        color: black;
+    }
+
+    .no-touch &:hover,
+    .touch &:active {
+        color: $primary-color;
+    }
+}
+
+
+
+.page-footer__contacts-social-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1.6rem;
+}
+
+
+.page-footer__contacts-social-list-item {
+    width: 25%;
+    padding: 1.6rem;
+}
+
+
+.page-footer__contacts-social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    svg {
+        width: 2rem;
+        height: 2rem;
+        fill: #C4C4C4;
+        transition: fill .2s;
+    }
+
+
+    .no-touch &:hover,
+    .touch &:active {
+        svg {
+            fill: $primary-color;
+        }
+    }
+}
+
+
+
+.page-footer__shortcuts {
+    width: 36rem;
+    margin-left: 5rem;
+    @include breakpoint(desktop) {
+        width: 30rem;
+    }
+}
+
+
+
+.page-footer__shortcuts-list {
+
+}
+
+.page-footer__shortcuts-list-item {
+    margin-bottom: 2rem;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+.page-footer__shortcuts-link {
+    font-family: $proxima;
+    font-size: 1.8rem;
+    line-height: 1.33;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3.4rem 3.8rem;
+    border: 1px solid $primary-color;
+    border-radius: 4px;
+    transition: all .2s;
+    user-select: none;
+    @include noHighlight();
+    @include breakpoint(desktop) {
+        padding: 2rem 2.5rem;
+        font-size: 1.6rem;
+    }
+    &:link,
+    &:visited {
+        color: black;
+    }
+
+
+    .no-touch &:hover,
+    .touch &:active {
+        background-color: $primary-color;
+        color: white;
+
+        .page-footer__shortcuts-link-circle {
+            border-color: white;
+            background-color: #fff;
+        }
+    }
+}
+
+
+.page-footer__shortcuts-link-circle {
+    width: 4.2rem;
+    height: 4.2rem;
+    flex-shrink: 0;
+    border: 1px solid $primary-color;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2rem;
+    transition: all .2s;
+    svg {
+        width: 0.6rem;
+        height: 1rem;
+        fill: $primary-color;
+    }
+}

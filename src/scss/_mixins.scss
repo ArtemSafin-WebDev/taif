@@ -75,7 +75,7 @@
             @content;
         }
     } @else if $class == desktop {
-        @media only screen and (max-width: (1400px)) {
+        @media only screen and (max-width: (1440px)) {
             @content;
         }
     } @else if $class == laptop {
@@ -107,7 +107,7 @@
 
 @mixin breakpointMF($class) {
     @if $class == large-desktop {
-        @media only screen and (min-width: 1401px) {
+        @media only screen and (min-width: 1441px) {
             @content;
         }
     } @else if $class == desktop {
