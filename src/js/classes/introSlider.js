@@ -1,3 +1,5 @@
+import Swiper from 'swiper';
+
 class IntroSlider {
     constructor(element) {
         if (!element) {
@@ -7,7 +9,8 @@ class IntroSlider {
         this.elements = {
             root: element,
             backgrounds: Array.from(element.querySelectorAll('.intro-slider__backgrounds-list-item')),
-            navigation: Array.from(element.querySelectorAll('.intro-slider__navigation-link'))
+            navigation: Array.from(element.querySelectorAll('.intro-slider__navigation-link')),
+            innerSliderWrappers: Array.from(element.querySelectorAll('.intro-slider__inner-slider-wrapper'))
         };
 
         if (this.elements.backgrounds.length !== this.elements.navigation.length) {
@@ -20,12 +23,37 @@ class IntroSlider {
             slidesCount: this.elements.backgrounds.length,
             autoplaySpeed: 6000,
             autoplay: true,
-            autoplayAfterClick: false
+            autoplayAfterClick: false,
+            innerSliders: [],
+            innerSliderOptions: {
+                watchOverflow: true,
+                slidesPerView: 'auto',
+                spaceBetween: 60,
+                longSwipesRatio: 0.2
+            }
         };
 
+
+        this.initInnerSliders();
         this.changeSlide(this.state.activeIndex);
         this.handleAutoplay();
         this.bindClickListeners();
+    }
+
+    initInnerSliders() {
+        const { innerSliderWrappers } = this.elements;
+        innerSliderWrappers.forEach(element => {
+            const container = element.querySelector('.swiper-container');
+            const options = {
+                ...this.state.innerSliderOptions,
+                navigation: {
+                    nextEl: element.querySelector('.intro-slider__inner-slider-button--next'),
+                    prevEl: element.querySelector('.intro-slider__inner-slider-button--prev')
+                }
+            };
+
+            this.state.innerSliders.push(new Swiper(container, options));
+        });
     }
 
     clearActive() {
@@ -55,7 +83,6 @@ class IntroSlider {
         navigation.forEach((btn, btnIndex) => {
             btn.addEventListener('click', event => {
                 event.preventDefault();
-                // if (this.state.activeIndex === btnIndex) return;
                 this.changeSlide(btnIndex);
             });
         });

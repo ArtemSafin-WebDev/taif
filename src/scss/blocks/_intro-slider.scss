@@ -232,33 +232,135 @@
     .swiper-container {
         overflow: visible;
     }
+
+
+    .swiper-slide {
+        width: 80%;
+    }
+}
+
+.intro-slider__inner-slider-card {
+    height: 41rem;
+    position: relative;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 4.5rem 5rem;
+    border-radius: 4px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    &:link,
+    &:visited {
+        color: white;
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -3;
+        background-color: $blue;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, $blue 40%, $blue 45%, rgba($blue, 0) 100%);
+        z-index: -1;
+    }
 }
 
 
+.intro-slider__inner-slider-card-label {
+    position: absolute;
+    top: 4.5rem;
+    left: 5rem;
+    font-size: 1rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    padding: .4rem 1rem;
+    border-radius: 3px;
+    background-color: $primary-color;
+    color: white;
+    text-align: center;
+    user-select: none;
+}
+
+
+.intro-slider__inner-slider-card-image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: auto;
+    z-index: -2;
+    @include objectFitCover();
+}
+
+
+.intro-slider__inner-slider-card-content {
+    max-width: 50rem;
+    margin-top: auto;
+}
+
+
+.intro-slider__inner-slider-card-heading {
+    font-family: $montserrat;
+    font-weight: 800;
+    font-size: 3.4rem;
+    line-height: 1.33;
+    margin-bottom: 2rem;
+}
+
+
+.intro-slider__inner-slider-card-text {
+    font-family: $proxima;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
 
 .intro-slider__inner-slider-button {
     position: absolute;
+    z-index: 40;
     top: 50%;
-    margin-top: -5.4rem / 2;
+    transform: translateY(-50%);
     width: 5.4rem;
     height: 5.4rem;
     border-radius: 50%;
     border: 1px solid $primary-color;
     background-color: $primary-color;
+    transition: background-color .2s, border-color .2s;
+    .no-touch &:not(.swiper-button-disabled):hover,
+    .touch &:not(.swiper-button-disabled):active {
+        background-color: darken($primary-color, 2%);
+        border-color: darken($primary-color, 2%);
+    }
+
+    &.swiper-button-disabled {
+        background-color: lighten($primary-color, 2%);
+        border-color: lighten($primary-color, 2%);
+        cursor: default;
+        pointer-events: none;
+    }
     svg {
         fill: white;
         width: .8rem;
         height: 1.6rem;
     }
 
-
     &--prev {
         right: 100%;
         margin-right: 3.5rem;
     }
     &--next {
-        left: 100%;
-        margin-left: 3.5rem;
+        right: 0;
     }
 }
 
