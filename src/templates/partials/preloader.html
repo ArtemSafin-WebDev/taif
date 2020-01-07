@@ -1,0 +1,73 @@
+<style>
+    .preloader {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10000;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        background-color: #fff;
+    }
+    .loaded .preloader {
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transition: opacity 0.3s, visibility 0s linear 0.3s;
+        transition: opacity 0.3s, visibility 0s linear 0.3s;
+    }
+
+    .preloader__logo {
+        width: 200px;
+        height: auto;
+        margin: auto;
+        -webkit-animation: preloader-logo 2s linear infinite forwards;
+        animation: preloader-logo 2s linear infinite forwards;
+    }
+
+
+    @media only screen and (max-width: 768px) {
+        .preloader__logo {
+            width: auto;
+            max-width: 120px;
+        }
+    }
+
+    @-webkit-keyframes preloader-logo {
+        0% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        50% {
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+
+    @keyframes preloader-logo {
+        0% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        50% {
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+</style>
+<div class="preloader">
+    <img src="img/logos/taif-color-logo.svg" width="200" alt="Логотип ТАИФ" class="preloader__logo">
+</div>

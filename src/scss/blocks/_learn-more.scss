@@ -1,0 +1,89 @@
+.learn-more {
+    color: white;
+}
+
+
+.learn-more__card {
+    position: relative;
+    padding: 4.5rem 6rem;
+    padding-right: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 31rem;
+    border-radius: 4px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    @include noHighlight();
+    &:link,
+    &:visited {
+        color: white;
+    }
+
+    .no-touch &:hover {
+        .learn-more__image {
+            transform: scale(1.07);
+        }
+
+
+        .learn-more__circle {
+            background-color: $primary-color;
+            border-color: $primary-color;
+            svg {
+                fill: white;
+            }
+        }
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $primary-color;
+    }
+}
+
+
+.learn-more__image {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform .4s ease-out;
+    @include objectFitCover();
+}
+
+.learn-more__heading {
+    font-family: $montserrat;
+    font-weight: 800;
+    font-size: 2.6rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+
+.learn-more__circle {
+    margin-left: auto;
+    margin-top: auto;
+    width: 5.4rem;
+    height: 5.4rem;
+    border-radius: 50%;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all .5s;
+    svg {
+        fill: white;
+        width: 0.8rem;
+        height: 1.6rem;
+        transition: fill .5s;
+        margin-left: .2rem;
+    }
+}

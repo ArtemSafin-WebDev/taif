@@ -15,6 +15,17 @@
     font-size: 18px;
 }
 
+
+
+@mixin section-header {
+    font-size: 3.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: $montserrat;
+    font-weight: 800;
+    color: black;
+}
+
 @mixin p {
     font-size: 16px;
 }

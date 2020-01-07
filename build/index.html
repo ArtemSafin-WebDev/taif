@@ -104,7 +104,78 @@
                 </symbol>
             </svg>
         </div>
+        <style>
+            .preloader {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 10000;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                background-color: #fff;
+            }
+            .loaded .preloader {
+                opacity: 0;
+                visibility: hidden;
+                -webkit-transition: opacity 0.3s, visibility 0s linear 0.3s;
+                transition: opacity 0.3s, visibility 0s linear 0.3s;
+            }
 
+            .preloader__logo {
+                width: 200px;
+                height: auto;
+                margin: auto;
+                -webkit-animation: preloader-logo 2s linear infinite forwards;
+                animation: preloader-logo 2s linear infinite forwards;
+            }
+
+            @media only screen and (max-width: 768px) {
+                .preloader__logo {
+                    width: auto;
+                    max-width: 120px;
+                }
+            }
+
+            @-webkit-keyframes preloader-logo {
+                0% {
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                }
+                50% {
+                    -webkit-transform: scale(1.2);
+                    transform: scale(1.2);
+                }
+                100% {
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                }
+            }
+
+            @keyframes preloader-logo {
+                0% {
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                }
+                50% {
+                    -webkit-transform: scale(1.2);
+                    transform: scale(1.2);
+                }
+                100% {
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                }
+            }
+        </style>
+        <div class="preloader">
+            <img src="img/logos/taif-color-logo.svg" width="200" alt="Логотип ТАИФ" class="preloader__logo" />
+        </div>
         <div class="page-content">
             <header class="page-header">
                 <div class="container">
@@ -122,7 +193,7 @@
                             </span>
                         </a>
                         <a href="index.html" class="page-header__logo">
-                            <img src="img/logos/taif-logo-white@2x.png" alt="Логотип ТАИФ" class="page-header__logo-image" width="100" />
+                            <img src="img/logos/taif-white-logo.svg" alt="Логотип ТАИФ" class="page-header__logo-image" width="100" />
                         </a>
                         <nav class="main-nav">
                             <ul class="main-nav__list">
@@ -137,7 +208,7 @@
                                     </a>
                                 </li>
                                 <li class="main-nav__list-item">
-                                    <a href="#" class="main-nav__link">
+                                    <a class="main-nav__link">
                                         Продукция
                                     </a>
                                     <div class="main-nav__submenu-wrapper">
@@ -310,7 +381,24 @@
                                                         </div>
                                                         <div class="swiper-slide">
                                                             <a href="#" class="intro-slider__inner-slider-card">
-                                                                <img src="img/invest/invest-1.jpg" alt="Картинка внутреннего слайдера" class="intro-slider__inner-slider-card-image" />
+                                                                <img src="img/invest/kos.jpg" alt="Картинка внутреннего слайдера" class="intro-slider__inner-slider-card-image" />
+
+                                                                <div class="intro-slider__inner-slider-card-label">
+                                                                    Инвест-проект
+                                                                </div>
+                                                                <div class="intro-slider__inner-slider-card-content">
+                                                                    <h4 class="intro-slider__inner-slider-card-heading">
+                                                                        Строительство завода НПЗ «Каучук»
+                                                                    </h4>
+                                                                    <p class="intro-slider__inner-slider-card-text">
+                                                                        ТАИФ и Schneider Electric подписали дополнительное соглашение о стратегическом сотрудничестве
+                                                                    </p>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <a href="#" class="intro-slider__inner-slider-card intro-slider__inner-slider-card--white">
+                                                                <img src="img/invest/kos.jpg" alt="Картинка внутреннего слайдера" class="intro-slider__inner-slider-card-image" />
 
                                                                 <div class="intro-slider__inner-slider-card-label">
                                                                     Инвест-проект
@@ -368,13 +456,192 @@
                             </div>
                         </div>
                     </section>
+                    <section class="press-center-slider js-press-center-slider">
+                        <div class="inner-container">
+                            <div class="press-center-slider__top-row">
+                                <h2 class="press-center-slider__section-heading">
+                                    Пресс-центр
+                                </h2>
+                                <div class="press-center-slider__tabs-navigation">
+                                    <a href="#" class="press-center-slider__tab-btn">
+                                        Главное
+                                    </a>
+                                    <a href="#" class="press-center-slider__tab-btn">
+                                        Новости
+                                    </a>
+                                    <a href="#" class="press-center-slider__tab-btn">
+                                        Пресс-релизы
+                                    </a>
+                                    <a href="#" class="press-center-slider__tab-btn">
+                                        Медиа
+                                    </a>
+                                    <div class="press-center-slider__tab-more">
+                                        <button class="press-center-slider__tab-more-btn">
+                                            <span class="press-center-slider__tab-more-btn-content">
+                                                Еще
+                                                <svg width="16" height="8" aria-hidden="true" class="icon-arrow-down">
+                                                    <use xlink:href="#arrow-down" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        <div class="press-center-slider__tab-more-menu">
+                                            <ul class="press-center-slider__tab-more-menu-list">
+                                                <li class="press-center-slider__tab-more-menu-list-item">
+                                                    <a href="#" class="press-center-slider__tab-more-menu-link">
+                                                        Категория 1
+                                                    </a>
+                                                </li>
+                                                <li class="press-center-slider__tab-more-menu-list-item">
+                                                    <a href="#" class="press-center-slider__tab-more-menu-link">
+                                                        Категория 2
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="press-center-slider__middle-row">
+                                <ul class="press-center-slider__tab-items">
+                                    <li class="press-center-slider__tab-item">
+                                        <div class="press-center-slider__tab-item-card">
+                                            <div class="swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide">
+                                                        <a href="#" class="press-center-slider__card">
+                                                            <div class="press-center-slider__card-image-container">
+                                                                <img src="img/press/press-1.jpg" alt="" class="press-center-slider__card-image" />
+                                                            </div>
+                                                            <p class="press-center-slider__card-date">
+                                                                12 ноября 2019
+                                                            </p>
+                                                            <h5 class="press-center-slider__card-title">
+                                                                ТАИФ и «Иокогава Электрик СНГ» подписали соглашение о сотрудничестве
+                                                            </h5>
+                                                        </a>
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <a href="#" class="press-center-slider__card">
+                                                            <div class="press-center-slider__card-image-container">
+                                                                <img src="img/press/press-2.jpg" alt="" class="press-center-slider__card-image" />
+                                                                <span class="press-center-slider__card-label">
+                                                                    <svg width="16" height="16" aria-hidden="true" class="icon-play">
+                                                                        <use xlink:href="#play" />
+                                                                    </svg>
+                                                                </span>
+                                                            </div>
+                                                            <p class="press-center-slider__card-date">
+                                                                12 ноября 2019
+                                                            </p>
+                                                            <h5 class="press-center-slider__card-title">
+                                                                ТАИФ и «Иокогава Электрик СНГ» подписали соглашение о сотрудничестве
+                                                            </h5>
+                                                        </a>
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <a href="#" class="press-center-slider__card">
+                                                            <div class="press-center-slider__card-image-container">
+                                                                <img src="img/press/press-3.jpg" alt="" class="press-center-slider__card-image" />
+                                                                <span class="press-center-slider__card-label">
+                                                                    <svg width="16" height="16" aria-hidden="true" class="icon-photo">
+                                                                        <use xlink:href="#photo" />
+                                                                    </svg>
+                                                                </span>
+                                                            </div>
+                                                            <p class="press-center-slider__card-date">
+                                                                12 ноября 2019
+                                                            </p>
+                                                            <h5 class="press-center-slider__card-title">
+                                                                ТАИФ и «Иокогава Электрик СНГ» подписали соглашение о сотрудничестве
+                                                            </h5>
+                                                        </a>
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <a href="#" class="press-center-slider__card">
+                                                            <div class="press-center-slider__card-image-container">
+                                                                <img src="img/press/press-1.jpg" alt="" class="press-center-slider__card-image" />
+                                                            </div>
+                                                            <p class="press-center-slider__card-date">
+                                                                12 ноября 2019
+                                                            </p>
+                                                            <h5 class="press-center-slider__card-title">
+                                                                ТАИФ и «Иокогава Электрик СНГ» подписали соглашение о сотрудничестве
+                                                            </h5>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="press-center-slider__bottom-row">
+                                <form action="/" method="POST" class="press-center-slider__form">
+                                    <label for="press-email" class="press-center-slider__email-label">
+                                        <svg width="25" height="25" aria-hidden="true" class="icon-mail">
+                                            <use xlink:href="#mail" />
+                                        </svg>
+                                    </label>
+                                    <input type="email" name="email" id="press-email" class="press-center-slider__email-input" placeholder="Получать новости на e-mail" />
+                                    <button type="submit" class="press-center-slider__submit-btn">
+                                        <span class="press-center-slider__submit-btn-content">
+                                            <svg width="6" height="12" aria-hidden="true" class="icon-arrow-right">
+                                                <use xlink:href="#arrow-right" />
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </form>
+
+                                <a href="#" class="press-center-slider__press-center-link">
+                                    В пресс-центр
+                                </a>
+
+                                <div class="press-center-slider__controls">
+                                    <button class="press-center-slider__controls-btn press-center-slider__controls-btn--prev">
+                                        <span class="press-center-slider__controls-btn-content">
+                                            <svg width="8" height="16" aria-hidden="true" class="icon-arrow-left">
+                                                <use xlink:href="#arrow-left" />
+                                            </svg>
+                                        </span>
+                                    </button>
+                                    <button class="press-center-slider__controls-btn press-center-slider__controls-btn--next">
+                                        <span class="press-center-slider__controls-btn-content">
+                                            <svg width="8" height="16" aria-hidden="true" class="icon-arrow-right">
+                                                <use xlink:href="#arrow-right" />
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="learn-more">
+                        <div class="inner-container">
+                            <a href="#" class="learn-more__card">
+                                <picture>
+                                    <source srcset="img/learn-more/learn-more-mobile.jpg" media="(max-width: 768px)" />
+                                    <img src="img/learn-more/learn-more-desktop.jpg" alt="" class="learn-more__image" />
+                                </picture>
+                                <h3 class="learn-more__heading">
+                                    Узнайте больше<br />
+                                    о группе компаний<br />
+                                    «ТаиФ»
+                                </h3>
+                                <div class="learn-more__circle">
+                                    <svg width="8" height="16" aria-hidden="true" class="icon-arrow-right">
+                                        <use xlink:href="#arrow-right" />
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </section>
                 </div>
             </main>
             <footer class="page-footer">
                 <div class="container">
                     <div class="page-footer__top-row">
                         <div class="page-footer__logo">
-                            <a href="index.html" class="page-footer__logo-link"><img src="img/logos/logo-taif-colored@2x.png" alt="Логотип ТАИФ" class="page-footer__logo-image" width="72"/></a>
+                            <a href="index.html" class="page-footer__logo-link"><img src="img/logos/taif-color-logo.svg" alt="Логотип ТАИФ" class="page-footer__logo-image" width="72"/></a>
                         </div>
                         <nav class="page-footer__nav">
                             <div class="page-footer__nav-blocks">

@@ -2,32 +2,28 @@
     margin-left: auto;
 }
 
-
 .main-nav__list {
     display: flex;
     flex-wrap: wrap;
     margin: -2.5px;
 }
 
-
 .main-nav__list-item {
     padding: 2.5px;
     position: relative;
-    .no-touch &:hover {
+    &:hover {
         .main-nav__link {
             border-color: $primary-color;
         }
 
-
         .main-nav__submenu-wrapper {
             opacity: 1;
             visibility: visible;
-            transition: all .2s;
+            transition: all 0.2s;
             transform: translateY(0);
         }
     }
 }
-
 
 .main-nav__link {
     display: block;
@@ -35,9 +31,9 @@
     border-radius: 4px;
     font-size: 1.6rem;
     line-height: 1.4;
-    padding: .7rem 1.5rem;
+    padding: 0.7rem 1.5rem;
     text-align: center;
-    transition: border-color .2s;
+    transition: border-color 0.2s;
     user-select: none;
     @include noHighlight();
     &:link,
@@ -45,9 +41,7 @@
         color: white;
     }
 
-
-    .no-touch &:hover,
-    .touch &:active {
+    &:hover {
         border-color: $primary-color;
     }
 }
@@ -57,31 +51,28 @@
     top: 100%;
     left: 0;
     padding-top: 1.5rem;
-    
+
     opacity: 0;
     visibility: hidden;
-    transition: transform .2s, opacity .2s, visibility 0s linear .2s;
+    transition: transform 0.2s, opacity 0.2s, visibility 0s linear 0.2s;
     transform: translateY(2rem);
     width: max-content;
     max-width: 40rem;
 }
 
-
 .main-nav__submenu-list {
     background-color: #fff;
     border-radius: 4px;
     padding: 1.5rem 0;
-    box-shadow: 0 9px 24px rgba(black, .1);
+    box-shadow: 0 9px 24px rgba(black, 0.1);
 }
-
-
 
 .main-nav__submenu-link {
     display: block;
     font-size: 1.4rem;
     line-height: 1.35;
-    padding: .7rem 2rem;
-    transition: background-color .2s, color .2s;
+    padding: 0.7rem 2rem;
+    transition: background-color 0.2s, color 0.2s;
     user-select: none;
     @include noHighlight();
     &:link,
@@ -91,7 +82,7 @@
 
     .no-touch &:hover,
     .touch &:active {
-        background: #F4F8FB;
+        background: #f4f8fb;
         color: $primary-color;
     }
 }
