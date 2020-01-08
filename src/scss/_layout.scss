@@ -21,21 +21,29 @@
 }
 
 .inner-container {
-    padding-left: var(--left-inner-padding, 100px);
+    display: flex;
+    flex-grow: 1;
+    
+}
+
+
+.inner-container__left-column {
+    width: var(--left-inner-padding, 100px);
+    flex-shrink: 0;
     &--flex {
         display: flex;
-    }
-
-    &--align-items-center {
-        align-items: center;
-    }
-
-    &--flex-direction-column {
         flex-direction: column;
     }
+}
 
-    &--flex-grow {
-        flex-grow: 1;
+
+.inner-container__right-column {
+    width: 50%;
+    flex-grow: 1;
+
+    &--flex {
+        display: flex;
+        flex-direction: column;
     }
 }
 

@@ -136,10 +136,22 @@
                 animation: preloader-logo 2s linear infinite forwards;
             }
 
+            @media only screen and (max-width: 1440px) {
+                .preloader__logo {
+                    width: auto;
+                    max-width: 150px;
+                }
+            }
             @media only screen and (max-width: 768px) {
                 .preloader__logo {
                     width: auto;
-                    max-width: 120px;
+                    max-width: 100px;
+                }
+            }
+            @media only screen and (max-width: 576px) {
+                .preloader__logo {
+                    width: auto;
+                    max-width: 80px;
                 }
             }
 

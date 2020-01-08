@@ -10,7 +10,8 @@ class IntroSlider {
             root: element,
             backgrounds: Array.from(element.querySelectorAll('.intro-slider__backgrounds-list-item')),
             navigation: Array.from(element.querySelectorAll('.intro-slider__navigation-link')),
-            innerSliderWrappers: Array.from(element.querySelectorAll('.intro-slider__inner-slider-wrapper'))
+            innerSliderWrappers: Array.from(element.querySelectorAll('.intro-slider__inner-slider-wrapper')),
+            contentSlides: Array.from(element.querySelectorAll('.intro-slider__contents-list-item'))
         };
 
         if (this.elements.backgrounds.length !== this.elements.navigation.length) {
@@ -59,8 +60,9 @@ class IntroSlider {
     }
 
     clearActive() {
-        const { backgrounds } = this.elements;
+        const { backgrounds, contentSlides } = this.elements;
         backgrounds.forEach(element => element.classList.remove('active'));
+        contentSlides.forEach(element => element.classList.remove('active'));
     }
 
     clearNavTransitions() {
@@ -110,7 +112,7 @@ class IntroSlider {
 
     changeSlide(newIndex) {
         const { activeIndex, slidesCount, timer } = this.state;
-        const { backgrounds, navigation } = this.elements;
+        const { backgrounds, navigation, contentSlides } = this.elements;
         this.clearActive();
 
         if (typeof newIndex === 'undefined') {
@@ -134,6 +136,7 @@ class IntroSlider {
         }
 
         backgrounds[this.state.activeIndex].classList.add('active');
+        contentSlides[this.state.activeIndex].classList.add('active');
     }
 }
 
