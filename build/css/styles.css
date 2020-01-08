@@ -1927,6 +1927,7 @@ img.lazyload:not([src]) {
   -webkit-tap-highlight-color: transparent; }
   .press-center-slider__tab-more-menu-link:link, .press-center-slider__tab-more-menu-link:visited {
     color: black; }
+  .press-center-slider__tab-more-menu-link.active,
   .no-touch .press-center-slider__tab-more-menu-link:hover,
   .touch .press-center-slider__tab-more-menu-link:active {
     background: #f4f8fb;
@@ -2054,17 +2055,20 @@ img.lazyload:not([src]) {
       flex-shrink: 0;
   -webkit-transition: background-color 0.2s, border-color 0.2s;
   transition: background-color 0.2s, border-color 0.2s; }
+  .press-center-slider__controls-btn[disabled] {
+    opacity: .5;
+    cursor: default; }
   .press-center-slider__controls-btn svg {
     fill: #1EAC72;
     width: 0.8rem;
     height: 1.6rem;
     -webkit-transition: fill 0.2s;
     transition: fill 0.2s; }
-  .no-touch .press-center-slider__controls-btn:hover,
-  .touch .press-center-slider__controls-btn:active {
+  .no-touch .press-center-slider__controls-btn:not([disabled]):hover,
+  .touch .press-center-slider__controls-btn:not([disabled]):active {
     background-color: #1EAC72; }
-    .no-touch .press-center-slider__controls-btn:hover svg,
-    .touch .press-center-slider__controls-btn:active svg {
+    .no-touch .press-center-slider__controls-btn:not([disabled]):hover svg,
+    .touch .press-center-slider__controls-btn:not([disabled]):active svg {
       fill: white; }
   .press-center-slider__controls-btn--prev svg {
     margin-right: 0.2rem; }
@@ -2123,10 +2127,10 @@ img.lazyload:not([src]) {
   top: 0;
   width: 100%;
   height: 100%;
-  -webkit-transition: -webkit-transform .2s ease-in;
-  transition: -webkit-transform .2s ease-in;
-  transition: transform .2s ease-in;
-  transition: transform .2s ease-in, -webkit-transform .2s ease-in;
+  -webkit-transition: -webkit-transform 0.2s ease-in;
+  transition: -webkit-transform 0.2s ease-in;
+  transition: transform 0.2s ease-in;
+  transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
@@ -2144,8 +2148,8 @@ img.lazyload:not([src]) {
   line-height: 1.33;
   font-family: "Montserrat", sans-serif;
   font-weight: 800;
-  -webkit-transition: color .1s;
-  transition: color .1s; }
+  -webkit-transition: color 0.1s;
+  transition: color 0.1s; }
 
 .press-center-slider__card-label {
   width: 4.5rem;
@@ -2180,3 +2184,42 @@ img.lazyload:not([src]) {
     .press-center-slider__card-label svg.icon-photo {
       width: 2rem;
       height: 2rem; }
+
+.press-center-slider__tab-items {
+  position: relative; }
+
+.press-center-slider__tab-item {
+  min-height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity .6s, visibility .6s, -webkit-transform 0s linear .6s;
+  transition: opacity .6s, visibility .6s, -webkit-transform 0s linear .6s;
+  transition: opacity .6s, transform 0s linear .6s, visibility .6s;
+  transition: opacity .6s, transform 0s linear .6s, visibility .6s, -webkit-transform 0s linear .6s;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transform: translateX(20%);
+          transform: translateX(20%); }
+  .press-center-slider__tab-item > * {
+    margin: 0 !important; }
+  .press-center-slider__tab-item.active {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    -webkit-transition: all 0.6s, -webkit-transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.6s, -webkit-transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.6s, transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.6s, transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), -webkit-transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
