@@ -2362,8 +2362,8 @@ img.lazyload:not([src]) {
   text-transform: uppercase;
   margin-top: auto;
   margin-bottom: 1rem;
-  -webkit-transition: color .2s;
-  transition: color .2s; }
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s; }
   .info-cards__hotline-phone-number:link, .info-cards__hotline-phone-number:visited {
     color: black; }
   .no-touch .info-cards__hotline-phone-number:hover,
@@ -2403,7 +2403,7 @@ img.lazyload:not([src]) {
     width: 100%;
     height: 100%;
     z-index: -2;
-    background: linear-gradient(147.93deg, #045333 3.89%, #1EAC72 100%); }
+    background: linear-gradient(147.93deg, #045333 3.89%, #1eac72 100%); }
 
 .info-cards__financial-report-image {
   position: absolute;
@@ -2462,15 +2462,15 @@ img.lazyload:not([src]) {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   border: 1px solid white;
-  -webkit-transition: all .2s;
-  transition: all .2s; }
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s; }
   .info-cards__financial-report-circle svg {
     fill: white;
     width: 0.8rem;
     height: 1.6rem;
     margin-left: 0.2rem;
-    -webkit-transition: fill .2s;
-    transition: fill .2s; }
+    -webkit-transition: fill 0.2s;
+    transition: fill 0.2s; }
 
 .info-cards__stocks {
   -webkit-box-flex: 1;
@@ -2482,19 +2482,81 @@ img.lazyload:not([src]) {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
-          flex-direction: column; }
+          flex-direction: column;
+  position: relative; }
 
-.info-cards__stocks-top-section {
-  padding: 2.4rem 3.2rem;
+.info-cards__stocks-selector {
+  top: -1px;
+  right: -1px;
+  left: -1px;
+  position: absolute;
+  height: auto;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #e5e5e5;
+  -webkit-transition: opacity .3s, visibility 0s linear .3s, -webkit-transform .3s;
+  transition: opacity .3s, visibility 0s linear .3s, -webkit-transform .3s;
+  transition: opacity .3s, transform .3s, visibility 0s linear .3s;
+  transition: opacity .3s, transform .3s, visibility 0s linear .3s, -webkit-transform .3s;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(25%);
+          transform: translateY(25%); }
+  .info-cards__stocks-selector.active {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-transition: all .3s;
+    transition: all .3s; }
+
+.info-cards__stocks-selector-list-item {
+  border-bottom: 1px solid #e5e5e5; }
+  .info-cards__stocks-selector-list-item:last-child {
+    border-bottom: none; }
+
+.info-cards__stocks-selector-btn {
+  display: block;
+  padding: 2rem 3.2rem;
+  -webkit-transition: background-color .2s;
+  transition: background-color .2s; }
+  .info-cards__stocks-selector-btn:link, .info-cards__stocks-selector-btn:visited {
+    color: black; }
+  .no-touch .info-cards__stocks-selector-btn:hover,
+  .touch .info-cards__stocks-selector-btn:active {
+    background-color: #e5e5e5; }
+
+.info-cards__stocks-selector-btn-ticker {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 1.33; }
+
+.info-cards__stocks-selector-btn-description {
+  font-family: "Proxima Nova", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  margin-top: 0.5rem; }
+
+.info-cards__stocks-top-section {
+  padding: 2.4rem 3.2rem;
   color: black; }
   .info-cards__stocks-top-section:link, .info-cards__stocks-top-section:visited {
     color: black; }
+
+.info-cards__stocks-emitent-info-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline; }
 
 .info-cards__stocks-bottom-section {
   -webkit-box-flex: 1;
@@ -2505,6 +2567,83 @@ img.lazyload:not([src]) {
   overflow: hidden;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px; }
+
+.info-cards__stocks-preloader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .info-cards__stocks-preloader svg {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    -webkit-animation: spinner-rotate 2s linear infinite;
+            animation: spinner-rotate 2s linear infinite;
+    -ms-flex-negative: 0;
+        flex-shrink: 0; }
+    @media only screen and (max-width: 768px) {
+      .info-cards__stocks-preloader svg {
+        width: 30px;
+        height: 30px; } }
+    .info-cards__stocks-preloader svg circle {
+      fill: none;
+      stroke-width: 8;
+      stroke: #1EAC72;
+      stroke-dasharray: 405px;
+      stroke-dashoffset: 405px;
+      stroke-linecap: round;
+      -webkit-animation: spinner 2s linear infinite;
+              animation: spinner 2s linear infinite; }
+
+@-webkit-keyframes spinner {
+  0%,
+  100% {
+    stroke-dashoffset: 405px; }
+  50% {
+    stroke-dashoffset: 0; }
+  50.1% {
+    stroke-dashoffset: 810px; } }
+
+@keyframes spinner {
+  0%,
+  100% {
+    stroke-dashoffset: 405px; }
+  50% {
+    stroke-dashoffset: 0; }
+  50.1% {
+    stroke-dashoffset: 810px; } }
+
+@-webkit-keyframes spinner-rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@keyframes spinner-rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
 
 .info-cards__stocks-emitent-selection {
   width: 50%;
@@ -2562,3 +2701,5 @@ img.lazyload:not([src]) {
   color: #1EAC72;
   margin-left: 1rem;
   white-space: nowrap; }
+  .info-cards__stocks-price-dynamics--negative {
+    color: red; }

@@ -5,7 +5,6 @@
     @include section-header();
 }
 
-
 .info-cards__content {
     margin-top: 4rem;
 }
@@ -55,8 +54,6 @@
     }
 }
 
-
-
 .info-cards__hotline {
     display: flex;
     flex-direction: column;
@@ -64,16 +61,12 @@
     flex-grow: 1;
 }
 
-
-
 .info-cards__hotline-text {
     font-size: 1.6rem;
     line-height: 1.33;
     font-family: $proxima;
     margin-bottom: 3rem;
 }
-
-
 
 .info-cards__hotline-phone-number {
     font-size: 2.2rem;
@@ -83,7 +76,7 @@
     text-transform: uppercase;
     margin-top: auto;
     margin-bottom: 1rem;
-    transition: color .2s;
+    transition: color 0.2s;
     &:link,
     &:visited {
         color: black;
@@ -95,15 +88,11 @@
     }
 }
 
-
-
 .info-cards__hotline-remark {
     font-size: 1.2rem;
     line-height: 1.5;
     font-family: $proxima;
 }
-
-
 
 .info-cards__financial-report {
     // border-radius: 4px;
@@ -136,7 +125,7 @@
         width: 100%;
         height: 100%;
         z-index: -2;
-        background: linear-gradient(147.93deg, #045333 3.89%, #1EAC72 100%);
+        background: linear-gradient(147.93deg, #045333 3.89%, #1eac72 100%);
     }
 }
 
@@ -150,7 +139,6 @@
     @include objectFitCover();
 }
 
-
 .info-cards__financial-report-heading {
     font-size: 2.6rem;
     line-height: 1.33;
@@ -159,8 +147,6 @@
     margin-bottom: 2rem;
 }
 
-
-
 .info-cards__financial-report-bottom-row {
     display: flex;
     align-items: center;
@@ -168,14 +154,11 @@
     margin-top: auto;
 }
 
-
 .info-cards__financial-report-year {
     font-family: $proxima;
     font-size: 1.8rem;
     font-weight: 600;
 }
-
-
 
 .info-cards__financial-report-circle {
     width: 5.4rem;
@@ -187,32 +170,95 @@
     justify-content: center;
     flex-shrink: 0;
     border: 1px solid white;
-    transition: all .2s;
+    transition: all 0.2s;
     svg {
         fill: white;
         width: 0.8rem;
         height: 1.6rem;
         margin-left: 0.2rem;
-        transition: fill .2s;
+        transition: fill 0.2s;
     }
 }
-
-
-
 
 .info-cards__stocks {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    position: relative;
+}
+
+
+
+.info-cards__stocks-selector {
+    top: -1px;
+    right: -1px;
+    left: -1px;
+    position: absolute;
    
+    // display: none;
+    height: auto;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid #e5e5e5;
+    transition: opacity .3s, transform .3s, visibility 0s linear .3s;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(25%);
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        transition: all .3s;
+    }
+    
+}
+
+.info-cards__stocks-selector-list-item {
+    border-bottom: 1px solid #e5e5e5;
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+
+.info-cards__stocks-selector-btn {
+    display: block;
+    padding: 2rem 3.2rem;
+    transition: background-color .2s;
+    &:link,
+    &:visited {
+        color: black;
+    }
+
+    .no-touch &:hover,
+    .touch &:active {
+        background-color: #e5e5e5;
+    }
+}
+
+
+.info-cards__stocks-selector-btn-ticker {
+    display: flex;
+    align-items: center;
+    font-family: $montserrat;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 1.33;
+   
+}
+
+
+
+.info-cards__stocks-selector-btn-description {
+    font-family: $proxima;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    margin-top: 0.5rem;
 }
 
 .info-cards__stocks-top-section {
     padding: 2.4rem 3.2rem;
-    // padding-bottom: 3.2rem;
-    display: flex;
-    align-items: flex-start;
-    // border-bottom: 1px solid #e5e5e5;
+  
     color: black;
     &:link,
     &:visited {
@@ -221,6 +267,10 @@
 }
 
 
+.info-cards__stocks-emitent-info-row {
+    display: flex;
+    align-items: baseline;
+}
 
 .info-cards__stocks-bottom-section {
     flex-grow: 1;
@@ -231,11 +281,62 @@
     border-bottom-right-radius: 4px;
 }
 
-
-.info-cards__stocks-chart {
-    
+.info-cards__stocks-preloader {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    svg {
+        width: 50px;
+        height: 50px;
+        position: relative;
+        animation: spinner-rotate 2s linear infinite;
+        flex-shrink: 0;
+       
+        @include breakpoint(mobile) {
+            width: 30px;
+            height: 30px;
+        }
+        circle {
+            fill: none;
+            stroke-width: 8;
+            stroke: $primary-color;
+            stroke-dasharray: 405px;
+            stroke-dashoffset: 405px;
+            stroke-linecap: round;
+            animation: spinner 2s linear infinite;
+        }
+    }
 }
 
+@keyframes spinner {
+    0%,
+    100% {
+        stroke-dashoffset: 405px;
+    }
+    50% {
+        stroke-dashoffset: 0;
+    }
+    50.1% {
+        stroke-dashoffset: 810px;
+    }
+}
+
+@keyframes spinner-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
 
 .info-cards__stocks-emitent-selection {
     width: 50%;
@@ -257,7 +358,6 @@
         flex-shrink: 0;
     }
 }
-
 
 .info-cards__stocks-emitent-selection-name {
     font-family: $proxima;
@@ -281,7 +381,6 @@
     white-space: nowrap;
 }
 
-
 .info-cards__stocks-price-dynamics {
     font-family: $proxima;
     font-size: 1.2rem;
@@ -289,4 +388,8 @@
     color: $primary-color;
     margin-left: 1rem;
     white-space: nowrap;
+
+    &--negative {
+        color: red;
+    }
 }
