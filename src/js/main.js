@@ -2,6 +2,8 @@ import polyfills from './polyfills';
 import detectTouch from './detectTouch';
 import IntroSlider from './classes/introSlider';
 import PressCenterSlider from './classes/pressCenterSlider';
+import StocksCard from './classes/stocksCard';
+
 
 document.addEventListener('DOMContentLoaded', function() {
     // Polyfills
@@ -21,6 +23,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const pressCenterSliders = Array.from(document.querySelectorAll('.js-press-center-slider'));
     pressCenterSliders.forEach(element => new PressCenterSlider(element));
+
+    // Stocks cards
+
+    const stocksCards = Array.from(document.querySelectorAll('.js-stocks-card'));
+
+    stocksCards.forEach(element => new StocksCard(element));
 });
 
 window.addEventListener('load', function() {

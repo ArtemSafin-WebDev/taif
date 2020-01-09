@@ -1,0 +1,292 @@
+.info-cards {
+}
+
+.info-cards__heading {
+    @include section-header();
+}
+
+
+.info-cards__content {
+    margin-top: 4rem;
+}
+
+.info-cards__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -32.5px;
+}
+
+.info-cards__list-item {
+    padding: 32.5px;
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-cards__card {
+    flex-grow: 1;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 27rem;
+
+    &--no-border {
+        border: none;
+        overflow: hidden;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border-radius: 4px;
+        background-color: #fff;
+        z-index: -3;
+    }
+    &:link,
+    &:visited {
+        color: black;
+    }
+}
+
+
+
+.info-cards__hotline {
+    display: flex;
+    flex-direction: column;
+    padding: 2.4rem 3.2rem;
+    flex-grow: 1;
+}
+
+
+
+.info-cards__hotline-text {
+    font-size: 1.6rem;
+    line-height: 1.33;
+    font-family: $proxima;
+    margin-bottom: 3rem;
+}
+
+
+
+.info-cards__hotline-phone-number {
+    font-size: 2.2rem;
+    line-height: 1.33;
+    font-weight: 700;
+    font-family: $montserrat;
+    text-transform: uppercase;
+    margin-top: auto;
+    margin-bottom: 1rem;
+    transition: color .2s;
+    &:link,
+    &:visited {
+        color: black;
+    }
+
+    .no-touch &:hover,
+    .touch &:active {
+        color: $primary-color;
+    }
+}
+
+
+
+.info-cards__hotline-remark {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-family: $proxima;
+}
+
+
+
+.info-cards__financial-report {
+    // border-radius: 4px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 2.4rem 3.2rem;
+    color: white;
+    flex-grow: 1;
+
+    &:link,
+    &:visited {
+        color: white;
+    }
+
+    .no-touch &:hover {
+        .info-cards__financial-report-circle {
+            background-color: white;
+            svg {
+                fill: $primary-color;
+            }
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        background: linear-gradient(147.93deg, #045333 3.89%, #1EAC72 100%);
+    }
+}
+
+.info-cards__financial-report-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    @include objectFitCover();
+}
+
+
+.info-cards__financial-report-heading {
+    font-size: 2.6rem;
+    line-height: 1.33;
+    font-family: $montserrat;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+
+
+.info-cards__financial-report-bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+
+.info-cards__financial-report-year {
+    font-family: $proxima;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+
+
+.info-cards__financial-report-circle {
+    width: 5.4rem;
+    height: 5.4rem;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid white;
+    transition: all .2s;
+    svg {
+        fill: white;
+        width: 0.8rem;
+        height: 1.6rem;
+        margin-left: 0.2rem;
+        transition: fill .2s;
+    }
+}
+
+
+
+
+.info-cards__stocks {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.info-cards__stocks-top-section {
+    padding: 2.4rem 3.2rem;
+    // padding-bottom: 3.2rem;
+    display: flex;
+    align-items: flex-start;
+    // border-bottom: 1px solid #e5e5e5;
+    color: black;
+    &:link,
+    &:visited {
+        color: black;
+    }
+}
+
+
+
+.info-cards__stocks-bottom-section {
+    flex-grow: 1;
+    position: relative;
+    margin: -1px;
+    overflow: hidden;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+
+.info-cards__stocks-chart {
+    
+}
+
+
+.info-cards__stocks-emitent-selection {
+    width: 50%;
+    flex-grow: 1;
+}
+
+.info-cards__stocks-emitent-selection-ticker {
+    display: flex;
+    align-items: center;
+    font-family: $montserrat;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 1.33;
+    svg {
+        fill: $primary-color;
+        width: 1.6rem;
+        height: 0.8rem;
+        margin-left: 0.5rem;
+        flex-shrink: 0;
+    }
+}
+
+
+.info-cards__stocks-emitent-selection-name {
+    font-family: $proxima;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    margin-top: 0.5rem;
+}
+
+.info-cards__stocks-price {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    margin-left: 1.5rem;
+}
+
+.info-cards__stocks-price-amount {
+    font-family: $montserrat;
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+
+.info-cards__stocks-price-dynamics {
+    font-family: $proxima;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    color: $primary-color;
+    margin-left: 1rem;
+    white-space: nowrap;
+}
