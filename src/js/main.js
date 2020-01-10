@@ -3,6 +3,7 @@ import detectTouch from './detectTouch';
 import IntroSlider from './classes/introSlider';
 import PressCenterSlider from './classes/pressCenterSlider';
 import StocksCard from './classes/stocksCard';
+import StructureMenu from './classes/structureMenu';
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -13,6 +14,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Detect touch devices
 
     detectTouch();
+
+
+    // Company structure
+
+    new StructureMenu(document.querySelector('.page-header'));
 
     // Intro sliders
 
@@ -29,6 +35,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const stocksCards = Array.from(document.querySelectorAll('.js-stocks-card'));
 
     stocksCards.forEach(element => new StocksCard(element));
+
+
+    // Show more cards
+
+    const showMoreCards = Array.from(document.querySelectorAll('.js-show-more-card'));
+
+    showMoreCards.forEach(card => card.parentElement.classList.add('hidden'))
+
+    showMoreCards.forEach(card => card.addEventListener('click', event => {
+        event.preventDefault();
+        card.parentElement.classList.remove('hidden');
+        card.parentElement.style.display = "none";
+        
+    }));
 });
 
 window.addEventListener('load', function() {

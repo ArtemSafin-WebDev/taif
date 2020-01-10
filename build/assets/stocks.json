@@ -1,0 +1,18 @@
+[
+    {
+        "ticker": "NKNC",
+        "emitentName": "Нижнекамскнефтехим, обычная акция",
+        "currentPrice": "75.19",
+        "priceDynamicsAmount": "0.59",
+        "priceDynamics": "positive",
+        "history": [100, 120, 150, 170, 180, 170, 75.19]
+    },
+    {
+        "ticker": "NKNC",
+        "emitentName": "Казаньоргсинтез, обычная акция",
+        "currentPrice": "130.06",
+        "priceDynamicsAmount": "0.62",
+        "priceDynamics": "negative",
+        "history": [80, 110, 95, 160, 120, 170, 111]
+    }
+]

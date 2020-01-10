@@ -1,25 +1,6 @@
 import Chart from 'chart.js';
 import axios from 'axios';
 
-const stocksData = [
-    {
-        ticker: 'NKNC',
-        emitentName: 'Нижнекамскнефтехим, обычная акция',
-        currentPrice: '75.19',
-        priceDynamicsAmount: '0.59',
-        priceDynamics: 'positive',
-        history: [100, 120, 150, 170, 180, 170, 75.19]
-    },
-    {
-        ticker: 'NKNC',
-        emitentName: 'Казаньоргсинтез, обычная акция',
-        currentPrice: '130.06',
-        priceDynamicsAmount: '0.62',
-        priceDynamics: 'negative',
-        history: [80, 110, 95, 160, 120, 170, 111]
-    }
-];
-
 class StocksCard {
     constructor(element) {
         this.elements = {
@@ -27,27 +8,42 @@ class StocksCard {
             openSelector: element.querySelector('.info-cards__stocks-top-section'),
             selector: element.querySelector('.info-cards__stocks-selector'),
             chartCanvas: element.querySelector('canvas'),
-            ticker: element.querySelector('.info-cards__stocks-emitent-selection-ticker'),
+            ticker: element.querySelector('.info-cards__stocks-emitent-selection-ticker-text'),
             emitentName: element.querySelector('.info-cards__stocks-emitent-selection-name'),
             price: element.querySelector('.info-cards__stocks-price-amount'),
-            dynamics: element.querySelector('.info-cards__stocks-price-dynamics')
+            dynamics: element.querySelector('.info-cards__stocks-price-dynamics'),
+            preloader: element.querySelector('.info-cards__stocks-preloader')
         };
 
         this.state = {
-            data: stocksData,
+            data: [],
             loading: false,
-            chart: null,
-            preloader: null
+            chart: null
         };
 
-        this.prepareSelectorElements();
-        this.bindSelectorEventListeners();
+        (async () => {
+            try {
+                this.elements.preloader.classList.add('active');
+                const pricesData = await axios.get(element.getAttribute('data-source'));
+                this.elements.preloader.classList.remove('active');
+                this.setState({
+                    data: pricesData.data
+                });
+                if (this.state.data.length === 0) {
+                   
+                    return err;
+                }
 
-        this.setStock(this.state.data[0]);
+                this.prepareSelectorElements();
+                this.bindSelectorEventListeners();
+
+                this.setStock(this.state.data[0]);
+            } catch (err) {
+               
+                return;
+            }
+        })();
     }
-
-
-    
 
     setStock(stockData) {
         const prices = stockData.history;
@@ -101,12 +97,12 @@ class StocksCard {
 
     openSelector(event) {
         event.preventDefault();
-        console.log('Opening selector');
+       
         this.elements.selector.classList.add('active');
     }
 
     closeSelector() {
-        console.log('Closing selector');
+      
         this.elements.selector.classList.remove('active');
     }
 
@@ -129,7 +125,7 @@ class StocksCard {
             ...this.state,
             ...newState
         };
-        console.log('New state', this.state);
+       
     }
 
     drawChart(priceHistory) {
@@ -150,6 +146,9 @@ class StocksCard {
             data: priceHistory
         };
 
+
+      
+
         if (!this.state.chart) {
             const chartOptions = {
                 type: 'line',
@@ -158,6 +157,9 @@ class StocksCard {
                     datasets: [dataset]
                 },
                 options: {
+                    tooltips: {
+                        displayColors: false
+                    },
                     legend: {
                         display: false
                     },
@@ -166,7 +168,7 @@ class StocksCard {
                             {
                                 ticks: {
                                     display: false,
-                                    suggestedMax: 200
+                                    suggestedMax: Math.max(...priceHistory) + 20
                                 },
                                 gridLines: {
                                     color: '#e5e5e5',
