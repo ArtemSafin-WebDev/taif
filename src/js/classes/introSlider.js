@@ -29,13 +29,17 @@ class IntroSlider {
             innerSliderOptions: {
                 watchOverflow: true,
                 slidesPerView: 'auto',
-                spaceBetween: 60,
+                spaceBetween: 15,
                 longSwipesRatio: 0.2,
                 watchSlidesProgress: true,
-                watchSlidesVisibility: true
+                watchSlidesVisibility: true,
+                breakpoints: {
+                    769: {
+                        spaceBetween: 60
+                    }
+                }
             }
         };
-
 
         this.initInnerSliders();
         this.changeSlide(this.state.activeIndex);
@@ -45,17 +49,28 @@ class IntroSlider {
 
     initInnerSliders() {
         const { innerSliderWrappers } = this.elements;
-        innerSliderWrappers.forEach(element => {
+        innerSliderWrappers.forEach((element, elementIndex) => {
             const container = element.querySelector('.swiper-container');
             const options = {
                 ...this.state.innerSliderOptions,
                 navigation: {
                     nextEl: element.querySelector('.intro-slider__inner-slider-button--next'),
                     prevEl: element.querySelector('.intro-slider__inner-slider-button--prev')
+                },
+                pagination: {
+                    el: element.querySelector('.intro-slider__inner-slider-pagination'),
+                    type: 'bullets',
+                    clickable: true
                 }
             };
 
-            this.state.innerSliders.push(new Swiper(container, options));
+            const swiperInstance = new Swiper(container, options);
+
+            swiperInstance.on('touchMove', () => {
+                this.changeSlide.call(this, elementIndex);
+            });
+
+            this.state.innerSliders.push(swiperInstance);
         });
     }
 

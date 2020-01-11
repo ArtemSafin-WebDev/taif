@@ -24,6 +24,11 @@
     font-family: $montserrat;
     font-weight: 800;
     color: black;
+    @include breakpoint(mobile) {
+        font-size: 2rem;
+        line-height: 2.4rem;
+        letter-spacing: 1.17647px;
+    }
 }
 
 @mixin p {

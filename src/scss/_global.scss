@@ -10,6 +10,10 @@
     --max-container-width: 1530px;
     --content-padding: 40px;
     --left-inner-padding: 17rem;
+
+    @include breakpoint(mobile) {
+        --content-padding: 20px;
+    }
 }
 
 html {

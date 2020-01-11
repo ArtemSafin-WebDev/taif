@@ -7,6 +7,9 @@
     padding: 4rem 0;
     color: white;
     z-index: 100;
+    @include breakpoint(mobile) {
+        padding: 1.7rem 0;
+    }
 }
 
 .page-header__row {
@@ -21,6 +24,13 @@
     line-height: 1.4;
     display: flex;
     align-items: flex-start;
+    @include breakpoint(mobile) {
+        width: auto;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        position: relative;
+        z-index: 7000;
+    }
     &:link,
     &:visited {
         color: white;
@@ -31,6 +41,10 @@
     flex-shrink: 0;
     margin-right: 1.5rem;
     margin-top: 0.3rem;
+
+    @include breakpoint(mobile) {
+        display: none;
+    }
     > span {
         display: block;
         width: 15px;
@@ -38,9 +52,14 @@
         background-color: #fff;
         margin-bottom: 5px;
     }
+
+
 }
 
 .page-header__company-structure-text {
+    @include breakpoint(mobile) {
+        margin-top: 1.2rem;
+    }
 }
 
 .page-header__logo {
@@ -48,6 +67,9 @@
     flex-shrink: 0;
     @include breakpoint(mobile) {
         order: -1;
+        margin-right: 2.4rem;
+        position: relative;
+        z-index: 7000;
     }
 }
 
@@ -56,12 +78,18 @@
 
     height: auto;
     display: block;
+    @include breakpoint(mobile) {
+        width: 5.5rem;
+    }
 }
 
 .page-header__contacts {
     margin-left: 5rem;
     display: flex;
     align-items: center;
+    @include breakpoint(mobile) {
+        display: none;
+    }
 }
 
 .page-header__contacts-info {
@@ -143,6 +171,9 @@
     display: flex;
     padding: 4rem 0;
     padding-bottom: 0;
+    @include breakpoint(mobile) {
+        padding-top: 1.7rem;
+    }
 }
 
 .page-header__company-structure-left-column {
@@ -319,4 +350,52 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+
+
+
+.page-header__burger-btn {
+    display: none;
+    outline: none;
+    align-self: center;
+    margin-left: auto;
+    @include noHighlight();
+    @include breakpoint(mobile) {
+        display: block;
+    }
+}
+
+
+.page-header__burger-btn-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 7000;
+    > span {
+        width: 2.6rem;
+        height: 2px;
+        margin-bottom: 0.6rem;
+        background-color: #fff;
+        flex-shrink: 0;
+        transition: all .2s;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+
+    .page-header__burger-btn.active & {
+        > span {
+            &:nth-child(1) {
+                transform: translateY(.8rem) rotate(45deg);
+            }
+            &:nth-child(2) {
+                opacity: 0;
+            }
+            &:nth-child(3) {
+                transform: translateY(-.8rem) rotate(-45deg);
+            }
+        }
+    }
 }

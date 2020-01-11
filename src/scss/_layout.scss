@@ -34,6 +34,12 @@
         display: flex;
         flex-direction: column;
     }
+
+
+
+    @include breakpoint(mobile) {
+        display: none;
+    }
 }
 
 

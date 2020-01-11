@@ -15,7 +15,12 @@ class PressCenterSlider {
             sliderOptions: {
                 watchOverflow: true,
                 slidesPerView: 'auto',
-                spaceBetween: 65
+                spaceBetween: 20,
+                breakpoints: {
+                    769: {
+                        spaceBetween: 65
+                    }
+                }
             }
         };
 
@@ -84,7 +89,18 @@ class PressCenterSlider {
         const { tabItems } = this.elements;
         tabItems.forEach(item => {
             const swiperContainer = item.querySelector('.swiper-container');
-            const swiperInstance = new Swiper(swiperContainer, this.state.sliderOptions);
+            const swiperPagination = item.querySelector('.press-center-slider__pagination');
+
+            const options = {
+                ...this.state.sliderOptions,
+                pagination: {
+                    el: swiperPagination,
+                    type: 'bullets',
+                    clickable: true
+                }
+            }
+
+            const swiperInstance = new Swiper(swiperContainer, options);
 
             swiperInstance.on('progress', () => {
                 this.checkButtonsActivity();

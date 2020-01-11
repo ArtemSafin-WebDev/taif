@@ -337,93 +337,252 @@
         <img src="img/logos/taif-white-logo.svg" alt="Логотип ТАИФ" class="page-header__logo-image" width="100">
     </a>
     <nav class="main-nav">
-        <ul class="main-nav__list">
-            <li class="main-nav__list-item">
-                <a href="#" class="main-nav__link">
-                    Главная
-                </a>
-            </li>
-            <li class="main-nav__list-item">
-                <a href="#" class="main-nav__link">
-                    О компании
-                </a>
-            </li>
-            <li class="main-nav__list-item">
-                <a class="main-nav__link">
-                    Продукция
-                </a>
-                <div class="main-nav__submenu-wrapper">
-                    <ul class="main-nav__submenu-list">
-                        <li class="main-nav__submenu-list-item">
-                            <a href="#" class="main-nav__submenu-link">
-                                Общая информация
-                            </a>
-                        </li>
-                        <li class="main-nav__submenu-list-item">
-                            <a href="#" class="main-nav__submenu-link">
-                                История
-                            </a>
-                        </li>
-                        <li class="main-nav__submenu-list-item">
-                            <a href="#" class="main-nav__submenu-link">
-                                Акционерам и инвесторам
-                            </a>
-                        </li>
-                        <li class="main-nav__submenu-list-item">
-                            <a href="#" class="main-nav__submenu-link">
-                                География деятельности
-                            </a>
-                        </li>
-                        <li class="main-nav__submenu-list-item">
-                            <a href="#" class="main-nav__submenu-link">
-                                Корпоративное управление
-                            </a>
-                        </li>
-                        <li class="main-nav__submenu-list-item">
-                            <a href="#" class="main-nav__submenu-link">
-                                Инвестиционные проекты
-                            </a>
-                        </li>
-                        <li class="main-nav__submenu-list-item">
-                            <a href="#" class="main-nav__submenu-link">
-                                Контакты
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="main-nav__list-item">
-                <a href="#" class="main-nav__link">
-                    Акционерам
-                </a>
-            </li>
-            <li class="main-nav__list-item">
-                <a href="#" class="main-nav__link">
-                    Пресс-центр
-                </a>
-            </li>
-            <li class="main-nav__list-item">
-                <a href="#" class="main-nav__link">
-                    Вакансии
-                </a>
-            </li>
 
-            {# <li class="main-nav__list-item">
-                <a href="#" class="main-nav__link">
-                    Акционерам
-                </a>
-            </li>
-            <li class="main-nav__list-item">
-                <a href="#" class="main-nav__link">
-                    Пресс-центр
-                </a>
-            </li>
-            <li class="main-nav__list-item">
-                <a href="#" class="main-nav__link">
-                    Вакансии
-                </a>
-            </li> #}
-        </ul>
+        <div class="main-nav__inner-wrapper">
+            <ul class="main-nav__list">
+                <li class="main-nav__list-item main-nav__list-item--home">
+                    <a href="#" class="main-nav__link">
+                        Главная
+                    </a>
+                </li>
+                <li class="main-nav__list-item">
+                    <a class="main-nav__link main-nav__link--has-submenu">
+                        <svg width="16" height="8" aria-hidden="true" class="icon-arrow-down">
+                            <use xlink:href="#arrow-down"/>
+                        </svg>О компании
+                    </a>
+                    <div class="main-nav__submenu-wrapper">
+                        <ul class="main-nav__submenu-list">
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Общая информация
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    История
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Акционерам и инвесторам
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    География деятельности
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Корпоративное управление
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Инвестиционные проекты
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Контакты
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="main-nav__list-item">
+                    <a class="main-nav__link main-nav__link--has-submenu">
+                        <svg width="16" height="8" aria-hidden="true" class="icon-arrow-down">
+                            <use xlink:href="#arrow-down"/>
+                        </svg>
+                        Продукция
+                    </a>
+                    <div class="main-nav__submenu-wrapper">
+                        <ul class="main-nav__submenu-list">
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Общая информация
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    История
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Акционерам и инвесторам
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    География деятельности
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Корпоративное управление
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Инвестиционные проекты
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Контакты
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="main-nav__list-item">
+                    <a class="main-nav__link main-nav__link--has-submenu">
+                        <svg width="16" height="8" aria-hidden="true" class="icon-arrow-down">
+                            <use xlink:href="#arrow-down"/>
+                        </svg>
+                        Акционерам
+                    </a>
+                    <div class="main-nav__submenu-wrapper">
+                        <ul class="main-nav__submenu-list">
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Общая информация
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    История
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Акционерам и инвесторам
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    География деятельности
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Корпоративное управление
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Инвестиционные проекты
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Контакты
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="main-nav__list-item">
+                    <a class="main-nav__link main-nav__link--has-submenu">
+                        <svg width="16" height="8" aria-hidden="true" class="icon-arrow-down">
+                            <use xlink:href="#arrow-down"/>
+                        </svg>
+                        Пресс-центр
+                    </a>
+                    <div class="main-nav__submenu-wrapper">
+                        <ul class="main-nav__submenu-list">
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Общая информация
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    История
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Акционерам и инвесторам
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    География деятельности
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Корпоративное управление
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Инвестиционные проекты
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Контакты
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="main-nav__list-item">
+                    <a class="main-nav__link main-nav__link--has-submenu">
+                        <svg width="16" height="8" aria-hidden="true" class="icon-arrow-down">
+                            <use xlink:href="#arrow-down"/>
+                        </svg>
+                        Вакансии
+                    </a>
+                    <div class="main-nav__submenu-wrapper">
+                        <ul class="main-nav__submenu-list">
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Общая информация
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    История
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Акционерам и инвесторам
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    География деятельности
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Корпоративное управление
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Инвестиционные проекты
+                                </a>
+                            </li>
+                            <li class="main-nav__submenu-list-item">
+                                <a href="#" class="main-nav__submenu-link">
+                                    Контакты
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+    
+            </ul>
+        </div>
+
     </nav>
     <div class="page-header__contacts">
         <div class="page-header__contacts-info">
@@ -440,4 +599,11 @@
             </svg>
         </a>
     </div>
+    <burger class="page-header__burger-btn">
+        <span class="page-header__burger-btn-content">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+    </burger>
 </div>

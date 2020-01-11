@@ -4,6 +4,7 @@ import IntroSlider from './classes/introSlider';
 import PressCenterSlider from './classes/pressCenterSlider';
 import StocksCard from './classes/stocksCard';
 import StructureMenu from './classes/structureMenu';
+import MainMenu from './classes/mainMenu';
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -15,6 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     detectTouch();
 
+
+    // Burger menu
+
+    new MainMenu(document.querySelector('.page-header'));
 
     // Company structure
 
