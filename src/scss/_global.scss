@@ -48,6 +48,9 @@ body {
 
 section {
     margin-bottom: 12rem;
+    @include breakpoint(mobile) {
+        margin-bottom: 5rem;
+    }
 }
 
 ul,

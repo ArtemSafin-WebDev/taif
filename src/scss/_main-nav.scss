@@ -12,23 +12,21 @@
         z-index: 6000;
         opacity: 0;
         visibility: hidden;
-        transition: opacity .3s, visibility 0s linear .3s;
+        transition: opacity 0.3s, visibility 0s linear 0.3s;
         padding-top: 10.5rem;
-      
-       
+
         &.shown {
             opacity: 1;
             visibility: visible;
-            transition: all .3s;
+            transition: all 0.3s;
         }
     }
 }
 
-
 .main-nav__inner-wrapper {
     @include breakpoint(mobile) {
         height: 100%;
-        
+
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
         padding-left: var(--content-padding);
@@ -57,7 +55,7 @@
     }
     @include breakpoint(mobile) {
         padding: 0;
-        border-bottom: 1px solid rgba(white, .3);
+        border-bottom: 1px solid rgba(white, 0.3);
     }
     &:hover {
         .main-nav__link {
@@ -85,6 +83,10 @@
     user-select: none;
     @include noHighlight();
 
+    .icon-arrow-down {
+        display: none;
+    }
+
     @include breakpoint(mobile) {
         text-align: left;
         font-family: $montserrat;
@@ -100,11 +102,10 @@
             height: 0.8rem;
             margin-right: 1.7rem;
             flex-shrink: 0;
+            display: block;
         }
     }
 
-
-  
     &:link,
     &:visited {
         color: white;
@@ -135,7 +136,7 @@
         max-width: auto;
         opacity: 1;
         visibility: inherit;
-        transition: all .2s;
+        transition: all 0.2s;
     }
 }
 
@@ -153,9 +154,11 @@
 }
 
 .main-nav__submenu-list-item {
-    margin-bottom: 1.6rem;
-    &:last-child {
-        margin-bottom: 2.6rem;
+    @include breakpoint(mobile) {
+        margin-bottom: 1.6rem;
+        &:last-child {
+            margin-bottom: 2.6rem;
+        }
     }
 }
 
@@ -173,23 +176,28 @@
         color: black;
     }
 
+    .no-touch &:hover,
+    .touch &:active {
+        background: #f4f8fb;
+        color: $primary-color;
+    }
+
     @include breakpoint(mobile) {
         font-size: 1.1rem;
         line-height: 1.8rem;
         font-family: $montserrat;
         padding: 0;
         padding-left: 4.5rem;
-       
+
         &:link,
         &:visited {
             color: white;
         }
-    }
-    
 
-    .no-touch &:hover,
-    .touch &:active {
-        background: #f4f8fb;
-        color: $primary-color;
+        .no-touch &:hover,
+        .touch &:active {
+            background: transparent;
+            color: $primary-color;
+        }
     }
 }

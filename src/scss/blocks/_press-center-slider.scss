@@ -30,6 +30,16 @@
         -webkit-overflow-scrolling: touch;
         margin: 0 calc(-1 * var(--content-padding));
         padding: 0 var(--content-padding);
+        &::after {
+            content: '';
+            width: 1rem;
+            height: 1px;
+            display: block;
+            flex-shrink: 0;
+        }
+        .is-touch &::-webkit-scrollbar {
+            display: none;
+        }
     }
 }
 
@@ -138,6 +148,14 @@
         border-radius: 0;
         padding: 0;
         display: contents;
+       
+    }
+}
+
+
+.press-center-slider__tab-more-menu-list-item {
+    @include breakpoint(mobile) {
+        display: contents;
     }
 }
 
@@ -207,6 +225,7 @@
 
     @include breakpoint(mobile) {
         width: 100%;
+        padding-left: 1.5rem;
     }
 }
 
@@ -230,8 +249,8 @@
     background: transparent;
     color: black;
     @include breakpoint(mobile) {
-        font-size: 1.4rem;
-        line-height: 2.4rem;
+        font-size: 1.6rem;
+        line-height: 2rem;
         padding: 0 1.2rem;
     }
     @include placeholder {
