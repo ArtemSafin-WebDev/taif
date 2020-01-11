@@ -7,12 +7,19 @@
 
 .info-cards__content {
     margin-top: 4rem;
+    @include breakpoint(mobile) {
+        margin-top: 3rem;
+    }
 }
 
 .info-cards__list {
     display: flex;
     flex-wrap: wrap;
     margin: -32.5px;
+    @include breakpoint(mobile) {
+        margin: -18px
+    }
+    
 }
 
 .info-cards__list-item {
@@ -20,6 +27,10 @@
     width: 33.33%;
     display: flex;
     flex-direction: column;
+    @include breakpoint(mobile) {
+        width: 100%;
+        padding: 18px;
+    }
 }
 
 .info-cards__card {
@@ -31,7 +42,9 @@
     flex-direction: column;
     position: relative;
     min-height: 27rem;
-
+    @include breakpoint(mobile) {
+        min-height: auto;
+    }
     &--no-border {
         border: none;
         overflow: hidden;
@@ -59,6 +72,10 @@
     flex-direction: column;
     padding: 2.4rem 3.2rem;
     flex-grow: 1;
+
+    @include breakpoint(mobile) {
+        padding: 1.5rem 2rem;
+    }
 }
 
 .info-cards__hotline-text {
@@ -66,6 +83,11 @@
     line-height: 1.33;
     font-family: $proxima;
     margin-bottom: 3rem;
+    @include breakpoint(mobile) {
+        font-size: 1.3rem;
+        line-height: 1.9rem;
+        margin-bottom: 5rem;
+    }
 }
 
 .info-cards__hotline-phone-number {
@@ -77,6 +99,12 @@
     margin-top: auto;
     margin-bottom: 1rem;
     transition: color 0.2s;
+
+    @include breakpoint(mobile) {
+        font-size: 1.6rem;
+        line-height: 2.6rem;
+        margin-bottom: 0.5rem;
+    }
     &:link,
     &:visited {
         color: black;
@@ -92,6 +120,9 @@
     font-size: 1.2rem;
     line-height: 1.5;
     font-family: $proxima;
+    @include breakpoint(mobile) {
+        font-size: 1rem;
+    }
 }
 
 .info-cards__financial-report {
@@ -102,7 +133,10 @@
     padding: 2.4rem 3.2rem;
     color: white;
     flex-grow: 1;
-
+    @include breakpoint(mobile) {
+        padding: 2rem;
+        padding-top: 1.5rem;
+    }
     &:link,
     &:visited {
         color: white;
@@ -145,6 +179,11 @@
     font-family: $montserrat;
     font-weight: 700;
     margin-bottom: 2rem;
+    @include breakpoint(mobile) {
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+        margin-bottom: 4rem;
+    }
 }
 
 .info-cards__financial-report-bottom-row {
@@ -152,6 +191,9 @@
     align-items: center;
     justify-content: space-between;
     margin-top: auto;
+    @include breakpoint(mobile) {
+        align-items: flex-end;
+    }
 }
 
 .info-cards__financial-report-year {
@@ -171,12 +213,21 @@
     flex-shrink: 0;
     border: 1px solid white;
     transition: all 0.2s;
+    @include breakpoint(mobile) {
+        width: 4.4rem;
+        height: 4.4rem;
+    }
     svg {
         fill: white;
         width: 0.8rem;
         height: 1.6rem;
         margin-left: 0.2rem;
         transition: fill 0.2s;
+        @include breakpoint(mobile) {
+            width: 0.7rem;
+            height: 1rem;
+            margin-left: 0.1rem;
+        }
     }
 }
 
@@ -225,6 +276,9 @@
     display: block;
     padding: 2rem 3.2rem;
     transition: background-color .2s;
+    @include breakpoint(mobile) {
+        padding: 2rem;
+    }
     &:link,
     &:visited {
         color: black;
@@ -244,7 +298,10 @@
     font-weight: 700;
     font-size: 1.8rem;
     line-height: 1.33;
-   
+    @include breakpoint(mobile) {
+        font-size: 1.4rem;
+        line-height: 1.7rem;
+    }
 }
 
 
@@ -254,12 +311,20 @@
     font-size: 1.2rem;
     line-height: 1.8rem;
     margin-top: 0.5rem;
+    @include breakpoint(mobile) {
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
 }
 
 .info-cards__stocks-top-section {
     padding: 2.4rem 3.2rem;
   
     color: black;
+
+    @include breakpoint(mobile) {
+        padding: 2rem;
+    }
     &:link,
     &:visited {
         color: black;
@@ -359,12 +424,21 @@
     font-weight: 700;
     font-size: 1.8rem;
     line-height: 1.33;
+    @include breakpoint(mobile) {
+        font-size: 1.4rem;
+        line-height: 1.7rem;
+    }
     svg {
         fill: $primary-color;
         width: 1.6rem;
         height: 0.8rem;
         margin-left: 0.5rem;
         flex-shrink: 0;
+        @include breakpoint(mobile) {
+            width: 0.9rem;
+            height: 0.5rem;
+            
+        }
     }
 }
 
@@ -373,6 +447,10 @@
     font-size: 1.2rem;
     line-height: 1.8rem;
     margin-top: 0.5rem;
+    @include breakpoint(mobile) {
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
 }
 
 .info-cards__stocks-price {
@@ -388,6 +466,10 @@
     font-size: 1.6rem;
     line-height: 1.5;
     white-space: nowrap;
+    @include breakpoint(mobile) {
+        font-size: 1.4rem;
+        line-height: 2.4rem;
+    }
 }
 
 .info-cards__stocks-price-dynamics {
@@ -397,7 +479,11 @@
     color: $primary-color;
     margin-left: 1rem;
     white-space: nowrap;
-
+    @include breakpoint(mobile) {
+        font-size: 1rem;
+        line-height: 1.8rem;
+        margin-left: 0.6rem;
+    }
     &--negative {
         color: red;
     }

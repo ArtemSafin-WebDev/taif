@@ -3204,6 +3204,9 @@ img.lazyload:not([src]) {
 
 .info-cards__content {
   margin-top: 4rem; }
+  @media only screen and (max-width: 768px) {
+    .info-cards__content {
+      margin-top: 3rem; } }
 
 .info-cards__list {
   display: -webkit-box;
@@ -3212,6 +3215,9 @@ img.lazyload:not([src]) {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: -32.5px; }
+  @media only screen and (max-width: 768px) {
+    .info-cards__list {
+      margin: -18px; } }
 
 .info-cards__list-item {
   padding: 32.5px;
@@ -3223,6 +3229,10 @@ img.lazyload:not([src]) {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column; }
+  @media only screen and (max-width: 768px) {
+    .info-cards__list-item {
+      width: 100%;
+      padding: 18px; } }
 
 .info-cards__card {
   -webkit-box-flex: 1;
@@ -3240,6 +3250,9 @@ img.lazyload:not([src]) {
           flex-direction: column;
   position: relative;
   min-height: 27rem; }
+  @media only screen and (max-width: 768px) {
+    .info-cards__card {
+      min-height: auto; } }
   .info-cards__card--no-border {
     border: none;
     overflow: hidden; }
@@ -3268,12 +3281,20 @@ img.lazyload:not([src]) {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1; }
+  @media only screen and (max-width: 768px) {
+    .info-cards__hotline {
+      padding: 1.5rem 2rem; } }
 
 .info-cards__hotline-text {
   font-size: 1.6rem;
   line-height: 1.33;
   font-family: "Proxima Nova", sans-serif;
   margin-bottom: 3rem; }
+  @media only screen and (max-width: 768px) {
+    .info-cards__hotline-text {
+      font-size: 1.3rem;
+      line-height: 1.9rem;
+      margin-bottom: 5rem; } }
 
 .info-cards__hotline-phone-number {
   font-size: 2.2rem;
@@ -3285,6 +3306,11 @@ img.lazyload:not([src]) {
   margin-bottom: 1rem;
   -webkit-transition: color 0.2s;
   transition: color 0.2s; }
+  @media only screen and (max-width: 768px) {
+    .info-cards__hotline-phone-number {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 0.5rem; } }
   .info-cards__hotline-phone-number:link, .info-cards__hotline-phone-number:visited {
     color: black; }
   .no-touch .info-cards__hotline-phone-number:hover,
@@ -3295,6 +3321,9 @@ img.lazyload:not([src]) {
   font-size: 1.2rem;
   line-height: 1.5;
   font-family: "Proxima Nova", sans-serif; }
+  @media only screen and (max-width: 768px) {
+    .info-cards__hotline-remark {
+      font-size: 1rem; } }
 
 .info-cards__financial-report {
   position: relative;
@@ -3310,6 +3339,10 @@ img.lazyload:not([src]) {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1; }
+  @media only screen and (max-width: 768px) {
+    .info-cards__financial-report {
+      padding: 2rem;
+      padding-top: 1.5rem; } }
   .info-cards__financial-report:link, .info-cards__financial-report:visited {
     color: white; }
   .no-touch .info-cards__financial-report:hover .info-cards__financial-report-circle {
@@ -3345,6 +3378,11 @@ img.lazyload:not([src]) {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   margin-bottom: 2rem; }
+  @media only screen and (max-width: 768px) {
+    .info-cards__financial-report-heading {
+      font-size: 1.6rem;
+      line-height: 2.2rem;
+      margin-bottom: 4rem; } }
 
 .info-cards__financial-report-bottom-row {
   display: -webkit-box;
@@ -3357,6 +3395,11 @@ img.lazyload:not([src]) {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-top: auto; }
+  @media only screen and (max-width: 768px) {
+    .info-cards__financial-report-bottom-row {
+      -webkit-box-align: end;
+          -ms-flex-align: end;
+              align-items: flex-end; } }
 
 .info-cards__financial-report-year {
   font-family: "Proxima Nova", sans-serif;
@@ -3385,6 +3428,10 @@ img.lazyload:not([src]) {
   border: 1px solid white;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
+  @media only screen and (max-width: 768px) {
+    .info-cards__financial-report-circle {
+      width: 4.4rem;
+      height: 4.4rem; } }
   .info-cards__financial-report-circle svg {
     fill: white;
     width: 0.8rem;
@@ -3392,6 +3439,11 @@ img.lazyload:not([src]) {
     margin-left: 0.2rem;
     -webkit-transition: fill 0.2s;
     transition: fill 0.2s; }
+    @media only screen and (max-width: 768px) {
+      .info-cards__financial-report-circle svg {
+        width: 0.7rem;
+        height: 1rem;
+        margin-left: 0.1rem; } }
 
 .info-cards__stocks {
   -webkit-box-flex: 1;
@@ -3441,6 +3493,9 @@ img.lazyload:not([src]) {
   padding: 2rem 3.2rem;
   -webkit-transition: background-color .2s;
   transition: background-color .2s; }
+  @media only screen and (max-width: 768px) {
+    .info-cards__stocks-selector-btn {
+      padding: 2rem; } }
   .info-cards__stocks-selector-btn:link, .info-cards__stocks-selector-btn:visited {
     color: black; }
   .no-touch .info-cards__stocks-selector-btn:hover,
@@ -3458,16 +3513,27 @@ img.lazyload:not([src]) {
   font-weight: 700;
   font-size: 1.8rem;
   line-height: 1.33; }
+  @media only screen and (max-width: 768px) {
+    .info-cards__stocks-selector-btn-ticker {
+      font-size: 1.4rem;
+      line-height: 1.7rem; } }
 
 .info-cards__stocks-selector-btn-description {
   font-family: "Proxima Nova", sans-serif;
   font-size: 1.2rem;
   line-height: 1.8rem;
   margin-top: 0.5rem; }
+  @media only screen and (max-width: 768px) {
+    .info-cards__stocks-selector-btn-description {
+      font-size: 1rem;
+      line-height: 1.2rem; } }
 
 .info-cards__stocks-top-section {
   padding: 2.4rem 3.2rem;
   color: black; }
+  @media only screen and (max-width: 768px) {
+    .info-cards__stocks-top-section {
+      padding: 2rem; } }
   .info-cards__stocks-top-section:link, .info-cards__stocks-top-section:visited {
     color: black; }
 
@@ -3593,6 +3659,10 @@ img.lazyload:not([src]) {
   font-weight: 700;
   font-size: 1.8rem;
   line-height: 1.33; }
+  @media only screen and (max-width: 768px) {
+    .info-cards__stocks-emitent-selection-ticker {
+      font-size: 1.4rem;
+      line-height: 1.7rem; } }
   .info-cards__stocks-emitent-selection-ticker svg {
     fill: #1EAC72;
     width: 1.6rem;
@@ -3600,12 +3670,20 @@ img.lazyload:not([src]) {
     margin-left: 0.5rem;
     -ms-flex-negative: 0;
         flex-shrink: 0; }
+    @media only screen and (max-width: 768px) {
+      .info-cards__stocks-emitent-selection-ticker svg {
+        width: 0.9rem;
+        height: 0.5rem; } }
 
 .info-cards__stocks-emitent-selection-name {
   font-family: "Proxima Nova", sans-serif;
   font-size: 1.2rem;
   line-height: 1.8rem;
   margin-top: 0.5rem; }
+  @media only screen and (max-width: 768px) {
+    .info-cards__stocks-emitent-selection-name {
+      font-size: 1rem;
+      line-height: 1.2rem; } }
 
 .info-cards__stocks-price {
   display: -webkit-box;
@@ -3624,6 +3702,10 @@ img.lazyload:not([src]) {
   font-size: 1.6rem;
   line-height: 1.5;
   white-space: nowrap; }
+  @media only screen and (max-width: 768px) {
+    .info-cards__stocks-price-amount {
+      font-size: 1.4rem;
+      line-height: 2.4rem; } }
 
 .info-cards__stocks-price-dynamics {
   font-family: "Proxima Nova", sans-serif;
@@ -3632,5 +3714,10 @@ img.lazyload:not([src]) {
   color: #1EAC72;
   margin-left: 1rem;
   white-space: nowrap; }
+  @media only screen and (max-width: 768px) {
+    .info-cards__stocks-price-dynamics {
+      font-size: 1rem;
+      line-height: 1.8rem;
+      margin-left: 0.6rem; } }
   .info-cards__stocks-price-dynamics--negative {
     color: red; }
