@@ -1,6 +1,5 @@
 import Swiper from 'swiper';
 
-
 class IntroSlider {
     constructor(element) {
         if (!element) {
@@ -57,8 +56,6 @@ class IntroSlider {
     }
 
     handleVideos(slide) {
-        
-
         this.elements.videos.forEach(video => {
             video.pause();
         });
@@ -69,8 +66,8 @@ class IntroSlider {
 
         if (currentVideo) {
             currentVideo.currentTime = 0;
-            currentVideo.play()
-        };
+            currentVideo.play();
+        }
     }
 
     initInnerSliders() {
@@ -156,6 +153,8 @@ class IntroSlider {
         const { backgrounds, navigation, contentSlides } = this.elements;
         this.clearActive();
 
+        const previousIndex = activeIndex;
+
         if (typeof newIndex === 'undefined') {
             if (activeIndex < slidesCount - 1) {
                 this.state.activeIndex++;
@@ -174,12 +173,14 @@ class IntroSlider {
                 this.clearNavTransitions();
                 navigation[this.state.activeIndex].classList.add('active');
             }
+
+            if (previousIndex !== newIndex) {
+                this.handleVideos.call(this, backgrounds[this.state.activeIndex]);
+            }
         }
 
         backgrounds[this.state.activeIndex].classList.add('active');
         contentSlides[this.state.activeIndex].classList.add('active');
-
-        this.handleVideos.call(this, backgrounds[this.state.activeIndex]);
     }
 }
 
