@@ -35,6 +35,9 @@ class IntroSlider {
                 watchSlidesVisibility: true,
                 breakpoints: {
                     769: {
+                        spaceBetween: 30
+                    },
+                    969: {
                         spaceBetween: 60
                     }
                 }

@@ -323,6 +323,7 @@
         fill: $primary-color;
         flex-shrink: 0;
         margin-left: 1rem;
+        transition: fill .2s;
     }
     @include breakpoint(mobile) {
         order: -1;
@@ -342,6 +343,9 @@
     .no-touch &:hover,
     .touch &:active {
         color: black;
+        .icon-thin-arrow {
+            fill: black;
+        }
     }
 }
 

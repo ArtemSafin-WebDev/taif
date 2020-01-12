@@ -1,6 +1,9 @@
 import Chart from 'chart.js';
 import axios from 'axios';
 
+
+
+
 class StocksCard {
     constructor(element) {
         this.elements = {
@@ -151,12 +154,15 @@ class StocksCard {
 
         if (!this.state.chart) {
             const chartOptions = {
+               
                 type: 'line',
                 data: {
                     labels: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль'],
                     datasets: [dataset]
                 },
                 options: {
+                    aspectRatio: 16/9,
+                    maintainAspectRatio: false,
                     tooltips: {
                         displayColors: false
                     },

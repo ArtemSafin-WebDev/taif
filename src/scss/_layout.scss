@@ -37,6 +37,9 @@
 
 
 
+    @include breakpoint(laptop) {
+        display: none;
+    }
     @include breakpoint(mobile) {
         display: none;
     }

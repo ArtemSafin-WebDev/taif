@@ -1,5 +1,6 @@
 
 import { lockScroll, unlockScroll } from '../functions/scrollBlocker';
+import MOBILE_WIDTH from '../constants/mobileWidth';
 
 class StructureMenu {
     constructor(element) {
@@ -20,7 +21,7 @@ class StructureMenu {
 
     openMenu() {
         this.elements.menu.classList.add('active');
-        lockScroll(this.elements.menu, window.matchMedia("(max-width: 768px)").matches);
+        lockScroll(this.elements.menu, window.matchMedia(`(max-width: ${MOBILE_WIDTH}px)`).matches);
     }
 
     closeMenu() {

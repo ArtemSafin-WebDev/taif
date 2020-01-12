@@ -18,6 +18,9 @@ class PressCenterSlider {
                 spaceBetween: 20,
                 breakpoints: {
                     769: {
+                        spaceBetween: 30
+                    },
+                    969: {
                         spaceBetween: 65
                     }
                 }

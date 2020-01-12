@@ -6,6 +6,8 @@
 
 .page-footer__top-row {
     display: flex;
+
+   
     @include breakpoint(mobile) {
         flex-wrap: wrap;
         margin: -1rem;  
@@ -73,9 +75,12 @@
 .page-footer__logo {
     flex-shrink: 0;
     width: var(--left-inner-padding, 100px);
+
+   
     @include breakpoint(mobile) {
         order: -2;
         width: 50%;
+        margin-right: 0;
     }
 }
 
@@ -96,8 +101,13 @@
 .page-footer__nav {
     max-width: 68rem;
     margin-right: 5rem;
+    @include breakpoint(laptop) {
+        max-width: none;
+    }
+
+   
     @include breakpoint(mobile) {
-        max-width: auto;
+        max-width: none;
         margin-right: 0;
         width: 100%;
     }
@@ -107,6 +117,10 @@
     display: flex;
     flex-wrap: wrap;
     margin: -2.8rem -3.5rem;
+
+    @include breakpoint(tablet) {
+        margin: -1.5rem;
+    }
     @include breakpoint(mobile) {
         margin: -2rem -1rem;
     }
@@ -115,6 +129,10 @@
 .page-footer__nav-block {
     padding: 2.8rem 3.5rem;
     width: 33.33%;
+    
+    @include breakpoint(tablet) {
+        padding: 1.5rem;
+    }
     @include breakpoint(mobile) {
         padding: 2rem 1rem;
         width: 50%;
@@ -298,9 +316,13 @@
         width: 30rem;
     }
 
+    @include breakpoint(laptop) {
+        display: none;
+    }
 
     @include breakpoint(mobile) {
         width: 100%;
+        display: block;
         margin-left: 0;
         padding-top: 2rem;
        

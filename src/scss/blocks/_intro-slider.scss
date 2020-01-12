@@ -330,6 +330,10 @@
         width: 80%;
         display: flex;
         flex-direction: column;
+
+        @include breakpoint(small-tablet) {
+            width: 70%;
+        }
         @include breakpoint(mobile) {
             width: 97%;
         }

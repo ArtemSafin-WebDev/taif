@@ -84,7 +84,7 @@
     margin-left: 5rem;
     display: flex;
     align-items: center;
-    @include breakpoint(mobile) {
+    @include breakpoint(laptop) {
         display: none;
     }
 }

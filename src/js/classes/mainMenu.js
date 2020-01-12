@@ -1,5 +1,7 @@
 import { openAccordeon, closeAccordeon } from '../functions/accordeons';
 import { lockScroll, unlockScroll } from '../functions/scrollBlocker';
+import MOBILE_WIDTH from '../constants/mobileWidth';
+
 
 class MainMenu {
     constructor(element) {
@@ -37,7 +39,7 @@ class MainMenu {
         this.elements.submenuLinks.forEach(link => {
             link.addEventListener('click', event => {
                 event.preventDefault();
-                if (!window.matchMedia('(max-width: 768px)').matches) {
+                if (!window.matchMedia(`(max-width: ${MOBILE_WIDTH}px)`).matches) {
                     return;
                 }
 
@@ -59,7 +61,7 @@ class MainMenu {
     openMenu() {
         this.elements.nav.classList.add('shown');
         this.elements.navOpen.classList.add('active');
-        lockScroll(this.elements.nav, window.matchMedia("(max-width: 768px)").matches);
+        lockScroll(this.elements.nav, window.matchMedia(`(max-width: ${MOBILE_WIDTH}px)`).matches);
         this.setState({
             open: true
         });
