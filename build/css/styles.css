@@ -2459,24 +2459,22 @@ img.lazyload:not([src]) {
     top: 0;
     width: 100%;
     height: 100%;
-    background: -webkit-gradient(linear, left top, right top, color-stop(40%, #41537A), color-stop(45%, #41537A), to(rgba(65, 83, 122, 0)));
-    background: linear-gradient(to right, #41537A 40%, #41537A 45%, rgba(65, 83, 122, 0) 100%);
+    background: linear-gradient(85deg, #41537A 38%, rgba(65, 83, 122, 0) 70%);
     z-index: -1; }
     @media only screen and (max-width: 767px) {
       .intro-slider__inner-slider-card::after {
-        background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #41537A), color-stop(55%, #41537A), to(rgba(65, 83, 122, 0)));
-        background: linear-gradient(to top, #41537A 50%, #41537A 55%, rgba(65, 83, 122, 0) 100%); } }
+        background: -webkit-gradient(linear, left bottom, left top, color-stop(32%, #41537A), color-stop(42%, #41537A), color-stop(70%, rgba(65, 83, 122, 0)));
+        background: linear-gradient(to top, #41537A 32%, #41537A 42%, rgba(65, 83, 122, 0) 70%); } }
   .intro-slider__inner-slider-card--white:link, .intro-slider__inner-slider-card--white:visited {
     color: black; }
   .intro-slider__inner-slider-card--white::before {
     background-color: #fff; }
   .intro-slider__inner-slider-card--white::after {
-    background: -webkit-gradient(linear, left top, right top, color-stop(40%, white), color-stop(45%, white), to(rgba(255, 255, 255, 0)));
-    background: linear-gradient(to right, white 40%, white 45%, rgba(255, 255, 255, 0) 100%); }
+    background: linear-gradient(85deg, white 38%, rgba(255, 255, 255, 0) 70%); }
     @media only screen and (max-width: 767px) {
       .intro-slider__inner-slider-card--white::after {
-        background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, white), color-stop(55%, white), to(rgba(255, 255, 255, 0)));
-        background: linear-gradient(to top, white 50%, white 55%, rgba(255, 255, 255, 0) 100%); } }
+        background: -webkit-gradient(linear, left bottom, left top, color-stop(32%, white), color-stop(42%, white), color-stop(70%, rgba(255, 255, 255, 0)));
+        background: linear-gradient(to top, white 32%, white 42%, rgba(255, 255, 255, 0) 70%); } }
 
 .intro-slider__inner-slider-card-label {
   position: absolute;
@@ -2509,7 +2507,7 @@ img.lazyload:not([src]) {
   right: 0;
   top: 0;
   height: 100%;
-  width: auto;
+  width: 70%;
   z-index: -2;
   -o-object-fit: cover;
      object-fit: cover;
@@ -2522,11 +2520,14 @@ img.lazyload:not([src]) {
       left: 0;
       right: auto;
       width: 100%;
-      height: auto; } }
+      height: 70%; } }
 
 .intro-slider__inner-slider-card-content {
-  max-width: 50rem;
+  max-width: 50%;
   margin-top: auto; }
+  @media only screen and (max-width: 767px) {
+    .intro-slider__inner-slider-card-content {
+      max-width: none; } }
 
 .intro-slider__inner-slider-card-heading {
   font-family: "Montserrat", sans-serif;

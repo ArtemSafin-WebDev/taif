@@ -381,11 +381,11 @@
         top: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(to right, $blue 40%, $blue 45%, rgba($blue, 0) 100%);
+        background: linear-gradient(85deg, $blue 38%, rgba($blue, 0) 70%);
         z-index: -1;
 
         @include breakpoint(mobile) {
-            background: linear-gradient(to top, $blue 50%, $blue 55%, rgba($blue, 0) 100%);
+            background: linear-gradient(to top, $blue 32%, $blue 42%, rgba($blue, 0) 70%);
         }
     }
 
@@ -400,9 +400,9 @@
         }
 
         &::after {
-            background: linear-gradient(to right, white 40%, white 45%, rgba(white, 0) 100%);
+            background: linear-gradient(85deg, white 38%, rgba(white, 0) 70%);
             @include breakpoint(mobile) {
-                background: linear-gradient(to top, white 50%, white 55%, rgba(white, 0) 100%);
+                background: linear-gradient(to top, white 32%, white 42%, rgba(white, 0) 70%);
             }
         }
     }
@@ -437,7 +437,7 @@
     right: 0;
     top: 0;
     height: 100%;
-    width: auto;
+    width: 70%;
     z-index: -2;
     @include objectFitCover();
 
@@ -446,13 +446,16 @@
         left: 0;
         right: auto;
         width: 100%;
-        height: auto;
+        height: 70%;
     }
 }
 
 .intro-slider__inner-slider-card-content {
-    max-width: 50rem;
+    max-width: 50%;
     margin-top: auto;
+    @include breakpoint(mobile) {
+        max-width: none;
+    }
 }
 
 .intro-slider__inner-slider-card-heading {
