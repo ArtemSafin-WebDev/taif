@@ -67,6 +67,10 @@
         top: 0;
         @include objectFitCover();
     }
+
+    video {
+        z-index: 5;
+    }
 }
 
 .intro-slider__navigation {

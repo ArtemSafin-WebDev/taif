@@ -27,6 +27,7 @@
     "lazysizes": "^5.2.0",
     "moment": "^2.24.0",
     "object-fit-images": "^3.2.4",
+    "objectFitPolyfill": "^2.3.0",
     "parsleyjs": "^2.9.1",
     "perfect-scrollbar": "^1.4.0",
     "picturefill": "^3.0.3",

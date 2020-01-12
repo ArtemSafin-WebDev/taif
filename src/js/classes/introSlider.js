@@ -1,5 +1,6 @@
 import Swiper from 'swiper';
 
+
 class IntroSlider {
     constructor(element) {
         if (!element) {
@@ -11,7 +12,8 @@ class IntroSlider {
             backgrounds: Array.from(element.querySelectorAll('.intro-slider__backgrounds-list-item')),
             navigation: Array.from(element.querySelectorAll('.intro-slider__navigation-link')),
             innerSliderWrappers: Array.from(element.querySelectorAll('.intro-slider__inner-slider-wrapper')),
-            contentSlides: Array.from(element.querySelectorAll('.intro-slider__contents-list-item'))
+            contentSlides: Array.from(element.querySelectorAll('.intro-slider__contents-list-item')),
+            videos: Array.from(element.querySelectorAll('video'))
         };
 
         if (this.elements.backgrounds.length !== this.elements.navigation.length) {
@@ -44,10 +46,31 @@ class IntroSlider {
             }
         };
 
+        this.elements.videos.forEach(video => {
+            objectFitPolyfill(video);
+        });
+
         this.initInnerSliders();
         this.changeSlide(this.state.activeIndex);
         this.handleAutoplay();
         this.bindClickListeners();
+    }
+
+    handleVideos(slide) {
+        
+
+        this.elements.videos.forEach(video => {
+            video.pause();
+        });
+
+        const currentVideo = slide.querySelector('video');
+
+        console.log('Current video', currentVideo);
+
+        if (currentVideo) {
+            currentVideo.currentTime = 0;
+            currentVideo.play()
+        };
     }
 
     initInnerSliders() {
@@ -155,6 +178,8 @@ class IntroSlider {
 
         backgrounds[this.state.activeIndex].classList.add('active');
         contentSlides[this.state.activeIndex].classList.add('active');
+
+        this.handleVideos.call(this, backgrounds[this.state.activeIndex]);
     }
 }
 

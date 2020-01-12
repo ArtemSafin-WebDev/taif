@@ -2135,6 +2135,8 @@ img.lazyload:not([src]) {
     -o-object-position: center;
        object-position: center;
     font-family: 'object-fit: cover; object-position: center;'; }
+  .intro-slider__backgrounds-card video {
+    z-index: 5; }
 
 .intro-slider__navigation {
   position: absolute;
