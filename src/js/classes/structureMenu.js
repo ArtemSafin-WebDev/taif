@@ -1,3 +1,6 @@
+
+import { lockScroll, unlockScroll } from '../functions/scrollBlocker';
+
 class StructureMenu {
     constructor(element) {
         this.elements = {
@@ -17,10 +20,12 @@ class StructureMenu {
 
     openMenu() {
         this.elements.menu.classList.add('active');
+        lockScroll(this.elements.menu, window.matchMedia("(max-width: 768px)").matches);
     }
 
     closeMenu() {
         this.elements.menu.classList.remove('active');
+        unlockScroll();
     }
 }
 

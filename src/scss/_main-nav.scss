@@ -13,8 +13,12 @@
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s, visibility 0s linear 0.3s;
-        padding-top: 10.5rem;
-
+        padding-top: 1.7rem;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        padding-left: var(--content-padding);
+        padding-right: var(--content-padding);
+        overscroll-behavior: contain;
         &.shown {
             opacity: 1;
             visibility: visible;
@@ -23,17 +27,7 @@
     }
 }
 
-.main-nav__inner-wrapper {
-    @include breakpoint(mobile) {
-        height: 100%;
 
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
-        padding-left: var(--content-padding);
-        padding-right: var(--content-padding);
-        overscroll-behavior: contain;
-    }
-}
 
 .main-nav__list {
     display: flex;
@@ -56,6 +50,7 @@
     @include breakpoint(mobile) {
         padding: 0;
         border-bottom: 1px solid rgba(white, 0.3);
+        overflow: hidden;
     }
     &:hover {
         .main-nav__link {
@@ -103,6 +98,8 @@
             margin-right: 1.7rem;
             flex-shrink: 0;
             display: block;
+            margin-bottom: 0.2rem;
+            transition: transform .2s;
         }
     }
 
@@ -113,6 +110,13 @@
 
     &:hover {
         border-color: $primary-color;
+    }
+
+
+    &.active {
+        .icon-arrow-down {
+            transform: rotate(180deg);
+        }
     }
 }
 
@@ -132,11 +136,19 @@
         position: static;
         padding: 0;
         width: 100%;
-        transform: translateY(0);
-        max-width: auto;
+        transform: translateY(0) translateZ(0);
+        backface-visibility: hidden;
+        max-width: none;
+        max-height: 0;
+        
+
+        
         opacity: 1;
         visibility: inherit;
-        transition: all 0.2s;
+
+       
+        transition: height .2s linear, max-height .2s linear;
+        overflow: hidden;
     }
 }
 
@@ -150,6 +162,8 @@
         border-radius: 0;
         padding: 0;
         background-color: transparent;
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -199,5 +213,104 @@
             background: transparent;
             color: $primary-color;
         }
+    }
+}
+
+
+.main-nav__mobile-top-row {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5.5rem;
+    @include breakpoint(mobile) {
+        display: flex;
+    }
+}
+
+
+.main-nav__mobile-top-row-logo {
+    width: 5.5rem;
+    height: auto;
+}
+
+
+.main-nav__mobile-top-row-menu-close {
+    margin-right: 0.3rem;
+    svg {
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        fill: white;
+    }
+}
+
+
+
+.main-nav__contacts {
+    color: white;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    display: none;
+    @include breakpoint(mobile) {
+        display: block;
+    }
+}
+
+
+.main-nav__contacts-address {
+    font-size: 1.2rem;
+    line-height: 1.9rem;
+    display: block;
+    transition: color .2s;
+    @include noHighlight();
+    &:link,
+    &:visited {
+        color: white;
+    }
+
+    .no-touch &:hover,
+    .touch &:active {
+        color: $primary-color;
+    }
+}
+
+
+.main-nav__contacts-phone {
+    font-family: $montserrat;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    font-weight: 800;
+    margin-top: 2.4rem;
+    display: block;
+    transition: color .2s;
+    @include noHighlight();
+    &:link,
+    &:visited {
+        color: white;
+    }
+
+    .no-touch &:hover,
+    .touch &:active {
+        color: $primary-color;
+    }
+}
+
+
+.main-nav__contacts-email {
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    margin-top: 0.5rem;
+    display: block;
+    transition: color .2s;
+    @include noHighlight();
+    &:link,
+    &:visited {
+        color: white;
+    }
+
+    .no-touch &:hover,
+    .touch &:active {
+        color: $primary-color;
     }
 }

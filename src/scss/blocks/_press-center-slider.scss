@@ -24,22 +24,31 @@
 .press-center-slider__tabs-navigation {
     display: flex;
     align-items: baseline;
+   
+
+    .is-touch &::-webkit-scrollbar {
+        display: none !important;
+    }
+    .is-touch &::-webkit-scrollbar-thumb {
+        display: none !important;
+        background: transparent !important;
+    }
     @include breakpoint(mobile) {
         flex-wrap: nowrap;
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
         margin: 0 calc(-1 * var(--content-padding));
         padding: 0 var(--content-padding);
+
+        padding-bottom: 1.5rem;
+        margin-bottom: -1.5rem;
         &::after {
             content: '';
             width: 1rem;
             height: 1px;
             display: block;
             flex-shrink: 0;
-        }
-        .is-touch &::-webkit-scrollbar {
-            display: none;
-        }
+        }  
     }
 }
 
