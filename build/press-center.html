@@ -9,7 +9,7 @@
         <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap&subset=cyrillic" rel="stylesheet" />
         <link rel="stylesheet" href="css/styles.min.css" />
         <title>
-            Sitemap
+            ТАИФ Пресс-центр
         </title>
     </head>
     <body class="no-touch" ontouchstart="">
@@ -831,58 +831,233 @@
             </header>
             <main class="page-main">
                 <div class="container">
-                    <style>
-                        .filelist {
-                            max-width: 600px;
-                            margin-top: 50px;
-                        }
-                        .filelist__item {
-                            margin-bottom: 20px;
-                        }
-
-                        .filelist__link:link,
-                        .filelist__link:visited {
-                            display: block;
-                            color: white;
-                            background-color: yellowgreen;
-                            padding: 20px;
-                        }
-                    </style>
-
-                    <div id="sitemap"></div>
-
-                    <script>
-                        (async () => {
-                            const sitemap = document.querySelector('#sitemap');
-                            const filelist = await fetch('filelist.json');
-
-                            if (!filelist.ok) {
-                                sitemap.textContent = 'Error happened';
-                                sitemap.style.color = 'red';
-                                return;
-                            }
-                            let filelistParsed = await filelist.json();
-
-                            filelistParsed = filelistParsed.filter(element => element !== 'sitemap.html');
-
-                            const ul = document.createElement('ul');
-                            ul.className = 'filelist';
-
-                            filelistParsed.forEach(item => {
-                                const filelistItem = document.createElement('li');
-                                filelistItem.className = 'filelist__item';
-                                const filelistLink = document.createElement('a');
-                                filelistLink.className = 'filelist__link';
-                                filelistLink.href = item;
-                                filelistLink.textContent = item;
-                                filelistLink.target = '_blank';
-                                filelistItem.appendChild(filelistLink);
-                                ul.appendChild(filelistItem);
-                            });
-
-                            sitemap.appendChild(ul);
-                        })();
-                    </script>
+                    <section class="press-center-top">
+                        <div class="press-center-top__fullwidth">
+                            <ul class="press-center-top__background-slider">
+                                <li class="press-center-top__background-slider-item active">
+                                    <img src="img/press-center-top/1.jpg" alt="" class="press-center-top__background-slider-image" />
+                                    <span class="press-center-top__background-slider-overlay"></span>
+                                </li>
+                                <li class="press-center-top__background-slider-item">
+                                    <img src="img/press-center-top/2.jpg" alt="" class="press-center-top__background-slider-image" />
+                                </li>
+                                <li class="press-center-top__background-slider-item">
+                                    <img src="img/press-center-top/1.jpg" alt="" class="press-center-top__background-slider-image" />
+                                </li>
+                                <li class="press-center-top__background-slider-item">
+                                    <img src="img/press-center-top/2.jpg" alt="" class="press-center-top__background-slider-image" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="inner-container">
+                            <div class="inner-container__left-column"></div>
+                            <div class="inner-container__right-column inner-container__right-column--flex">
+                                <div class="press-center-top__content-slider">
+                                    <h2 class="press-center-top__content-slider-heading">
+                                        Пресс-центр
+                                    </h2>
+                                    <div class="press-center-top__content-slider-wrapper">
+                                        <ul class="press-center-top__content-slider-list">
+                                            <li class="press-center-top__content-slider-list-item active">
+                                                <a href="#" class="press-center-top__content-slider-card">
+                                                    <p class="press-center-top__content-slider-card-label">
+                                                        Актуально
+                                                    </p>
+                                                    <h3 class="press-center-top__content-slider-card-heading">
+                                                        Делегация одного из ведущих международных подрядчиков строительства и оснащения нефтеперерабатывающих производств побывала в главном офисе АО «ТАИФ»
+                                                    </h3>
+                                                    <span class="press-center-top__content-slider-card-circle">
+                                                        <svg width="8" height="16" aria-hidden="true" class="icon-arrow-right">
+                                                            <use xlink:href="#arrow-right" />
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="press-center-top__content-slider-list-item">
+                                                <a href="#" class="press-center-top__content-slider-card">
+                                                    <p class="press-center-top__content-slider-card-label">
+                                                        Актуально
+                                                    </p>
+                                                    <h3 class="press-center-top__content-slider-card-heading">
+                                                        Maire Tecnimont: «Мы нацелены возобновить работу с ГК ТАИФ
+                                                    </h3>
+                                                    <span class="press-center-top__content-slider-card-circle">
+                                                        <svg width="8" height="16" aria-hidden="true" class="icon-arrow-right">
+                                                            <use xlink:href="#arrow-right" />
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="press-center-top__content-slider-navigation">
+                                        <ul class="press-center-top__content-slider-navigation-list">
+                                            <li class="press-center-top__content-slider-navigation-list-item">
+                                                <a href="#" class="press-center-top__content-slider-navigation-card active">
+                                                    <p class="press-center-top__content-slider-navigation-card-text">
+                                                        Итоги собрания 2019 акционеров ОАО «Казаньоргсинтез» в офисе Группы Компаний «ТАИФ»
+                                                    </p>
+                                                    <p class="press-center-top__content-slider-navigation-card-date">
+                                                        26 июня 2019
+                                                    </p>
+                                                </a>
+                                            </li>
+                                            <li class="press-center-top__content-slider-navigation-list-item">
+                                                <a href="#" class="press-center-top__content-slider-navigation-card">
+                                                    <p class="press-center-top__content-slider-navigation-card-text">
+                                                        Maire Tecnimont: «Мы нацелены возобновить работу с ГК ТАИФ
+                                                    </p>
+                                                    <p class="press-center-top__content-slider-navigation-card-date">
+                                                        26 июня 2019
+                                                    </p>
+                                                </a>
+                                            </li>
+                                            <li class="press-center-top__content-slider-navigation-list-item">
+                                                <a href="#" class="press-center-top__content-slider-navigation-card">
+                                                    <p class="press-center-top__content-slider-navigation-card-text">
+                                                        Итоги собрания 2019 акционеров ОАО «Казаньоргсинтез» в офисе Группы Компаний «ТАИФ»
+                                                    </p>
+                                                    <p class="press-center-top__content-slider-navigation-card-date">
+                                                        26 июня 2019
+                                                    </p>
+                                                </a>
+                                            </li>
+                                            <li class="press-center-top__content-slider-navigation-list-item">
+                                                <a href="#" class="press-center-top__content-slider-navigation-card">
+                                                    <p class="press-center-top__content-slider-navigation-card-text">
+                                                        Благодаря ГК ТАИФ появился современный паркинг почти на тысячу машин
+                                                    </p>
+                                                    <p class="press-center-top__content-slider-navigation-card-date">
+                                                        26 июня 2019
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="press-center-main">
+                        <div class="inner-container">
+                            <div class="inner-container__left-column"></div>
+                            <div class="inner-container__right-column">
+                                <nav class="press-center-main__navigation">
+                                    <ul class="press-center-main__navigation-list">
+                                        <li class="press-center-main__navigation-list-item active">
+                                            <a href="#" class="press-center-main__navigation-link">
+                                                Актуальное
+                                            </a>
+                                        </li>
+                                        <li class="press-center-main__navigation-list-item">
+                                            <a href="#" class="press-center-main__navigation-link">
+                                                Публикации в СМИ
+                                            </a>
+                                        </li>
+                                        <li class="press-center-main__navigation-list-item">
+                                            <a href="#" class="press-center-main__navigation-link">
+                                                Пресс-релизы
+                                            </a>
+                                        </li>
+                                        <li class="press-center-main__navigation-list-item">
+                                            <a href="#" class="press-center-main__navigation-link">
+                                                Фотоархив
+                                            </a>
+                                        </li>
+                                        <li class="press-center-main__navigation-list-item">
+                                            <a href="#" class="press-center-main__navigation-link">
+                                                Видеоархив
+                                            </a>
+                                        </li>
+                                        <li class="press-center-main__navigation-list-item">
+                                            <a href="#" class="press-center-main__navigation-link">
+                                                Корпоративная пресса
+                                            </a>
+                                        </li>
+                                        <li class="press-center-main__navigation-list-item">
+                                            <a href="#" class="press-center-main__navigation-link">
+                                                Буклеты и презентации
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <form action="/" class="press-center__search-form">
+                                        <input type="search" name="q" placeholder="Найти материал" class="press-center__search-input" />
+                                        <button class="press-center__search-submit">
+                                            <svg width="28" height="28" aria-hidden="true" class="icon-search">
+                                                <use xlink:href="#search" />
+                                            </svg>
+                                        </button>
+                                    </form>
+                                </nav>
+                                <div class="layout-with-sidebar">
+                                    <div class="layout-with-sidebar__main">
+                                        <div class="press-center-main__cards">
+                                            <ul class="press-center-main__cards-list">
+                                                <li class="press-center-main__cards-list-item">
+                                                    <a href="#" class="press-center-main__cards-card">
+                                                        <div class="press-center-main__cards-card-image-container">
+                                                            <img src="img/press-center-cards/1.jpg" alt="" class="press-center-main__cards-card-image" />
+                                                        </div>
+                                                        <p class="press-center-main__cards-card-date">
+                                                            26 июня 2019
+                                                        </p>
+                                                        <h4 class="press-center-main__cards-card-title">
+                                                            Благодаря ГК ТАИФ появился современный паркинг почти на тысячу машин
+                                                        </h4>
+                                                    </a>
+                                                </li>
+                                                <li class="press-center-main__cards-list-item">
+                                                    <a href="#" class="press-center-main__cards-card">
+                                                        <div class="press-center-main__cards-card-image-container">
+                                                            <img src="img/press-center-cards/2.jpg" alt="" class="press-center-main__cards-card-image" />
+                                                        </div>
+                                                        <p class="press-center-main__cards-card-date">
+                                                            26 июня 2019
+                                                        </p>
+                                                        <h4 class="press-center-main__cards-card-title">
+                                                            Благодаря ГК ТАИФ появился современный паркинг почти на тысячу машин
+                                                        </h4>
+                                                    </a>
+                                                </li>
+                                                <li class="press-center-main__cards-list-item">
+                                                    <a href="#" class="press-center-main__cards-special-card">
+                                                        <p class="press-center-main__cards-special-card-label">
+                                                            Актуально
+                                                        </p>
+                                                        <h4 class="press-center-main__cards-special-card-heading">
+                                                            Благодаря ГК ТАИФ появился современный паркинг почти на тысячу машин
+                                                        </h4>
+                                                        <p class="press-center-main__cards-special-card-text">
+                                                            Горячая линия по вопросам противодействия мошенничеству, коррупции и хищениям
+                                                        </p>
+                                                        <span class="press-center-main__cards-special-card-circle">
+                                                            <svg width="6" height="10" aria-hidden="true" class="icon-arrow-right">
+                                                                <use xlink:href="#arrow-right" />
+                                                            </svg>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li class="press-center-main__cards-list-item">
+                                                    <a href="#" class="press-center-main__cards-card">
+                                                        <div class="press-center-main__cards-card-image-container">
+                                                            <img src="img/press-center-cards/3.jpg" alt="" class="press-center-main__cards-card-image" />
+                                                        </div>
+                                                        <p class="press-center-main__cards-card-date">
+                                                            26 июня 2019
+                                                        </p>
+                                                        <h4 class="press-center-main__cards-card-title">
+                                                            «Нижнекамскнефтехим» вручил поисковому отряду «Нефтехимик» металлодетекторы
+                                                        </h4>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="layout-with-sidebar__sidebar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </main>
             <footer class="page-footer">

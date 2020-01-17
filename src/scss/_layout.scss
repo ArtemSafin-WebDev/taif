@@ -57,6 +57,31 @@
 }
 
 
+
+.layout-with-sidebar {
+    display: flex;
+    flex-grow: 1;
+}
+
+
+.layout-with-sidebar__main {
+    width: 30%;
+    flex-grow: 1;
+}
+
+
+.layout-with-sidebar__sidebar {
+    width: 36rem;
+    margin-left: 7rem;
+    flex-shrink: 0;
+
+    &--narrow {
+        width: 24.7rem;
+        margin-left: 8.4rem;
+    }
+}
+
+
 .page-content {
     flex-grow: 1;
     display: flex;
