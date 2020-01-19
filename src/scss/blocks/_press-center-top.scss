@@ -4,6 +4,7 @@
     color: white;
     display: flex;
     flex-direction: column;
+    margin-bottom: 8rem;
 }
 
 
@@ -232,12 +233,21 @@
     flex-grow: 1;
     border-top: 1px solid rgba(#F4F4F4, .3);
     transition: border-color .2s;
+    
     @include noHighlight();
     &:link,
     &:visited {
         color: white;
     }
 
+
+    .no-touch &:not(.active):hover,
+    .touch &:not(.active):active {
+        border-color: rgba(#F4F4F4, .6);
+        .press-center-top__content-slider-navigation-card-text {
+            color: rgba(white, .8);
+        }
+    }
 
     &.active {
         border-color: white;

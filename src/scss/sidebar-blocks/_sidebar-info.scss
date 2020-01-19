@@ -1,0 +1,91 @@
+.sidebar-info {
+    
+    margin: 5.5rem 0;
+    border-radius: 4px;
+    border: 1px solid #E5E5E5;
+    color: black;
+    overflow: hidden;
+    backface-visibility: hidden;
+    padding: 3.2rem;
+    padding-top: 2.8rem;
+    &:first-child {
+        margin-top: 0;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+
+.sidebar-info__heading {
+    font-family: $montserrat;
+    font-weight: 800;
+    font-size: 1.3rem;
+    line-height: 1.46;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    letter-spacing: .15em;
+    color: $primary-color;
+}
+
+
+.sidebar-info__large-paragraph {
+    font-family: $proxima;
+    font-size: 1.6rem;
+    line-height: 1.375;
+    margin-bottom: 4rem;
+}
+
+
+
+.sidebar-info__large-link {
+    display: inline-block;
+    font-family: $montserrat;
+    font-weight: 700;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    transition: color .2s;
+    &:link,
+    &:visited {
+        color: black;
+    }
+
+
+    .no-touch &:hover,
+    .touch &:active {
+        color: $primary-color;
+    }
+}
+
+
+
+.sidebar-info__small-paragraph {
+    font-family: $proxima;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1.7rem;
+}
+
+
+
+.sidebar-info__small-link {
+    display: inline-block;
+    font-family: $montserrat;
+    font-weight: 700;
+    font-size: 1.7rem;
+    line-height: 1.2;
+    color: $primary-color;
+    transition: color .2s;
+    &:link,
+    &:visited {
+        color: $primary-color;
+    }
+
+
+    .no-touch &:hover,
+    .touch &:active {
+        color: black;
+    }
+}

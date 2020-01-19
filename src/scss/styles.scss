@@ -10,7 +10,7 @@
 @import 'fontface';
 @import 'main-nav';
 
-// Blocks styles
+// Blocks 
 
 @import 'blocks/intro-slider';
 @import 'blocks/learn-more';
@@ -18,5 +18,11 @@
 @import 'blocks/info-cards';
 @import 'blocks/press-center-top';
 @import 'blocks/press-center-main';
+
+
+// Sidebar blocks
+
+@import 'sidebar-blocks/sidebar-slider';
+@import 'sidebar-blocks/sidebar-info';
 
 

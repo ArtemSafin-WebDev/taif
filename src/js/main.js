@@ -5,6 +5,9 @@ import PressCenterSlider from './classes/pressCenterSlider';
 import StocksCard from './classes/stocksCard';
 import StructureMenu from './classes/structureMenu';
 import MainMenu from './classes/mainMenu';
+import PressCenterNewsSlider from './classes/pressCenterNewsSlider';
+import SidebarSlider from './classes/sidebarSlider';
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -54,6 +57,19 @@ document.addEventListener('DOMContentLoaded', function() {
         card.parentElement.style.display = "none";
         
     }));
+
+
+    // Press center news slider
+
+    const pressCenterNewsSliders = Array.from(document.querySelectorAll('.js-press-center-news-slider'));
+
+    pressCenterNewsSliders.forEach(element => new PressCenterNewsSlider(element));
+
+    // Sidebar sliders
+
+    const sidebarSliders = Array.from(document.querySelectorAll('.js-sidebar-slider'));
+
+    sidebarSliders.forEach(element => new SidebarSlider(element));
 });
 
 window.addEventListener('load', function() {

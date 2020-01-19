@@ -1,0 +1,154 @@
+.sidebar-slider {
+    position: relative;
+    margin: 5.5rem 0;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: $primary-color;
+    color: white;
+    &:first-child {
+        margin-top: 0;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+
+.sidebar-slider__card {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 3.2rem;
+    padding-bottom: 0;
+    position: relative;
+    &::before {
+        content: '';
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        background-color: $primary-color;
+    }
+}
+
+
+
+.sidebar-slider__card-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: .15;
+    mix-blend-mode: multiply;
+    @include objectFitCover();
+
+}
+
+
+.sidebar-slider__card-heading {
+    font-family: $montserrat;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    letter-spacing: .2em;
+    color: rgba(white, .5);
+    margin-bottom: 1rem;
+}
+
+
+
+.sidebar-slider__card-subheading {
+    font-family: $montserrat;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 1.33;
+    color: white;
+    margin-bottom: 3rem;
+}
+
+
+
+.sidebar-slider__card-image {
+    height: auto;
+    flex-grow: 1;
+    
+    display: block;
+    @include objectFitContain();
+}
+
+
+
+.sidebar-slider__controls {
+    position: absolute;
+    right: 3rem;
+    bottom: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 30;
+}
+
+
+
+.sidebar-slider__controls-btn {
+    width: 5.4rem;
+    height: 5.4rem;
+    border-radius: 50%;
+    border: 1px solid white;
+    margin-right: 1rem;
+    flex-shrink: 0;
+    transition: background-color 0.2s, border-color 0.2s;
+    background-color: #fff;
+    &.swiper-button-disabled {
+        opacity: 0.5;
+        cursor: default;
+        background: transparent;
+        svg {
+            fill: white;
+        }
+    }
+    svg {
+        fill: $primary-color;
+        width: 0.8rem;
+        height: 1.6rem;
+        transition: fill 0.2s;
+    }
+
+    .no-touch &:not(.swiper-button-disabled):hover,
+    .touch &:not(.swiper-button-disabled):active {
+        background-color: $primary-color;
+        border-color: $primary-color;
+        svg {
+            fill: white;
+        }
+    }
+
+    &--prev {
+        svg {
+            margin-right: 0.2rem;
+        }
+    }
+    &--next {
+        svg {
+            margin-left: 0.2rem;
+        }
+    }
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+
+.sidebar-slider__controls-btn-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

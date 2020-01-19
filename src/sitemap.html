@@ -5,10 +5,22 @@
 
     <style>
         .filelist {
+            
+            
+            padding-top: 300px;
+            position: relative;
+            padding-bottom: 30px;
+        }
 
-            max-width: 600px;
-            margin-top: 50px;
-
+        .filelist::before {
+            content: '';
+            position: absolute;
+            left: calc((100vw - 100%) / 2 * -1);
+            width: 100vw;
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+            background-color: #1EAC72;
         }
         .filelist__item {
             margin-bottom: 20px;
@@ -18,7 +30,8 @@
         .filelist__link:visited {
             display: block;
             color: white;
-            background-color: yellowgreen;
+           
+            background-color: #3F5179;
             padding: 20px;
         }
     </style>
