@@ -4100,8 +4100,8 @@ img.lazyload:not([src]) {
   z-index: 2;
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: opacity .3s, visibility 0s linear .3s;
-  transition: opacity .3s, visibility 0s linear .3s;
+  -webkit-transition: opacity .5s, visibility 0s linear .5s;
+  transition: opacity .5s, visibility 0s linear .5s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4117,8 +4117,8 @@ img.lazyload:not([src]) {
     z-index: 10;
     opacity: 1;
     visibility: visible;
-    -webkit-transition: all .3s;
-    transition: all .3s; }
+    -webkit-transition: all .5s ease .5s;
+    transition: all .5s ease .5s; }
 
 .press-center-top__content-slider-card {
   display: block;
