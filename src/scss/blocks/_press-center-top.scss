@@ -34,7 +34,7 @@
     z-index: 2;
     opacity: 0;
     visibility: hidden;
-    transition: opacity .3s ease .3s, visibility 0s linear .6s;
+    transition: opacity 0s linear 1s, visibility 0s linear 1s;
     &::before {
         content: '';
         position: absolute;
@@ -49,7 +49,7 @@
     &.active {
         opacity: 1;
         visibility: visible;
-        transition: all .3s;
+        transition: all 1s;
         z-index: 10;
     }
 }
@@ -64,8 +64,14 @@
     top: 0;
     z-index: -1;
     @include objectFitCover();
-    transition: all .6s;
+    transition: all 0s linear 1s;
     opacity: 1;
+    transform: translateX(20%);
+
+    .press-center-top__background-slider-item.active & {
+        transform: translateX(0%);
+        transition: all .5s;
+    }
 }
 
 
