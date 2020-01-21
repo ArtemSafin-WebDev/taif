@@ -4052,9 +4052,13 @@ img.lazyload:not([src]) {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.13%, rgba(4, 0, 37, 0.8)), color-stop(34.89%, rgba(4, 0, 37, 0.6)), to(rgba(3, 0, 37, 0.9)));
   background: linear-gradient(180deg, rgba(4, 0, 37, 0.8) 0.13%, rgba(4, 0, 37, 0.6) 34.89%, rgba(3, 0, 37, 0.9) 100%);
   z-index: 14;
-  opacity: 1;
-  -webkit-transition: opacity .3s;
-  transition: opacity .3s; }
+  opacity: .2;
+  -webkit-transition: opacity 0s linear 1s;
+  transition: opacity 0s linear 1s; }
+  .press-center-top__background-slider-item.active .press-center-top__background-slider-overlay {
+    opacity: 1;
+    -webkit-transition: opacity .5s ease .5s;
+    transition: opacity .5s ease .5s; }
 
 .press-center-top__content-slider {
   -webkit-box-flex: 1;

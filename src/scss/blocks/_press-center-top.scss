@@ -87,8 +87,14 @@
     background-repeat: no-repeat;
     background: linear-gradient(180deg, rgba(4, 0, 37, 0.8) 0.13%, rgba(4, 0, 37, 0.6) 34.89%, rgba(3, 0, 37, 0.9) 100%);
     z-index: 14;
-    opacity: 1;
-    transition: opacity .3s;
+    opacity: .2;
+    transition: opacity 0s linear 1s;
+
+
+    .press-center-top__background-slider-item.active & {
+        opacity: 1;
+        transition: opacity .5s ease .5s; 
+    }
 }
 
 
