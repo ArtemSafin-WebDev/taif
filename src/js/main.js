@@ -7,8 +7,7 @@ import StructureMenu from './classes/structureMenu';
 import MainMenu from './classes/mainMenu';
 import PressCenterNewsSlider from './classes/pressCenterNewsSlider';
 import SidebarSlider from './classes/sidebarSlider';
-
-
+import PressCenterTop from './classes/pressCenterTop';
 
 document.addEventListener('DOMContentLoaded', function() {
     // Polyfills
@@ -70,6 +69,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebarSliders = Array.from(document.querySelectorAll('.js-sidebar-slider'));
 
     sidebarSliders.forEach(element => new SidebarSlider(element));
+
+
+    // Press center top
+
+    const pressCenterTops = Array.from(document.querySelectorAll('.js-press-center-top'));
+    
+    pressCenterTops.forEach(element => {
+        new PressCenterTop(element);
+    });
 });
 
 window.addEventListener('load', function() {
