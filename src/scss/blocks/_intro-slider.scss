@@ -233,7 +233,7 @@
     line-height: 1.33;
     margin: auto;
     margin-right: 0;
-
+    margin-top: 9rem;
     @include breakpoint(mobile) {
         max-width: auto;
         margin: 0;
@@ -355,6 +355,11 @@
     border-radius: 4px;
     overflow: hidden;
     backface-visibility: hidden;
+    pointer-events: none;
+
+    .swiper-slide-active & {
+        pointer-events: initial;
+    }
     @include breakpoint(mobile) {
         padding: 2rem;
     }
@@ -431,6 +436,10 @@
         padding: .5rem 1rem;
     }
 }
+
+
+
+
 
 .intro-slider__inner-slider-card-image {
     position: absolute;

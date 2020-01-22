@@ -30,6 +30,7 @@ class IntroSlider {
             innerSliderOptions: {
                 watchOverflow: true,
                 slidesPerView: 'auto',
+                slideToClickedSlide: true,
                 spaceBetween: 15,
                 longSwipesRatio: 0.2,
                 watchSlidesProgress: true,
@@ -89,9 +90,11 @@ class IntroSlider {
 
             const swiperInstance = new Swiper(container, options);
 
-            swiperInstance.on('touchMove', () => {
+            swiperInstance.on('slideChange', () => {
                 this.changeSlide.call(this, elementIndex);
             });
+
+            swiperInstance.snapGrid = [...swiperInstance.slidesGrid];
 
             this.state.innerSliders.push(swiperInstance);
         });

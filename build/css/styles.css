@@ -1923,7 +1923,7 @@ img.lazyload:not([src]) {
 .main-nav__submenu-wrapper {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 2.5px;
   padding-top: 1.5rem;
   opacity: 0;
   visibility: hidden;
@@ -2327,7 +2327,8 @@ img.lazyload:not([src]) {
   font-size: 1.8rem;
   line-height: 1.33;
   margin: auto;
-  margin-right: 0; }
+  margin-right: 0;
+  margin-top: 9rem; }
   @media only screen and (max-width: 767px) {
     .intro-slider__description {
       max-width: auto;
@@ -2472,7 +2473,10 @@ img.lazyload:not([src]) {
   border-radius: 4px;
   overflow: hidden;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden; }
+          backface-visibility: hidden;
+  pointer-events: none; }
+  .swiper-slide-active .intro-slider__inner-slider-card {
+    pointer-events: initial; }
   @media only screen and (max-width: 767px) {
     .intro-slider__inner-slider-card {
       padding: 2rem; } }
@@ -4225,6 +4229,10 @@ img.lazyload:not([src]) {
   border-top: 1px solid rgba(244, 244, 244, 0.3);
   -webkit-transition: border-color .2s;
   transition: border-color .2s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   -webkit-tap-highlight-color: transparent; }
   .press-center-top__content-slider-navigation-card:link, .press-center-top__content-slider-navigation-card:visited {
     color: white; }
@@ -4238,6 +4246,8 @@ img.lazyload:not([src]) {
     border-color: white; }
     .press-center-top__content-slider-navigation-card.active .press-center-top__content-slider-navigation-card-text {
       color: white; }
+  .navigation-disabled .press-center-top__content-slider-navigation-card {
+    cursor: default; }
 
 .press-center-top__content-slider-navigation-card-text {
   color: rgba(255, 255, 255, 0.7);

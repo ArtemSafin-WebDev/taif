@@ -120,90 +120,7 @@
                 </symbol>
             </svg>
         </div>
-        <style>
-            .preloader {
-                position: fixed;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 10000;
-                display: -webkit-box;
-                display: -ms-flexbox;
-                display: flex;
-                -webkit-box-orient: vertical;
-                -webkit-box-direction: normal;
-                -ms-flex-direction: column;
-                flex-direction: column;
-                background-color: #fff;
-            }
-            .loaded .preloader {
-                opacity: 0;
-                visibility: hidden;
-                -webkit-transition: opacity 0.3s, visibility 0s linear 0.3s;
-                transition: opacity 0.3s, visibility 0s linear 0.3s;
-            }
 
-            .preloader__logo {
-                width: 200px;
-                height: auto;
-                margin: auto;
-                -webkit-animation: preloader-logo 2s linear infinite forwards;
-                animation: preloader-logo 2s linear infinite forwards;
-            }
-
-            @media only screen and (max-width: 1440px) {
-                .preloader__logo {
-                    width: auto;
-                    max-width: 150px;
-                }
-            }
-            @media only screen and (max-width: 768px) {
-                .preloader__logo {
-                    width: auto;
-                    max-width: 100px;
-                }
-            }
-            @media only screen and (max-width: 576px) {
-                .preloader__logo {
-                    width: auto;
-                    max-width: 80px;
-                }
-            }
-
-            @-webkit-keyframes preloader-logo {
-                0% {
-                    -webkit-transform: scale(1);
-                    transform: scale(1);
-                }
-                50% {
-                    -webkit-transform: scale(1.2);
-                    transform: scale(1.2);
-                }
-                100% {
-                    -webkit-transform: scale(1);
-                    transform: scale(1);
-                }
-            }
-
-            @keyframes preloader-logo {
-                0% {
-                    -webkit-transform: scale(1);
-                    transform: scale(1);
-                }
-                50% {
-                    -webkit-transform: scale(1.2);
-                    transform: scale(1.2);
-                }
-                100% {
-                    -webkit-transform: scale(1);
-                    transform: scale(1);
-                }
-            }
-        </style>
-        <div class="preloader">
-            <img src="img/logos/taif-color-logo.svg" width="200" alt="Логотип ТАИФ" class="preloader__logo" />
-        </div>
         <div class="page-content">
             <header class="page-header">
                 <div class="container">
@@ -834,7 +751,7 @@
                     <section class="press-center-top js-press-center-top">
                         <div class="press-center-top__fullwidth">
                             <ul class="press-center-top__background-slider">
-                                <li class="press-center-top__background-slider-item active">
+                                <li class="press-center-top__background-slider-item">
                                     <img src="img/press-center-top/1.jpg" alt="" class="press-center-top__background-slider-image" />
                                     <span class="press-center-top__background-slider-overlay"></span>
                                 </li>
@@ -861,7 +778,7 @@
                                     </h2>
                                     <div class="press-center-top__content-slider-wrapper">
                                         <ul class="press-center-top__content-slider-list">
-                                            <li class="press-center-top__content-slider-list-item active">
+                                            <li class="press-center-top__content-slider-list-item">
                                                 <a href="#" class="press-center-top__content-slider-card">
                                                     <p class="press-center-top__content-slider-card-label">
                                                         Актуально
@@ -926,7 +843,7 @@
                                     <div class="press-center-top__content-slider-navigation">
                                         <ul class="press-center-top__content-slider-navigation-list">
                                             <li class="press-center-top__content-slider-navigation-list-item">
-                                                <a href="#" class="press-center-top__content-slider-navigation-card active">
+                                                <a href="#" class="press-center-top__content-slider-navigation-card">
                                                     <p class="press-center-top__content-slider-navigation-card-text">
                                                         Итоги собрания 2019 акционеров ОАО «Казаньоргсинтез» в офисе Группы Компаний «ТАИФ»
                                                     </p>

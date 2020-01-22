@@ -25,6 +25,7 @@ class PressCenterSlider {
                     }
                 }
             }
+           
         };
 
         this.initializeSliders();
