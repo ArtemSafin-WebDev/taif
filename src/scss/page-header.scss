@@ -456,6 +456,12 @@
         }
     }
 
+    .page-header--color & {
+        > span {
+            background-color: black;
+        }
+    }
+
     .page-header__burger-btn.active & {
         > span {
             &:nth-child(1) {

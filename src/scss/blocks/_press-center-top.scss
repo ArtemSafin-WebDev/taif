@@ -39,7 +39,7 @@
     z-index: 2;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0s linear .5s, visibility 0s linear .5s;
+    transition: opacity 0s linear 1s, visibility 0s linear 1s;
     &::before {
         content: '';
         position: absolute;
@@ -54,12 +54,10 @@
     &.active {
         opacity: 1;
         visibility: visible;
-        transition: all .5s ease;
+        transition: all .5s linear .5s;
         z-index: 10;
     }
 }
-
-
 
 .press-center-top__background-slider-image {
     width: 100%;
@@ -71,7 +69,6 @@
     @include objectFitCover();
     transition: all 0s linear 1s;
     opacity: 1;
-    
 
     .press-center-top__background-slider-item.active & {
         transform: translateX(0%);
@@ -93,7 +90,7 @@
     background: linear-gradient(180deg, rgba(4, 0, 37, 0.8) 0.13%, rgba(4, 0, 37, 0.6) 34.89%, rgba(3, 0, 37, 0.9) 100%);
     z-index: 14;
     opacity: .2;
-    transition: opacity 0s linear 1.3s;
+    transition: opacity .5s linear;
     .press-center-top__background-slider-item.active & {
         opacity: 1;
         transition: opacity .5s ease .8s; 

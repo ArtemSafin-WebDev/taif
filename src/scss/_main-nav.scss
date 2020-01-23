@@ -77,6 +77,20 @@
     user-select: none;
     @include noHighlight();
 
+    &:link,
+    &:visited {
+        color: white;
+    }
+
+
+    .page-header--color & {
+        color: black;
+        &:link,
+        &:visited {
+            color: black;
+        }
+    }
+
     .icon-arrow-down {
         display: none;
     }
@@ -90,6 +104,7 @@
         align-items: center;
         border: none;
         padding: 2rem 0;
+        color: white !important;
         .icon-arrow-down {
             fill: $primary-color;
             width: 1.6rem;
@@ -102,18 +117,7 @@
         }
     }
 
-    &:link,
-    &:visited {
-        color: white;
-    }
-
-    .page-header--color & {
-        color: black;
-        &:link,
-        &:visited {
-            color: black;
-        }
-    }
+  
 
     &:hover {
         border-color: $primary-color;
