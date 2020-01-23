@@ -9,6 +9,10 @@
 @import 'page-footer';
 @import 'fontface';
 @import 'main-nav';
+@import 'side-menu';
+@import 'photo-slider';
+@import 'blockquote';
+@import 'info-card';
 
 // Blocks 
 
@@ -18,11 +22,13 @@
 @import 'blocks/info-cards';
 @import 'blocks/press-center-top';
 @import 'blocks/press-center-main';
+@import 'blocks/article-main';
 
 
 // Sidebar blocks
 
 @import 'sidebar-blocks/sidebar-slider';
 @import 'sidebar-blocks/sidebar-info';
+@import 'sidebar-blocks/sidebar-other-news';
 
 

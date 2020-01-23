@@ -1,10 +1,15 @@
 .press-center-main__navigation {
     display: flex;
     align-items: center;
-
+    margin-bottom: 6.2rem;
+ 
     @include breakpoint(tablet) {
         flex-direction: column;
         align-items: initial;
+    }
+
+    @include breakpoint(small-mobile) {
+        margin-bottom: 5rem;
     }
 }
 

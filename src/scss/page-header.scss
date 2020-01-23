@@ -33,6 +33,13 @@
     &:visited {
         color: white;
     }
+
+    .page-header--color & {
+        &:link,
+        &:visited {
+            color: black;
+        }
+    }
 }
 
 .page-header__company-structure-burger {
@@ -51,7 +58,11 @@
         margin-bottom: 5px;
     }
 
-
+    .page-header--color & {
+        > span {
+            background-color: black;
+        }
+    }
 }
 
 .page-header__company-structure-text {
@@ -66,7 +77,6 @@
     @include breakpoint(mobile) {
         order: -1;
         margin-right: 2.4rem;
-        
     }
 }
 
@@ -107,6 +117,13 @@
         color: white;
     }
 
+    .page-header--color & {
+        &:link,
+        &:visited {
+            color: black;
+        }
+    }
+
     .no-touch &:hover,
     .touch &:active {
         color: $primary-color;
@@ -127,6 +144,7 @@
     align-items: center;
     justify-content: center;
     transition: all 0.2s;
+
     > svg {
         fill: white;
         width: 2rem;
@@ -134,10 +152,26 @@
         transition: fill 0.2s;
     }
 
+    .page-header--color & {
+        border-color: $primary-color;
+        > svg {
+            fill: $primary-color;
+        }
+    }
+
     .no-touch &:hover,
     .touch &:active {
         background-color: $primary-color;
         border-color: $primary-color;
+    }
+
+    .page-header--color & {
+        .no-touch &:hover,
+        .touch &:active {
+            > svg {
+                fill: white;
+            }
+        }
     }
 }
 
@@ -180,7 +214,6 @@
     display: flex;
     flex-direction: column;
 
-
     @include breakpoint(mobile) {
         width: 0;
     }
@@ -204,7 +237,7 @@
         left: 100%;
         height: 1px;
         width: 3.8rem;
-        background-color: rgba(white, .2);
+        background-color: rgba(white, 0.2);
         position: absolute;
     }
 }
@@ -239,7 +272,6 @@
         color: white;
     }
 }
-
 
 .page-header__company-structure-menu-close-text {
     @include breakpoint(mobile) {
@@ -324,7 +356,6 @@
     }
 }
 
-
 .page-header__company-structure-block-list-item.hidden ~ .page-header__company-structure-block-list-item {
     display: none;
 }
@@ -341,20 +372,19 @@
         fill: $primary-color;
         opacity: 0;
         visibility: hidden;
-        transition: opacity .3s, visibility 0s linear .3s;
+        transition: opacity 0.3s, visibility 0s linear 0.3s;
         @include breakpoint(mobile) {
             right: 1rem;
             top: 1rem;
         }
     }
 
-
     .no-touch &:hover,
     .touch &:active {
         .icon-link {
             opacity: 1;
             visibility: visible;
-            transition: all .3s;
+            transition: all 0.3s;
         }
 
         .page-header__company-structure-block-card-show-more-text {
@@ -369,7 +399,6 @@
     }
 }
 
-
 .page-header__company-structure-block-card-show-more-text {
     position: absolute;
     width: 100%;
@@ -383,8 +412,8 @@
     font-family: $proxima;
     font-size: 1.8rem;
     line-height: 1.33;
-    color: rgba(white, .8);
-    transition: color .2s;
+    color: rgba(white, 0.8);
+    transition: color 0.2s;
     @include breakpoint(mobile) {
         font-size: 1.4rem;
     }
@@ -401,9 +430,6 @@
     transform: translate(-50%, -50%);
 }
 
-
-
-
 .page-header__burger-btn {
     display: none;
     outline: none;
@@ -415,7 +441,6 @@
     }
 }
 
-
 .page-header__burger-btn-content {
     display: flex;
     flex-direction: column;
@@ -425,23 +450,22 @@
         margin-bottom: 0.6rem;
         background-color: #fff;
         flex-shrink: 0;
-        transition: all .2s;
+        transition: all 0.2s;
         &:last-child {
             margin-bottom: 0;
         }
     }
 
-
     .page-header__burger-btn.active & {
         > span {
             &:nth-child(1) {
-                transform: translateY(.8rem) rotate(45deg);
+                transform: translateY(0.8rem) rotate(45deg);
             }
             &:nth-child(2) {
                 opacity: 0;
             }
             &:nth-child(3) {
-                transform: translateY(-.8rem) rotate(-45deg);
+                transform: translateY(-0.8rem) rotate(-45deg);
             }
         }
     }

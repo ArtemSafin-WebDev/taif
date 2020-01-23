@@ -27,8 +27,6 @@
     }
 }
 
-
-
 .main-nav__list {
     display: flex;
     flex-wrap: wrap;
@@ -43,7 +41,6 @@
     padding: 2.5px;
     position: relative;
 
-   
     &--home {
         @include breakpoint(mobile) {
             display: none;
@@ -101,7 +98,7 @@
             flex-shrink: 0;
             display: block;
             margin-bottom: 0.2rem;
-            transition: transform .2s;
+            transition: transform 0.2s;
         }
     }
 
@@ -110,10 +107,17 @@
         color: white;
     }
 
+    .page-header--color & {
+        color: black;
+        &:link,
+        &:visited {
+            color: black;
+        }
+    }
+
     &:hover {
         border-color: $primary-color;
     }
-
 
     &.active {
         .icon-arrow-down {
@@ -147,14 +151,11 @@
         backface-visibility: hidden;
         max-width: none;
         max-height: 0;
-        
 
-        
         opacity: 1;
         visibility: inherit;
 
-       
-        transition: height .2s linear, max-height .2s linear;
+        transition: height 0.2s linear, max-height 0.2s linear;
         overflow: hidden;
     }
 }
@@ -223,7 +224,6 @@
     }
 }
 
-
 .main-nav__mobile-top-row {
     display: none;
     justify-content: space-between;
@@ -234,12 +234,10 @@
     }
 }
 
-
 .main-nav__mobile-top-row-logo {
     width: 5.5rem;
     height: auto;
 }
-
 
 .main-nav__mobile-top-row-menu-close {
     margin-right: 0.3rem;
@@ -251,8 +249,6 @@
     }
 }
 
-
-
 .main-nav__contacts {
     color: white;
     padding-top: 5rem;
@@ -263,12 +259,11 @@
     }
 }
 
-
 .main-nav__contacts-address {
     font-size: 1.2rem;
     line-height: 1.9rem;
     display: block;
-    transition: color .2s;
+    transition: color 0.2s;
     @include noHighlight();
     &:link,
     &:visited {
@@ -280,7 +275,6 @@
         color: $primary-color;
     }
 }
-
 
 .main-nav__contacts-phone {
     font-family: $montserrat;
@@ -289,7 +283,7 @@
     font-weight: 800;
     margin-top: 2.4rem;
     display: block;
-    transition: color .2s;
+    transition: color 0.2s;
     @include noHighlight();
     &:link,
     &:visited {
@@ -302,14 +296,13 @@
     }
 }
 
-
 .main-nav__contacts-email {
     font-weight: 600;
     font-size: 1.2rem;
     line-height: 1.6rem;
     margin-top: 0.5rem;
     display: block;
-    transition: color .2s;
+    transition: color 0.2s;
     @include noHighlight();
     &:link,
     &:visited {

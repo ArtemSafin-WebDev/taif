@@ -8,6 +8,7 @@ import MainMenu from './classes/mainMenu';
 import PressCenterNewsSlider from './classes/pressCenterNewsSlider';
 import SidebarSlider from './classes/sidebarSlider';
 import PressCenterTop from './classes/pressCenterTop';
+import PhotoSlider from './classes/photoSlider';
 
 document.addEventListener('DOMContentLoaded', function() {
     // Polyfills
@@ -78,6 +79,15 @@ document.addEventListener('DOMContentLoaded', function() {
     pressCenterTops.forEach(element => {
         new PressCenterTop(element);
     });
+
+
+    // Photo sliders
+
+    const photoSliders = Array.from(document.querySelectorAll('.js-photo-slider'));
+
+    photoSliders.forEach(element => {
+        new PhotoSlider(element);
+    })
 });
 
 window.addEventListener('load', function() {

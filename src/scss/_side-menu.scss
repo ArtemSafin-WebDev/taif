@@ -1,0 +1,30 @@
+.side-menu__list-item {
+    margin-bottom: 1.5rem;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+.side-menu__link {
+    color: black;
+    font-family: $fira;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    padding: .6rem 1rem;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    transition: border-color .2s;
+    display: inline-flex;
+    width: min-content;
+    &:link,
+    &:visited {
+        color: black;
+    }
+
+    .no-touch &:hover,
+    .touch &:active,
+    .side-menu__list-item.active & {
+        border-color: $primary-color;
+    }
+}

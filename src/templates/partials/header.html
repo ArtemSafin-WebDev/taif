@@ -334,7 +334,12 @@
 
     </div>
     <a href="index.html" class="page-header__logo">
-        <img src="img/logos/taif-white-logo.svg" alt="Логотип ТАИФ" class="page-header__logo-image" width="100">
+
+        {% if headerType == 'color' %}
+            <img src="img/logos/taif-color-logo.svg" alt="Логотип ТАИФ" class="page-header__logo-image" width="100">
+        {% else %}
+            <img src="img/logos/taif-white-logo.svg" alt="Логотип ТАИФ" class="page-header__logo-image" width="100">
+        {% endif %}
     </a>
     <nav class="main-nav">
         <div class="main-nav__mobile-top-row">
@@ -592,7 +597,8 @@
         </ul>
         <div class="main-nav__contacts">
             <a href="#" class="main-nav__contacts-address">
-                ул. Щапова 27, г. Казань, Татарстан,<br> Россия, 420012
+                ул. Щапова 27, г. Казань, Татарстан,<br>
+                Россия, 420012
             </a>
             <a href="tel:+78005000191" class="main-nav__contacts-phone">8 800 5000 191</a>
             <a href="mailto:info@taif.ru" class="main-nav__contacts-email">info@taif.ru</a>

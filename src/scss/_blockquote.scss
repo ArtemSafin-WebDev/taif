@@ -1,0 +1,85 @@
+.blockquote {
+    background-color: #F4F8FB;
+    border-radius: 4px;
+    overflow: hidden;
+    color: black;
+    padding: 5rem;
+    display: block;
+
+    .icon-quotes {
+        width: 3rem;
+        height: 2.4rem;
+        fill: $primary-color;
+        flex-shrink: 0;
+        margin-bottom: 2rem;
+    }
+}
+
+
+
+.blockquote__text {
+    font-family: $montserrat;
+    font-weight: 700;
+    font-size: 2.8rem;
+    line-height: 1.4;
+}
+
+
+.blockquote__footer {
+    display: flex;
+    align-items: center;
+    margin-top: 8rem;
+}
+
+
+.blockquote__author-photo {
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-right: 3rem;
+    @include objectFitCover();
+}
+
+
+.blockquote__author-info {
+    width: 50%;
+    flex-grow: 1;
+}
+
+
+.blockquote__author-name {
+    font-family: $montserrat;
+    font-weight: 700;
+    font-size: 2.1rem;
+    line-height: 1.33;
+    margin-bottom: 0.5rem;
+}
+
+
+.blockquote__author-title {
+    font-family: $fira;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+}
+
+
+.blockquote__author-link {
+    display: inline;
+    align-self: flex-start;
+    font-family: $fira;
+    font-size: 1.6rem;
+    line-height: 1.31;
+    border-bottom: 1px solid rgba($primary-color, .3);
+    transition: border-color .2s;
+    &:link,
+    &:visited {
+        color: $primary-color;
+    }
+
+    .no-touch &:hover,
+    .touch &:active {
+        border-color: $primary-color;
+    }
+}
