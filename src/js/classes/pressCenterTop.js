@@ -10,7 +10,7 @@ class PressCenterTop {
         this.state = {
             activeIndex: 0,
             navigationDisabled: false,
-            freezeDuratuion: 1000,
+            freezeDuratuion: 1500,
             freezeTimer: null
         };
 

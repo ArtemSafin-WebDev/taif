@@ -4013,8 +4013,8 @@ img.lazyload:not([src]) {
   z-index: 2;
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: opacity 0s linear 1s, visibility 0s linear 1s;
-  transition: opacity 0s linear 1s, visibility 0s linear 1s; }
+  -webkit-transition: opacity 0s linear .5s, visibility 0s linear .5s;
+  transition: opacity 0s linear .5s, visibility 0s linear .5s; }
   .press-center-top__background-slider-item::before {
     content: '';
     position: absolute;
@@ -4027,8 +4027,8 @@ img.lazyload:not([src]) {
   .press-center-top__background-slider-item.active {
     opacity: 1;
     visibility: visible;
-    -webkit-transition: all 1s;
-    transition: all 1s;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
     z-index: 10; }
 
 .press-center-top__background-slider-image {
@@ -4045,9 +4045,7 @@ img.lazyload:not([src]) {
   font-family: 'object-fit: cover; object-position: center;';
   -webkit-transition: all 0s linear 1s;
   transition: all 0s linear 1s;
-  opacity: 1;
-  -webkit-transform: translateX(20%);
-          transform: translateX(20%); }
+  opacity: 1; }
   .press-center-top__background-slider-item.active .press-center-top__background-slider-image {
     -webkit-transform: translateX(0%);
             transform: translateX(0%);
@@ -4067,12 +4065,12 @@ img.lazyload:not([src]) {
   background: linear-gradient(180deg, rgba(4, 0, 37, 0.8) 0.13%, rgba(4, 0, 37, 0.6) 34.89%, rgba(3, 0, 37, 0.9) 100%);
   z-index: 14;
   opacity: .2;
-  -webkit-transition: opacity 0s linear 1s;
-  transition: opacity 0s linear 1s; }
+  -webkit-transition: opacity 0s linear 1.3s;
+  transition: opacity 0s linear 1.3s; }
   .press-center-top__background-slider-item.active .press-center-top__background-slider-overlay {
     opacity: 1;
-    -webkit-transition: opacity .5s ease .5s;
-    transition: opacity .5s ease .5s; }
+    -webkit-transition: opacity .5s ease .8s;
+    transition: opacity .5s ease .8s; }
 
 .press-center-top__content-slider {
   -webkit-box-flex: 1;
@@ -4132,8 +4130,8 @@ img.lazyload:not([src]) {
   z-index: 2;
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: opacity .5s, visibility 0s linear .5s;
-  transition: opacity .5s, visibility 0s linear .5s;
+  -webkit-transition: opacity .2s, visibility 0s linear 1.5s;
+  transition: opacity .2s, visibility 0s linear 1.5s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4151,8 +4149,8 @@ img.lazyload:not([src]) {
     z-index: 10;
     opacity: 1;
     visibility: visible;
-    -webkit-transition: all .5s ease .5s;
-    transition: all .5s ease .5s; }
+    -webkit-transition: all .3s ease 1.2s;
+    transition: all .3s ease 1.2s; }
 
 .press-center-top__content-slider-card {
   display: block;

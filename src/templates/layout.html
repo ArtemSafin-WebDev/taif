@@ -22,7 +22,7 @@
         </div>
         {# {% include "partials/preloader.html" %} #}
         <div class="page-content">
-            <header class="page-header">
+            <header class="page-header {% if headerType == 'color' %} page-header--color {% endif %}">
                 <div class="container">
                     {% include "partials/header.html" %}
                 </div>

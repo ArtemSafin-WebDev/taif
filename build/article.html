@@ -9,7 +9,7 @@
         <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap&subset=cyrillic" rel="stylesheet" />
         <link rel="stylesheet" href="css/styles.min.css" />
         <title>
-            Sitemap
+            ТАИФ Текстовая страница
         </title>
     </head>
     <body class="no-touch" ontouchstart="">
@@ -747,73 +747,7 @@
                 </div>
             </header>
             <main class="page-main">
-                <div class="container">
-                    <style>
-                        .filelist {
-                            padding-top: 300px;
-                            position: relative;
-                            padding-bottom: 30px;
-                        }
-
-                        .filelist::before {
-                            content: '';
-                            position: absolute;
-                            left: calc((100vw - 100%) / 2 * -1);
-                            width: 100vw;
-                            top: 0;
-                            bottom: 0;
-                            z-index: -1;
-                            background-color: #1eac72;
-                        }
-                        .filelist__item {
-                            margin-bottom: 20px;
-                        }
-
-                        .filelist__link:link,
-                        .filelist__link:visited {
-                            display: block;
-                            color: white;
-
-                            background-color: #3f5179;
-                            padding: 20px;
-                        }
-                    </style>
-
-                    <div id="sitemap"></div>
-
-                    <script>
-                        (async () => {
-                            const sitemap = document.querySelector('#sitemap');
-                            const filelist = await fetch('filelist.json');
-
-                            if (!filelist.ok) {
-                                sitemap.textContent = 'Error happened';
-                                sitemap.style.color = 'red';
-                                return;
-                            }
-                            let filelistParsed = await filelist.json();
-
-                            filelistParsed = filelistParsed.filter(element => element !== 'sitemap.html');
-
-                            const ul = document.createElement('ul');
-                            ul.className = 'filelist';
-
-                            filelistParsed.forEach(item => {
-                                const filelistItem = document.createElement('li');
-                                filelistItem.className = 'filelist__item';
-                                const filelistLink = document.createElement('a');
-                                filelistLink.className = 'filelist__link';
-                                filelistLink.href = item;
-                                filelistLink.textContent = item;
-                                filelistLink.target = '_blank';
-                                filelistItem.appendChild(filelistLink);
-                                ul.appendChild(filelistItem);
-                            });
-
-                            sitemap.appendChild(ul);
-                        })();
-                    </script>
-                </div>
+                <div class="container"></div>
             </main>
             <footer class="page-footer">
                 <div class="container">

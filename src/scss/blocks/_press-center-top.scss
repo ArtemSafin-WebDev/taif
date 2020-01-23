@@ -39,7 +39,7 @@
     z-index: 2;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0s linear 1s, visibility 0s linear 1s;
+    transition: opacity 0s linear .5s, visibility 0s linear .5s;
     &::before {
         content: '';
         position: absolute;
@@ -54,7 +54,7 @@
     &.active {
         opacity: 1;
         visibility: visible;
-        transition: all 1s;
+        transition: all .5s ease;
         z-index: 10;
     }
 }
@@ -71,7 +71,7 @@
     @include objectFitCover();
     transition: all 0s linear 1s;
     opacity: 1;
-    transform: translateX(20%);
+    
 
     .press-center-top__background-slider-item.active & {
         transform: translateX(0%);
@@ -93,10 +93,10 @@
     background: linear-gradient(180deg, rgba(4, 0, 37, 0.8) 0.13%, rgba(4, 0, 37, 0.6) 34.89%, rgba(3, 0, 37, 0.9) 100%);
     z-index: 14;
     opacity: .2;
-    transition: opacity 0s linear 1s;
+    transition: opacity 0s linear 1.3s;
     .press-center-top__background-slider-item.active & {
         opacity: 1;
-        transition: opacity .5s ease .5s; 
+        transition: opacity .5s ease .8s; 
     }
 }
 
@@ -152,7 +152,7 @@
     z-index: 2;
     opacity: 0;
     visibility: hidden;
-    transition: opacity .5s, visibility 0s linear .5s;
+    transition: opacity .2s, visibility 0s linear 1.5s;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -162,7 +162,7 @@
         z-index: 10;
         opacity: 1;
         visibility: visible;
-        transition: all .5s ease .5s;
+        transition: all .3s ease 1.2s;
     }
 }
 
