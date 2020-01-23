@@ -1,6 +1,11 @@
 .press-center-main__navigation {
     display: flex;
     align-items: center;
+
+    @include breakpoint(tablet) {
+        flex-direction: column;
+        align-items: initial;
+    }
 }
 
 .press-center-main__navigation-list {
@@ -39,6 +44,15 @@
     display: flex;
     align-items: center;
     flex-shrink: 0;
+
+    @include breakpoint(tablet) {
+        margin-left: 0;
+        margin-bottom: 4rem;
+        order: -1;
+    }
+
+
+    
 }
 
 .press-center__search-input {
@@ -50,6 +64,11 @@
     width: 14rem;
     flex-shrink: 0;
 
+    @include breakpoint(tablet) {
+        width: 100%;
+        flex-shrink: 1;
+    }
+
     @include placeholder {
         color: #8e8e8e;
     }
@@ -57,7 +76,6 @@
 
 .press-center__search-submit {
     flex-shrink: 0;
-    // margin-left: 2rem;
     svg {
         width: 2.4rem;
         height: 2.4rem;
@@ -75,7 +93,6 @@
 }
 
 .press-center-main__cards {
-    
     display: flex;
     flex-direction: column;
 }
@@ -91,12 +108,21 @@
         grid-column-gap: 5.4rem;
         grid-row-gap: 4rem;
         margin: 0;
+        @include breakpoint(small-mobile) {
+            grid-template-columns: 100%;
+        }
     }
 }
 
 .press-center-main__cards-list-item {
     padding: 2rem 2.7rem;
     width: 50%;
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint(small-mobile) {
+        width: 100%;
+    }
     @supports (display: grid) {
         padding: 0;
         width: auto;
@@ -107,6 +133,9 @@
         @supports (display: grid) {
             width: auto;
             grid-column: span 2;
+            @include breakpoint(small-mobile) {
+                grid-column: span 1;
+            }
         }
     }
 }
@@ -221,6 +250,8 @@
         font-size: 2.2rem;
         margin-bottom: 1.5rem;
     }
+
+    
 }
 
 .press-center-main__cards-special-card-text {
@@ -286,6 +317,9 @@
         width: 100%;
         padding-bottom: 56.25%;
         display: block;
+        @include breakpoint(small-mobile) {
+            padding-bottom: 100%;
+        }
     }
 
     &::after {
@@ -338,6 +372,7 @@
     line-height: 1.26;
     color: white;
     left: 5rem;
+    right: 5rem;
     bottom: 5.2rem;
     max-width: 45rem;
     z-index: 8;
@@ -345,6 +380,10 @@
         left: 3rem;
         bottom: 3rem;
         font-size: 2.2rem;
+    }
+
+    @include breakpoint(small-mobile) {
+        font-size: 1.8rem;
     }
 }
 
@@ -367,6 +406,11 @@
         width: 7rem;
         height: 7rem;
     }
+
+    @include breakpoint(small-mobile) {
+        width: 5.5rem;
+        height: 5.5rem;
+    }
     > svg {
         fill: white;
 
@@ -375,6 +419,10 @@
         @include breakpoint(desktop) {
             width: 2.4rem;
             height: 2.4rem;
+        }
+        @include breakpoint(small-mobile) {
+            width: 2rem;
+            height: 2rem;
         }
         &.icon-play {
             margin-left: 0.5rem;
@@ -397,6 +445,13 @@
         bottom: 3rem;
         right: 3rem;
     }
+
+
+    @include breakpoint(small-mobile) {
+        position: static;
+        margin-top: 1.5rem;
+        
+    }
 }
 
 .press-center-main__news-slider-btn {
@@ -408,6 +463,10 @@
     flex-shrink: 0;
     transition: background-color 0.2s, border-color 0.2s;
 
+    @include breakpoint(small-mobile) {
+        border-color: $primary-color;
+    }
+
     &.swiper-button-disabled {
         opacity: 0.5;
         cursor: default;
@@ -417,6 +476,9 @@
         width: 0.8rem;
         height: 1.6rem;
         transition: fill 0.2s;
+        @include breakpoint(small-mobile) {
+            fill: $primary-color;
+        }
     }
 
     .no-touch &:not(.swiper-button-disabled):hover,
@@ -466,6 +528,10 @@
     margin-left: auto;
     margin-top: 8rem;
     transition: color .2s;
+    @include breakpoint(small-mobile) {
+        margin-top: 6rem;
+        font-size: 2rem;
+    }
     svg {
         fill: $primary-color;
         width: 0.8rem;
