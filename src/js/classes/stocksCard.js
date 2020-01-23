@@ -1,9 +1,6 @@
 import Chart from 'chart.js';
 import axios from 'axios';
 
-
-
-
 class StocksCard {
     constructor(element) {
         this.elements = {
@@ -148,9 +145,6 @@ class StocksCard {
             borderWidth: 3,
             data: priceHistory
         };
-
-
-      
 
         if (!this.state.chart) {
             const chartOptions = {
