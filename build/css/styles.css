@@ -782,6 +782,45 @@ img.lazyload:not([src]) {
     height: auto;
     overflow: hidden; }
 
+.inner-slider__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap; }
+
+.inner-slider__slide {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin-right: 4rem;
+  width: 70%; }
+  .inner-slider__slide:last-child {
+    margin-right: 0; }
+
+.inner-slider__slide-card {
+  padding: 2rem;
+  min-height: 40rem;
+  background-color: coral;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.8rem;
+  line-height: 1.4;
+  border-radius: 4px; }
+
 ::-moz-selection {
   color: white;
   background-color: #1EAC72; }

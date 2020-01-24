@@ -106,8 +106,6 @@
     }
 }
 
-.intro-slider__navigation-list-item {
-}
 
 .intro-slider__navigation-link {
     font-family: $montserrat;
@@ -250,7 +248,6 @@
             align-self: stretch;
             display: block;
             background-color: #fff;
-
             margin-left: 2rem;
             margin-right: 2rem;
         }
@@ -388,7 +385,6 @@
         height: 100%;
         background: linear-gradient(85deg, $blue 38%, rgba($blue, 0) 70%);
         z-index: -1;
-
         @include breakpoint(mobile) {
             background: linear-gradient(to top, $blue 32%, $blue 42%, rgba($blue, 0) 70%);
         }
@@ -436,9 +432,6 @@
         padding: .5rem 1rem;
     }
 }
-
-
-
 
 
 .intro-slider__inner-slider-card-image {
