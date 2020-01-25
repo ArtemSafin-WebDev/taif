@@ -798,6 +798,9 @@ img.lazyload:not([src]) {
           transform-origin: left center;
   -webkit-transition: all .4s;
   transition: all .4s; }
+  .dragging .inner-slider__slide {
+    -webkit-transition: none;
+    transition: none; }
   .inner-slider__slide:last-child {
     margin-right: 0; }
   .inner-slider__slide.prev {
@@ -830,6 +833,30 @@ img.lazyload:not([src]) {
   font-size: 3.4rem;
   line-height: 1.4;
   border-radius: 4px; }
+
+.drag-test {
+  margin-top: 4rem; }
+
+.drag-test__item {
+  width: 50%;
+  background-color: coral;
+  height: 40rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 5rem; }
 
 ::-moz-selection {
   color: white;
