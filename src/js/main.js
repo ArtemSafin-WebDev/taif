@@ -9,6 +9,8 @@ import PressCenterNewsSlider from './classes/pressCenterNewsSlider';
 import SidebarSlider from './classes/sidebarSlider';
 import PressCenterTop from './classes/pressCenterTop';
 import PhotoSlider from './classes/photoSlider';
+import IntroInnerSlider from './classes/introInnerSlider';
+
 
 document.addEventListener('DOMContentLoaded', function() {
     // Polyfills
@@ -88,6 +90,13 @@ document.addEventListener('DOMContentLoaded', function() {
     photoSliders.forEach(element => {
         new PhotoSlider(element);
     })
+
+
+    // Intro slider
+
+    const innerSliders = Array.from(document.querySelectorAll('.js-inner-slider'));
+
+    innerSliders.forEach(element => new IntroInnerSlider(element));
 });
 
 window.addEventListener('load', function() {

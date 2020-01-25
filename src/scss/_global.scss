@@ -191,8 +191,31 @@ img.lazyload:not([src]) {
     flex-shrink: 0;
     margin-right: 4rem;
     width: 70%;
+    transform-origin: left center;
+    transition: all .4s;
     &:last-child {
         margin-right: 0;
+    }
+
+
+    &.prev {
+        z-index: -1;
+    }
+
+
+
+    &:nth-child(1) {
+
+    }
+    &:nth-child(2) {
+        .inner-slider__slide-card {
+            background-color: violet;
+        }
+    }
+    &:nth-child(3) {
+        .inner-slider__slide-card {
+            background-color: lightsalmon;
+        }
     }
 }
 

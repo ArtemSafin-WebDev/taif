@@ -793,9 +793,19 @@ img.lazyload:not([src]) {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   margin-right: 4rem;
-  width: 70%; }
+  width: 70%;
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+  -webkit-transition: all .4s;
+  transition: all .4s; }
   .inner-slider__slide:last-child {
     margin-right: 0; }
+  .inner-slider__slide.prev {
+    z-index: -1; }
+  .inner-slider__slide:nth-child(2) .inner-slider__slide-card {
+    background-color: violet; }
+  .inner-slider__slide:nth-child(3) .inner-slider__slide-card {
+    background-color: lightsalmon; }
 
 .inner-slider__slide-card {
   padding: 2rem;
@@ -817,7 +827,7 @@ img.lazyload:not([src]) {
           justify-content: center;
   font-weight: 700;
   font-family: "Montserrat", sans-serif;
-  font-size: 2.8rem;
+  font-size: 3.4rem;
   line-height: 1.4;
   border-radius: 4px; }
 
