@@ -205,6 +205,10 @@ img.lazyload:not([src]) {
         z-index: -1;
     }
 
+    // &.current {
+    //     z-index: 5;
+    // }
+
 
 
     &:nth-child(1) {

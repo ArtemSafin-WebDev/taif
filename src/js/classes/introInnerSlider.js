@@ -11,10 +11,11 @@ class IntroInnerSlider {
             maxOverlayDepth: 2,
             mouseDown: false,
             startX: 0,
-            offsetX: 0,
+            moveX: 0,
             slidesInitialTranslateValues: [],
             animating: false,
-            switchTreshold: 70
+            threshold: 270,
+            cardOffset: 20
         };
 
         if (this.elements.slides.length > 0) this.initialize();
@@ -66,7 +67,7 @@ class IntroInnerSlider {
 
                 const slideOffset = slideIndex * (this.state.sizes.slideWidth + this.state.sizes.slideMarginRight);
 
-                slide.style.transform = `translateX(${-(slideOffset + 20 * depthLevel)}px) scale(${Math.pow(0.95, depthLevel)})`;
+                slide.style.transform = `translateX(${-(slideOffset + this.state.cardOffset * depthLevel)}px) scale(${Math.pow(0.95, depthLevel)})`;
                 slide.style.opacity = `${Math.pow(0.6, depthLevel)}`;
             } else {
                 const slideOffset = index * (this.state.sizes.slideWidth + this.state.sizes.slideMarginRight);
@@ -82,6 +83,21 @@ class IntroInnerSlider {
 
             this.state.activeSlideIndex = index;
         });
+    }
+
+    prevSlide() {
+        const { activeSlideIndex } = this.state;
+        const nextSlideIndex = activeSlideIndex - 1;
+        if (nextSlideIndex < 0) return;
+        this.changeSlide(nextSlideIndex);
+    }
+
+    nextSlide() {
+        const { activeSlideIndex } = this.state;
+        const { slides } = this.elements;
+        const nextSlideIndex = activeSlideIndex + 1;
+        if (nextSlideIndex >= slides.length) return;
+        this.changeSlide(nextSlideIndex);
     }
 
     getCurrentTranslateValue(element) {
@@ -121,25 +137,67 @@ class IntroInnerSlider {
         } else {
             moveX = event.pageX;
         }
+        this.setState({
+            moveX
+        });
         const offset = moveX - startX;
-        const direction = offset > 0 ? 'left' : 'right';
+        const direction = offset > 0 ? 'right' : 'left';
 
         slides.forEach((slide, slideIndex) => {
             const initialTranslateValue = slidesInitialTranslateValues[slideIndex];
-            if (!slide.classList.contains('prev')) {
-                slide.style.transform = `translateX(${initialTranslateValue + offset}px)`;
+            const resultingOffset = initialTranslateValue + offset;
+            if (slide.classList.contains('current')) {
+                if (direction === 'right') {
+                    slide.style.transform = `translateZ(0) translateX(${resultingOffset}px)`;
+                }
+            } else if (slide.classList.contains('next')) {
+                slide.style.transform = `translateZ(0) translateX(${resultingOffset}px)`;
+            } else if (slide.classList.contains('prev')) {
+                if (direction === 'right') {
+                    // console.log('Old Opacity', slide.style.opacity);
+                    // const oldOpacity = slide.style.opacity;
+                    // const newOpacity = oldOpacity * 1.05;
+                    // console.log('New opacity', newOpacity);
+                    // slide.style.opacity = `${newOpacity <= 1 ? newOpacity : 1}`;
+                }
             }
         });
+
+        if (Math.abs(offset) >= this.state.threshold) {
+            this.dragEnd();
+            if (direction === 'right') {
+                this.prevSlide();
+            } else {
+                this.nextSlide();
+            }
+        }
     }
 
     dragEnd(event) {
-        event.preventDefault();
         const { wrapper } = this.elements;
+        const { startX, moveX } = this.state;
         wrapper.classList.remove('dragging');
         this.setState({
             mouseDown: false,
-            startX: 0
+            startX: 0,
+            moveX: 0
         });
+
+        if (typeof event !== 'undefined') {
+            event.preventDefault();
+            const offset = moveX - startX;
+            const direction = offset > 0 ? 'right' : 'left';
+            if (Math.abs(offset) >= this.state.threshold) {
+                this.dragEnd();
+                if (direction === 'right') {
+                    this.prevSlide();
+                } else {
+                    this.nextSlide();
+                }
+            } else {
+                this.changeSlide(this.state.activeSlideIndex);
+            }
+        }
     }
 
     bindListeners() {
