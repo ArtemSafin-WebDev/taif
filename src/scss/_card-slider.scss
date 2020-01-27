@@ -64,8 +64,7 @@
     }
 
 
-    .no-touch &:hover,
-    .touch &:active {
+    .no-touch &:hover {
         .card-slider__card-image {
             transform: scale(1.05);
         }

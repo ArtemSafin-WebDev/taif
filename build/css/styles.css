@@ -2489,8 +2489,7 @@ img.lazyload:not([src]) {
       padding: 2rem; } }
   .card-slider__card:link, .card-slider__card:visited {
     color: white; }
-  .no-touch .card-slider__card:hover .card-slider__card-image,
-  .touch .card-slider__card:active .card-slider__card-image {
+  .no-touch .card-slider__card:hover .card-slider__card-image {
     -webkit-transform: scale(1.05);
             transform: scale(1.05); }
   .card-slider__card::before {
