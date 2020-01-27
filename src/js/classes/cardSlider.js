@@ -51,8 +51,9 @@ class CardSlider {
 
     
 
-    handleClicksInsideSlide(event) {
+    handleClicksInsideSlide(event, index) {
         if (this.state.clicksBlocked) event.preventDefault();
+        if (!this.state.clicksBlocked) this.changeSlide(index);
         this.state.clicksBlocked = false;
     }
 
@@ -275,7 +276,7 @@ class CardSlider {
             }
         }
 
-        if (Math.abs(offset) >= 20 && moveX !== 0) {
+        if (Math.abs(offset) >= 20 && Math.abs(moveX) >= 20) {
             this.state.clicksBlocked = true;
         }
     }
@@ -301,8 +302,10 @@ class CardSlider {
         window.addEventListener('resize', debounce(this.handleResize.bind(this), 200));
         nextButton.addEventListener('click', this.handleNextButtonClick.bind(this, event, 'next', nextButton));
         prevButton.addEventListener('click', this.handleNextButtonClick.bind(this, event, 'prev', prevButton));
-        slides.forEach(slide => {
-            slide.addEventListener('click', this.handleClicksInsideSlide.bind(this));
+        slides.forEach((slide, index) => {
+            slide.addEventListener('click', event => {
+                this.handleClicksInsideSlide(event, index);
+            });
         })
     }
 

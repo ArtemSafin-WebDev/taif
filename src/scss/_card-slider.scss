@@ -49,12 +49,12 @@
     border-radius: 4px;
     overflow: hidden;
     backface-visibility: hidden;
-    // pointer-events: none;
-    // user-select: none;
+    pointer-events: none;
+    user-select: none;
 
-    // .current & {
-    //     pointer-events: initial;
-    // }
+    .current & {
+        pointer-events: initial;
+    }
     @include breakpoint(mobile) {
         padding: 2rem;
     }
