@@ -22,12 +22,8 @@ class CardSlider {
             prevCardsOpacityFactor: 0.85,
             changeOpacityOnPreviousCards: true,
             slidesInitialTranslateValues: [],
-            changeOnSlideClick: true,
-            clickBlockerTimer: null,
-            clickBlockerDelay: 300,
-            clickBlockerThreshold: 20,
-            clicksBlocked: false,
             pagination: true,
+            clicksBlocked: false,
             callbacks: {
                 slideChange: [],
                 dragStart: []
@@ -53,43 +49,50 @@ class CardSlider {
         this.state.callback;
     }
 
+    
+
+    handleClicksInsideSlide(event) {
+        if (this.state.clicksBlocked) event.preventDefault();
+        this.state.clicksBlocked = false;
+    }
+
     createPagination() {
-        const { pagination, slides } = this.elements;
-       
-        slides.forEach((slide, slideIndex) => {
-            const bullet = document.createElement('a');
-            bullet.className = 'card-slider__pagination-bullet';
-            bullet.href = '#';
-            if (slideIndex === this.state.activeSlideIndex) {
-                bullet.classList.add('active');
-            }
-            bullet.addEventListener('click', event => {
-                event.preventDefault();
-                this.changeSlide(slideIndex);
+        if (this.state.pagination || this.elements.pagination) {
+            this.elements.slides.forEach((slide, slideIndex) => {
+                const bullet = document.createElement('a');
+                bullet.className = 'card-slider__pagination-bullet';
+                bullet.href = '#';
+                if (slideIndex === this.state.activeSlideIndex) {
+                    bullet.classList.add('active');
+                }
+                bullet.addEventListener('click', event => {
+                    event.preventDefault();
+                    this.changeSlide(slideIndex);
+                });
+                this.elements.pagination.appendChild(bullet);
             });
-            pagination.appendChild(bullet);
-        });
+        }
     }
 
     updatePagination() {
-        const { pagination } = this.elements;
-        const paginationBullets = Array.from(pagination.children);
-        paginationBullets.forEach((bullet, bulletIndex) => {
-            bullet.classList.remove('active');
-            if (bulletIndex === this.state.activeSlideIndex) {
-                bullet.classList.add('active');
-            }
-        });
+        if (this.state.pagination || this.elements.pagination) {
+            const paginationBullets = Array.from(this.elements.pagination.children);
+            paginationBullets.forEach((bullet, bulletIndex) => {
+                bullet.classList.remove('active');
+                if (bulletIndex === this.state.activeSlideIndex) {
+                    bullet.classList.add('active');
+                }
+            });
+        }
     }
+
     handleResize() {
-        console.log('Resize happened');
         this.update();
     }
 
     calculateSizes() {
         const wrapperStyles = window.getComputedStyle(this.elements.wrapper);
         const slideStyles = window.getComputedStyle(this.elements.slides[0]);
-
         this.setState({
             sizes: {
                 wrapperWidth: parseInt(wrapperStyles.width, 10),
@@ -105,7 +108,6 @@ class CardSlider {
         const { slides } = this.elements;
         const { callbacks, changeOpacityOnPreviousCards, prevCardsOpacityFactor, prevCardsScaleFactor } = this.state;
         let direction = index > this.state.activeIndex ? 1 : -1;
-
         slides.forEach((slide, slideIndex) => {
             slide.classList.remove('prev');
             slide.classList.remove('current');
@@ -133,19 +135,13 @@ class CardSlider {
                 }
             }
         });
-
         this.state.activeSlideIndex = index;
-
         callbacks.slideChange.forEach(cb => {
             console.log('Slidechange callback run', cb);
             cb();
         });
-
         this.handleArrowsActivity();
-
-        if (this.state.pagination && this.elements.pagination) {
-            this.updatePagination();
-        }
+        this.updatePagination();
     }
 
     handleArrowsActivity() {
@@ -184,7 +180,6 @@ class CardSlider {
     }
 
     dragStart(event) {
-        console.log('Mousedown event');
         if (event.type === 'mousedown') event.preventDefault();
         const { callbacks } = this.state;
         const { slides, wrapper } = this.elements;
@@ -205,14 +200,12 @@ class CardSlider {
             startX,
             startY
         });
-
         callbacks.dragStart.forEach(cb => cb());
     }
 
     dragMove(event) {
         if (event.type === 'mousemove') event.preventDefault();
         if (!this.state.mouseDown) return;
-        console.log('Mousemove event');
         const { startX, startY, slidesInitialTranslateValues } = this.state;
         const { slides } = this.elements;
         let moveX;
@@ -252,23 +245,9 @@ class CardSlider {
                 this.nextSlide();
             }
         }
-
-        if (Math.abs(offsetX) >= this.state.clickBlockerThreshold) {
-            event.preventDefault();
-            this.blockClicks();
-        }
-    }
-
-    blockClicks() {
-        clearTimeout(this.state.clickBlockerTimer);
-        this.state.clicksBlocked = true;
-        this.state.clickBlockerTimer = setTimeout(() => {
-            this.state.clicksBlocked = false;
-        }, this.state.clickBlockerDelay);
     }
 
     dragEnd(event) {
-        console.log('Mouseup event');
         const { wrapper } = this.elements;
         const { startX, moveX } = this.state;
         wrapper.classList.remove('dragging');
@@ -278,10 +257,12 @@ class CardSlider {
             moveX: 0
         });
 
-        if (typeof event !== 'undefined' && event.type !== "mouseleave") {
+        const offset = moveX - startX;
+        const direction = offset > 0 ? 'right' : 'left';
+
+        if (typeof event !== 'undefined' && event.type !== 'mouseleave') {
             event.preventDefault();
-            const offset = moveX - startX;
-            const direction = offset > 0 ? 'right' : 'left';
+           
             if (Math.abs(offset) >= this.state.threshold && moveX !== 0) {
                 this.dragEnd();
                 if (direction === 'right') {
@@ -293,54 +274,43 @@ class CardSlider {
                 this.changeSlide(this.state.activeSlideIndex);
             }
         }
+
+        if (Math.abs(offset) >= 20 && moveX !== 0) {
+            this.state.clicksBlocked = true;
+        }
+    }
+
+    handleNextButtonClick(event, type, btn) {
+        event.preventDefault();
+        if (btn.classList.contains('disabled')) return;
+        if (type === 'next') {
+            this.nextSlide();
+        } else if (type === 'prev') {
+            this.prevSlide();
+        }
     }
 
     bindListeners() {
-        const { wrapper, slides, nextButton, prevButton } = this.elements;
+        const { wrapper, nextButton, prevButton, slides } = this.elements;
         wrapper.addEventListener('touchstart', this.dragStart.bind(this));
         wrapper.addEventListener('mousedown', this.dragStart.bind(this));
         wrapper.addEventListener('touchmove', this.dragMove.bind(this));
         wrapper.addEventListener('mousemove', this.dragMove.bind(this));
         wrapper.addEventListener('touchend', this.dragEnd.bind(this));
         wrapper.addEventListener('mouseup', this.dragEnd.bind(this));
-        wrapper.addEventListener('mouseleave', this.dragEnd.bind(this));
         window.addEventListener('resize', debounce(this.handleResize.bind(this), 200));
-        nextButton.addEventListener('click', event => {
-            event.preventDefault();
-            if (nextButton.classList.contains('disabled')) return;
-            this.nextSlide();
-        });
-        prevButton.addEventListener('click', event => {
-            event.preventDefault();
-            if (prevButton.classList.contains('disabled')) return;
-            this.prevSlide();
-        });
-
-        if (this.state.changeOnSlideClick) {
-            slides.forEach((slide, slideIndex) => {
-                slide.addEventListener('click', event => {
-                    if (!event.target.matches('a') && !event.target.closest('a')) {
-                        event.preventDefault();
-                    }
-                    if (this.state.clicksBlocked) {
-                        console.warn('Clicks blocked');
-                        return;
-                    }
-                    console.log('Mouseclick event');
-                    this.changeSlide(slideIndex);
-                });
-            });
-        }
+        nextButton.addEventListener('click', this.handleNextButtonClick.bind(this, event, 'next', nextButton));
+        prevButton.addEventListener('click', this.handleNextButtonClick.bind(this, event, 'prev', prevButton));
+        slides.forEach(slide => {
+            slide.addEventListener('click', this.handleClicksInsideSlide.bind(this));
+        })
     }
 
     initialize() {
         this.calculateSizes();
         this.changeSlide(this.state.activeSlideIndex);
         this.bindListeners();
-
-        if (this.state.pagination && this.elements.pagination) {
-            this.createPagination();
-        }
+        this.createPagination();
     }
 
     update() {

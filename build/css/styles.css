@@ -2476,14 +2476,7 @@ img.lazyload:not([src]) {
   border-radius: 4px;
   overflow: hidden;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  pointer-events: none;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none; }
-  .current .card-slider__card {
-    pointer-events: initial; }
+          backface-visibility: hidden; }
   @media only screen and (max-width: 767px) {
     .card-slider__card {
       padding: 2rem; } }
