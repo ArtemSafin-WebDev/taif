@@ -1,0 +1,257 @@
+
+
+.card-slider {
+    position: relative;
+    margin-bottom: 8rem;
+    @include breakpoint(mobile) {
+        margin-top: 2.4rem;
+        margin-bottom: 0;
+    }
+}
+
+.card-slider__wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+
+.card-slider__slide {
+    flex-shrink: 0;
+    margin-right: 6rem;
+    width: 80%;
+    transform-origin: left center;
+    transition: all .4s;
+    @include breakpoint(small-tablet) {
+        width: 70%;
+        margin-right: 3rem;
+    }
+    @include breakpoint(mobile) {
+        width: 97%;
+        margin-right: 1.5rem;
+    }
+
+    .dragging & {
+        transition: none;
+    }
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.card-slider__card {
+    min-height: 41rem;
+    flex-grow: 1;
+    position: relative;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 4.5rem 5rem;
+    border-radius: 4px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    pointer-events: none;
+    user-select: none;
+
+    .current & {
+        pointer-events: initial;
+    }
+    @include breakpoint(mobile) {
+        padding: 2rem;
+    }
+    &:link,
+    &:visited {
+        color: white;
+    }
+
+
+    .no-touch &:hover,
+    .touch &:active {
+        .card-slider__card-image {
+            transform: scale(1.05);
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -3;
+        background-color: $blue;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(85deg, $blue 38%, rgba($blue, 0) 70%);
+        z-index: -1;
+        @include breakpoint(mobile) {
+            background: linear-gradient(to top, $blue 32%, $blue 42%, rgba($blue, 0) 70%);
+        }
+    }
+
+    &--white {
+        &:link,
+        &:visited {
+            color: black;
+        }
+
+        &::before {
+            background-color: #fff;
+        }
+
+        &::after {
+            background: linear-gradient(85deg, white 38%, rgba(white, 0) 70%);
+            @include breakpoint(mobile) {
+                background: linear-gradient(to top, white 32%, white 42%, rgba(white, 0) 70%);
+            }
+        }
+    }
+}
+
+.card-slider__card-label {
+    position: absolute;
+    top: 4.5rem;
+    left: 5rem;
+    font-size: 1rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    padding: 0.4rem 1rem;
+    border-radius: 3px;
+    background-color: $primary-color;
+    color: white;
+    text-align: center;
+    user-select: none;
+    @include breakpoint(mobile) {
+        top: 2rem;
+        left: 2rem;
+        font-size: .8rem;
+        line-height: 1.4rem;
+        letter-spacing: 1.28px;
+        padding: .5rem 1rem;
+    }
+}
+
+
+.card-slider__card-image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 70%;
+    z-index: -2;
+    transition: transform .4s ease-out;
+    @include objectFitCover();
+
+    @include breakpoint(mobile) {
+        top: 0;
+        left: 0;
+        right: auto;
+        width: 100%;
+        height: 70%;
+    }
+}
+
+.card-slider__card-content {
+    max-width: 50%;
+    margin-top: auto;
+    @include breakpoint(mobile) {
+        max-width: none;
+    }
+}
+
+.card-slider__card-heading {
+    font-family: $montserrat;
+    font-weight: 800;
+    font-size: 3.4rem;
+    line-height: 1.33;
+    margin-bottom: 2rem;
+
+    @include breakpoint(mobile) {
+        font-size: 1.8rem;
+        line-height: 2.5rem;
+        margin-bottom: 1.3rem;
+    }
+}
+
+.card-slider__card-text {
+    font-family: $proxima;
+    font-size: 1.6rem;
+    line-height: 1.5;
+
+    @include breakpoint(mobile) {
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+    }
+}
+
+
+
+.card-slider__button {
+    position: absolute;
+    z-index: 40;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5.4rem;
+    height: 5.4rem;
+    border-radius: 50%;
+    border: 1px solid $primary-color;
+    background-color: $primary-color;
+    transition: all 0.2s;
+    @include breakpoint(mobile) {
+        display: none;
+    }
+    .no-touch &:not(.disabled):hover,
+    .touch &:not(.disabled):active {
+        background-color: darken($primary-color, 2%);
+        border-color: darken($primary-color, 2%);
+    }
+
+    &.disabled {
+        transition: opacity 0.2s, visibility 0s linear 0.2s;
+        opacity: 0;
+        visibility: hidden;
+        cursor: default;
+    }
+    svg {
+        fill: white;
+        width: 0.8rem;
+        height: 1.6rem;
+    }
+
+    &--prev {
+        right: 100%;
+        margin-right: 3.5rem;
+        svg {
+            margin-right: 0.2rem;
+        }
+    }
+    &--next {
+        right: 0;
+        svg {
+            margin-left: 0.2rem;
+        }
+    }
+}
+
+.card-slider__button-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+

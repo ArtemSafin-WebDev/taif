@@ -9,7 +9,6 @@ import PressCenterNewsSlider from './classes/pressCenterNewsSlider';
 import SidebarSlider from './classes/sidebarSlider';
 import PressCenterTop from './classes/pressCenterTop';
 import PhotoSlider from './classes/photoSlider';
-import IntroInnerSlider from './classes/introInnerSlider';
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -91,50 +90,6 @@ document.addEventListener('DOMContentLoaded', function() {
         new PhotoSlider(element);
     })
 
-
-    // Intro slider
-
-    const innerSliders = Array.from(document.querySelectorAll('.js-inner-slider'));
-
-    innerSliders.forEach(element => new IntroInnerSlider(element));
-
-    // Drag test
-
-    const dragTests = Array.from(document.querySelectorAll('.drag-test'));
-
-    dragTests.forEach(test => {
-        let mouseDown = false;
-        let startX;
-        let moveX;
-        let initialTranslate;
-        let item = test.querySelector('.drag-test__item');
-        const getCurrentTranslate = (element) => {
-            const styles = window.getComputedStyle(element);
-            const matrix = new WebKitCSSMatrix(styles.transform);
-            return matrix.m41;
-        }
-
-        const mouseDownHandler = (event) => {
-            event.preventDefault();
-            mouseDown = true;
-            startX = event.pageX;
-            initialTranslate = getCurrentTranslate(item);
-        }
-        const mouseMoveHandler = event => {
-            if (!mouseDown) return;
-            event.preventDefault();
-            moveX = event.pageX;
-            console.log(moveX);
-            item.style.transform = `translateX(${initialTranslate + moveX - startX}px)`;
-        }
-        const mouseUpHandler = () => {
-            mouseDown = false;
-        }
-
-        test.addEventListener('mousedown', mouseDownHandler);
-        test.addEventListener('mousemove', mouseMoveHandler);
-        test.addEventListener('mouseup', mouseUpHandler);
-    })
 });
 
 window.addEventListener('load', function() {

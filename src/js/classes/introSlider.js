@@ -1,4 +1,5 @@
-import Swiper from 'swiper';
+import CardSlider from "./cardSlider";
+
 
 class IntroSlider {
     constructor(element) {
@@ -49,7 +50,6 @@ class IntroSlider {
         this.elements.videos.forEach(video => {
             objectFitPolyfill(video);
         });
-
         this.initInnerSliders();
         this.changeSlide(this.state.activeIndex);
         this.handleAutoplay();
@@ -71,34 +71,21 @@ class IntroSlider {
         }
     }
 
+
     initInnerSliders() {
-        const { innerSliderWrappers } = this.elements;
-        innerSliderWrappers.forEach((element, elementIndex) => {
-            const container = element.querySelector('.swiper-container');
-            const options = {
-                ...this.state.innerSliderOptions,
-                navigation: {
-                    nextEl: element.querySelector('.intro-slider__inner-slider-button--next'),
-                    prevEl: element.querySelector('.intro-slider__inner-slider-button--prev')
-                },
-                pagination: {
-                    el: element.querySelector('.intro-slider__inner-slider-pagination'),
-                    type: 'bullets',
-                    clickable: true
-                }
-            };
+        const innerSliders = Array.from(this.elements.root.querySelectorAll('.js-card-slider'));
 
-            const swiperInstance = new Swiper(container, options);
-
-            swiperInstance.on('slideChange', () => {
+        innerSliders.forEach((element, elementIndex) => {
+            const cardSlider = new CardSlider(element);
+            cardSlider.on('dragStart', () => {
                 this.changeSlide.call(this, elementIndex);
             });
-
-            swiperInstance.snapGrid = [...swiperInstance.slidesGrid];
-
-            this.state.innerSliders.push(swiperInstance);
+            cardSlider.on('slideChange', () => {
+                this.changeSlide.call(this, elementIndex);
+            });
         });
     }
+   
 
     clearActive() {
         const { backgrounds, contentSlides } = this.elements;
