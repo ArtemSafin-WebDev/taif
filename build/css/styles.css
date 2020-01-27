@@ -2661,6 +2661,53 @@ img.lazyload:not([src]) {
       -ms-flex-pack: center;
           justify-content: center; }
 
+.card-slider__pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+.card-slider__pagination {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: none; }
+  @media only screen and (max-width: 767px) {
+    .card-slider__pagination {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; } }
+
+.card-slider__pagination-bullet {
+  width: 8px;
+  height: 8px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  border-radius: 50%;
+  margin: 0 5px;
+  border: 1px solid #a0a9bc;
+  background-color: transparent;
+  -webkit-transition: border-color 0.1s, background-color 0.1s;
+  transition: border-color 0.1s, background-color 0.1s;
+  outline: none;
+  opacity: 1;
+  cursor: pointer; }
+  .card-slider__pagination-bullet.active {
+    border-color: #1EAC72;
+    background-color: #1EAC72; }
+
 .intro-slider {
   min-height: 110rem;
   position: relative;

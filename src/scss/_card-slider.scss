@@ -250,6 +250,42 @@
     justify-content: center;
 }
 
+.card-slider__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-slider__pagination {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: none;
+
+    @include breakpoint(mobile) {
+        display: flex;
+    }
+}
+
+.card-slider__pagination-bullet {
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    margin: 0 5px;
+    border: 1px solid #a0a9bc;
+    background-color: transparent;
+    transition: border-color 0.1s, background-color 0.1s;
+    outline: none;
+    opacity: 1;
+    cursor: pointer;
+    &.active {
+        border-color: $primary-color;
+        background-color: $primary-color;
+    }
+}
 
 
 

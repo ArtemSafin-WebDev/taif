@@ -6,7 +6,8 @@ class CardSlider {
             slides: Array.from(element.querySelectorAll('.card-slider__slide')),
             wrapper: element.querySelector('.card-slider__wrapper'),
             prevButton: element.querySelector('.card-slider__button--prev'),
-            nextButton: element.querySelector('.card-slider__button--next')
+            nextButton: element.querySelector('.card-slider__button--next'),
+            pagination: element.querySelector('.card-slider__pagination')
         };
 
         this.state = {
@@ -17,12 +18,16 @@ class CardSlider {
             startY: 0,
             moveX: 0,
             startY: 0,
+            prevCardsScaleFactor: 0.95,
+            prevCardsOpacityFactor: 0.85,
+            changeOpacityOnPreviousCards: true,
             slidesInitialTranslateValues: [],
             changeOnSlideClick: true,
             clickBlockerTimer: null,
             clickBlockerDelay: 300,
             clickBlockerThreshold: 20,
             clicksBlocked: false,
+            pagination: true,
             callbacks: {
                 slideChange: [],
                 dragStart: []
@@ -48,6 +53,34 @@ class CardSlider {
         this.state.callback;
     }
 
+    createPagination() {
+        const { pagination, slides } = this.elements;
+       
+        slides.forEach((slide, slideIndex) => {
+            const bullet = document.createElement('a');
+            bullet.className = 'card-slider__pagination-bullet';
+            bullet.href = '#';
+            if (slideIndex === this.state.activeSlideIndex) {
+                bullet.classList.add('active');
+            }
+            bullet.addEventListener('click', event => {
+                event.preventDefault();
+                this.changeSlide(slideIndex);
+            });
+            pagination.appendChild(bullet);
+        });
+    }
+
+    updatePagination() {
+        const { pagination } = this.elements;
+        const paginationBullets = Array.from(pagination.children);
+        paginationBullets.forEach((bullet, bulletIndex) => {
+            bullet.classList.remove('active');
+            if (bulletIndex === this.state.activeSlideIndex) {
+                bullet.classList.add('active');
+            }
+        });
+    }
     handleResize() {
         console.log('Resize happened');
         this.update();
@@ -70,7 +103,7 @@ class CardSlider {
 
     changeSlide(index) {
         const { slides } = this.elements;
-        const { callbacks } = this.state;
+        const { callbacks, changeOpacityOnPreviousCards, prevCardsOpacityFactor, prevCardsScaleFactor } = this.state;
         let direction = index > this.state.activeIndex ? 1 : -1;
 
         slides.forEach((slide, slideIndex) => {
@@ -88,8 +121,8 @@ class CardSlider {
                     slide.style.opacity = '0';
                 }
                 const slideOffset = slideIndex * (this.state.sizes.slideWidth + this.state.sizes.slideMarginRight);
-                slide.style.transform = `translateX(${-(slideOffset + this.state.cardOffset * depthLevel)}px) scale(${Math.pow(0.95, depthLevel)})`;
-                slide.style.opacity = `${Math.pow(0.6, depthLevel)}`;
+                slide.style.transform = `translateX(${-(slideOffset + this.state.cardOffset * depthLevel)}px) scale(${Math.pow(prevCardsScaleFactor, depthLevel)})`;
+                slide.style.opacity = `${Math.pow(changeOpacityOnPreviousCards ? prevCardsOpacityFactor : 1, depthLevel)}`;
             } else {
                 const slideOffset = index * (this.state.sizes.slideWidth + this.state.sizes.slideMarginRight);
                 slide.style.transform = `translateZ(0) translateX(${direction * slideOffset}px)`;
@@ -103,9 +136,16 @@ class CardSlider {
 
         this.state.activeSlideIndex = index;
 
-        callbacks.slideChange.forEach(cb => cb());
+        callbacks.slideChange.forEach(cb => {
+            console.log('Slidechange callback run', cb);
+            cb();
+        });
 
         this.handleArrowsActivity();
+
+        if (this.state.pagination && this.elements.pagination) {
+            this.updatePagination();
+        }
     }
 
     handleArrowsActivity() {
@@ -238,7 +278,7 @@ class CardSlider {
             moveX: 0
         });
 
-        if (typeof event !== 'undefined') {
+        if (typeof event !== 'undefined' && event.type !== "mouseleave") {
             event.preventDefault();
             const offset = moveX - startX;
             const direction = offset > 0 ? 'right' : 'left';
@@ -279,7 +319,9 @@ class CardSlider {
         if (this.state.changeOnSlideClick) {
             slides.forEach((slide, slideIndex) => {
                 slide.addEventListener('click', event => {
-                    event.preventDefault();
+                    if (!event.target.matches('a') && !event.target.closest('a')) {
+                        event.preventDefault();
+                    }
                     if (this.state.clicksBlocked) {
                         console.warn('Clicks blocked');
                         return;
@@ -295,16 +337,15 @@ class CardSlider {
         this.calculateSizes();
         this.changeSlide(this.state.activeSlideIndex);
         this.bindListeners();
+
+        if (this.state.pagination && this.elements.pagination) {
+            this.createPagination();
+        }
     }
 
     update() {
-        const { slides } = this.elements;
         this.dragEnd();
         this.calculateSizes();
-        // slides.forEach(slide => {
-        //     slide.style.transform = "";
-        //     slide.style.opacity = "";
-        // })
         this.changeSlide(this.state.activeSlideIndex);
     }
 }
