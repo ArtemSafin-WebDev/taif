@@ -77,10 +77,6 @@ class IntroSlider {
 
         innerSliders.forEach((element, elementIndex) => {
             const cardSlider = new CardSlider(element);
-            cardSlider.on('dragStart', () => {
-                console.lot('Dragstart triggered');
-                this.changeSlide.call(this, elementIndex);
-            });
             cardSlider.on('slideChange', () => {
                 console.log('Slidechange triggered');
                 this.changeSlide.call(this, elementIndex);

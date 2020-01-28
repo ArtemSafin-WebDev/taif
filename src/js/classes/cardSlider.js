@@ -25,8 +25,7 @@ class CardSlider {
             pagination: true,
             clicksBlocked: false,
             callbacks: {
-                slideChange: [],
-                dragStart: []
+                slideChange: []
             }
         };
 
@@ -135,10 +134,7 @@ class CardSlider {
             }
         });
         this.state.activeSlideIndex = index;
-        callbacks.slideChange.forEach(cb => {
-            console.log('Slidechange callback run', cb);
-            cb();
-        });
+        
         this.handleArrowsActivity();
         this.updatePagination();
     }
@@ -157,11 +153,20 @@ class CardSlider {
         }
     }
 
+
+    runSlideChangeCallbacks() {
+        this.state.callbacks.slideChange.forEach(cb => {
+            console.log('Slidechange callback run', cb);
+            cb();
+        });
+    }
+
     prevSlide() {
         const { activeSlideIndex } = this.state;
         const nextSlideIndex = activeSlideIndex - 1;
         if (nextSlideIndex < 0) return;
         this.changeSlide(nextSlideIndex);
+        this.runSlideChangeCallbacks();
     }
 
     nextSlide() {
@@ -170,6 +175,7 @@ class CardSlider {
         const nextSlideIndex = activeSlideIndex + 1;
         if (nextSlideIndex >= slides.length) return;
         this.changeSlide(nextSlideIndex);
+        this.runSlideChangeCallbacks();
     }
 
     getCurrentTranslateValue(element) {
@@ -180,7 +186,6 @@ class CardSlider {
 
     dragStart(event) {
         if (event.type === 'mousedown') event.preventDefault();
-        const { callbacks } = this.state;
         const { slides, wrapper } = this.elements;
         let startX;
         let startY;
@@ -199,7 +204,7 @@ class CardSlider {
             startX,
             startY
         });
-        callbacks.dragStart.forEach(cb => cb());
+       
     }
 
     dragMove(event) {
