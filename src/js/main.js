@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     detectTouch();
 
-
     // Burger menu
 
     new MainMenu(document.querySelector('.page-header'));
@@ -45,7 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     stocksCards.forEach(element => new StocksCard(element));
 
-
     // Show more cards
 
     const showMoreCards = Array.from(document.querySelectorAll('.js-show-more-card'));
@@ -59,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
         card.parentElement.style.order = card.parentElement.classList.contains('hidden') ? '' : 10;
     }));
 
-
     // Press center news slider
 
     const pressCenterNewsSliders = Array.from(document.querySelectorAll('.js-press-center-news-slider'));
@@ -72,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     sidebarSliders.forEach(element => new SidebarSlider(element));
 
-
     // Press center top
 
     const pressCenterTops = Array.from(document.querySelectorAll('.js-press-center-top'));
@@ -80,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
     pressCenterTops.forEach(element => {
         new PressCenterTop(element);
     });
-
 
     // Photo sliders
 

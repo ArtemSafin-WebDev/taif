@@ -687,7 +687,6 @@ ol {
 
 input,
 textarea {
-  -webkit-appearance: none;
   border: none;
   border-radius: 0;
   font: inherit;
