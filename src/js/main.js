@@ -54,9 +54,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     showMoreCards.forEach(card => card.addEventListener('click', event => {
         event.preventDefault();
-        card.parentElement.classList.remove('hidden');
-        card.parentElement.style.display = "none";
-        
+        card.parentElement.classList.toggle('hidden');
+        card.querySelector('.page-header__company-structure-block-card-show-more-text').textContent = card.parentElement.classList.contains('hidden') ? 'Показать еще' : 'Свернуть'
+        card.parentElement.style.order = card.parentElement.classList.contains('hidden') ? '' : 10;
     }));
 
 
