@@ -49,8 +49,6 @@ class CardSlider {
         this.state.callback;
     }
 
-    
-
     handleClicksInsideSlide(event, index) {
         if (this.state.clicksBlocked) event.preventDefault();
         if (!this.state.clicksBlocked) this.changeSlide(index);
@@ -244,6 +242,13 @@ class CardSlider {
                 this.prevSlide();
             } else {
                 this.nextSlide();
+            }
+        }
+
+
+        if (Math.abs(offsetX) >= 50 && Math.abs(moveX) >= 50) {
+            if (event.type === "touchmove") {
+                event.preventDefault();
             }
         }
     }
