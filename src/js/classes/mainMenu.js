@@ -1,7 +1,7 @@
 import { openAccordeon, closeAccordeon } from '../functions/accordeons';
 import { lockScroll, unlockScroll } from '../functions/scrollBlocker';
 import MOBILE_WIDTH from '../constants/mobileWidth';
-
+import detectIt from 'detect-it';
 
 class MainMenu {
     constructor(element) {
@@ -38,7 +38,7 @@ class MainMenu {
 
         this.elements.submenuLinks.forEach(link => {
             link.addEventListener('click', event => {
-                event.preventDefault();
+                if (detectIt.hasTouch) event.preventDefault();
                 if (!window.matchMedia(`(max-width: ${MOBILE_WIDTH}px)`).matches) {
                     return;
                 }

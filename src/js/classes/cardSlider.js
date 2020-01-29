@@ -66,6 +66,7 @@ class CardSlider {
                 bullet.addEventListener('click', event => {
                     event.preventDefault();
                     this.changeSlide(slideIndex);
+                    this.runSlideChangeCallbacks();
                 });
                 this.elements.pagination.appendChild(bullet);
             });
@@ -104,7 +105,7 @@ class CardSlider {
 
     changeSlide(index) {
         const { slides } = this.elements;
-        const { callbacks, changeOpacityOnPreviousCards, prevCardsOpacityFactor, prevCardsScaleFactor } = this.state;
+        const { changeOpacityOnPreviousCards, prevCardsOpacityFactor, prevCardsScaleFactor } = this.state;
         let direction = index > this.state.activeIndex ? 1 : -1;
         slides.forEach((slide, slideIndex) => {
             slide.classList.remove('prev');
@@ -155,7 +156,6 @@ class CardSlider {
 
     runSlideChangeCallbacks() {
         this.state.callbacks.slideChange.forEach(cb => {
-            console.log('Slidechange callback run', cb);
             cb();
         });
     }
@@ -208,7 +208,7 @@ class CardSlider {
     dragMove(event) {
         if (event.type === 'mousemove') event.preventDefault();
         if (!this.state.mouseDown) return;
-        const { startX, startY, slidesInitialTranslateValues } = this.state;
+        const { startX, slidesInitialTranslateValues } = this.state;
         const { slides } = this.elements;
         let moveX;
         let moveY;
@@ -264,13 +264,10 @@ class CardSlider {
             startX: 0,
             moveX: 0
         });
-
         const offset = moveX - startX;
         const direction = offset > 0 ? 'right' : 'left';
-
         if (typeof event !== 'undefined' && event.type !== 'mouseleave') {
             event.preventDefault();
-
             if (Math.abs(offset) >= this.state.threshold && moveX !== 0) {
                 this.dragEnd();
                 if (direction === 'right') {
@@ -282,7 +279,6 @@ class CardSlider {
                 this.changeSlide(this.state.activeSlideIndex);
             }
         }
-
         if (Math.abs(offset) >= 20 && Math.abs(moveX) >= 20) {
             this.state.clicksBlocked = true;
         }

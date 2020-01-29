@@ -111,24 +111,20 @@
         border: none;
         padding: 2rem 0;
         color: white !important;
-        .icon-arrow-down {
-            fill: $primary-color;
-            width: 1.6rem;
-            height: 0.8rem;
-            margin-right: 1.7rem;
-            flex-shrink: 0;
-            display: block;
-            margin-bottom: 0.2rem;
-            transition: transform 0.2s;
-            opacity: 0;
-        }
-
-
         &--has-submenu {
             .icon-arrow-down {
-                opacity: 1;
+                fill: $primary-color;
+                width: 1.6rem;
+                height: 0.8rem;
+                margin-right: 1.7rem;
+                flex-shrink: 0;
+                display: block;
+                margin-bottom: 0.2rem;
+                transition: transform 0.2s;
+               
             }
         }
+        
     }
 
   

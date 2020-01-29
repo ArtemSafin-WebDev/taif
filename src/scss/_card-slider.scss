@@ -51,7 +51,7 @@
     backface-visibility: hidden;
     pointer-events: none;
     user-select: none;
-
+    box-shadow: 0px 0px 1.5rem rgba($blue, .2);
     .current & {
         pointer-events: initial;
     }
