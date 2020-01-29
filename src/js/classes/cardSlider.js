@@ -29,7 +29,7 @@ class CardSlider {
             }
         };
 
-        if (this.elements.slides.length > 1) this.initialize();
+        this.initialize();
     }
 
     setState(newState) {
@@ -134,7 +134,7 @@ class CardSlider {
             }
         });
         this.state.activeSlideIndex = index;
-        
+
         this.handleArrowsActivity();
         this.updatePagination();
     }
@@ -152,7 +152,6 @@ class CardSlider {
             prevButton.classList.add('disabled');
         }
     }
-
 
     runSlideChangeCallbacks() {
         this.state.callbacks.slideChange.forEach(cb => {
@@ -204,7 +203,6 @@ class CardSlider {
             startX,
             startY
         });
-       
     }
 
     dragMove(event) {
@@ -250,9 +248,8 @@ class CardSlider {
             }
         }
 
-
         if (Math.abs(offsetX) >= 50 && Math.abs(moveX) >= 50) {
-            if (event.type === "touchmove") {
+            if (event.type === 'touchmove') {
                 event.preventDefault();
             }
         }
@@ -273,7 +270,7 @@ class CardSlider {
 
         if (typeof event !== 'undefined' && event.type !== 'mouseleave') {
             event.preventDefault();
-           
+
             if (Math.abs(offset) >= this.state.threshold && moveX !== 0) {
                 this.dragEnd();
                 if (direction === 'right') {
@@ -316,10 +313,16 @@ class CardSlider {
             slide.addEventListener('click', event => {
                 this.handleClicksInsideSlide(event, index);
             });
-        })
+        });
     }
 
     initialize() {
+        if (this.elements.slides.length <= 1) {
+            const { prevButton, nextButton } = this.elements;
+            prevButton.classList.add('disabled');
+            nextButton.classList.add('disabled');
+            return
+        }
         this.calculateSizes();
         this.changeSlide(this.state.activeSlideIndex);
         this.bindListeners();

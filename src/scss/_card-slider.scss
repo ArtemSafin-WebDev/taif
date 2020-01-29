@@ -2,7 +2,7 @@
 
 .card-slider {
     position: relative;
-    margin-bottom: 8rem;
+    // margin-bottom: 8rem;
     @include breakpoint(mobile) {
         margin-top: 2.4rem;
         margin-bottom: 0;
@@ -253,6 +253,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 8px;
 }
 
 .card-slider__pagination {

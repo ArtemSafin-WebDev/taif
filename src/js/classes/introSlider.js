@@ -54,6 +54,9 @@ class IntroSlider {
         this.changeSlide(this.state.activeIndex);
         this.handleAutoplay();
         this.bindClickListeners();
+
+
+        this.elements.root.classList.add('initialized');
     }
 
     handleVideos(slide) {

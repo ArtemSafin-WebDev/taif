@@ -1,5 +1,6 @@
 .main-nav {
     margin-left: auto;
+    margin-top: -.6rem;
     @include breakpoint(mobile) {
         margin: 0;
         position: fixed;
@@ -51,6 +52,11 @@
         border-bottom: 1px solid rgba(white, 0.3);
         overflow: hidden;
     }
+    &.active {
+        .main-nav__link {
+            border-color: $primary-color;
+        }
+    }
     &:hover {
         .main-nav__link {
             border-color: $primary-color;
@@ -71,7 +77,7 @@
     border-radius: 4px;
     font-size: 1.6rem;
     line-height: 1.4;
-    padding: 0.7rem 1.5rem;
+    padding: 0.7rem 1rem;
     text-align: center;
     transition: border-color 0.2s;
     user-select: none;
@@ -114,6 +120,14 @@
             display: block;
             margin-bottom: 0.2rem;
             transition: transform 0.2s;
+            opacity: 0;
+        }
+
+
+        &--has-submenu {
+            .icon-arrow-down {
+                opacity: 1;
+            }
         }
     }
 
