@@ -31,7 +31,7 @@
     "parsleyjs": "^2.9.1",
     "perfect-scrollbar": "^1.4.0",
     "picturefill": "^3.0.3",
-    "swiper": "^5.2.1"
+    "swiper": "~5.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

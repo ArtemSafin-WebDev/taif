@@ -145,7 +145,7 @@
     top: 100%;
     left: 2.5px;
     padding-top: 1.5rem;
-
+    z-index: 20;
     opacity: 0;
     visibility: hidden;
     transition: transform 0.2s, opacity 0.2s, visibility 0s linear 0.2s;

@@ -12,7 +12,6 @@
     }
 }
 
-
 .press-center-top__fullwidth {
     position: absolute;
     left: calc((100vw - 100%) / 2 * -1);
@@ -22,13 +21,11 @@
     z-index: -1;
 }
 
-
 .press-center-top__background-slider {
     width: 100%;
     height: 100%;
     position: relative;
 }
-
 
 .press-center-top__background-slider-item {
     position: absolute;
@@ -37,9 +34,9 @@
     width: 100%;
     height: 100%;
     z-index: 2;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0s linear 1s, visibility 0s linear 1s;
+   
+    overflow: hidden;
+    transform: translateZ(0);
     &::before {
         content: '';
         position: absolute;
@@ -53,9 +50,28 @@
 
     &.active {
         opacity: 1;
-        visibility: visible;
-        transition: all .5s linear .5s;
+        transition: opacity 0.2s;
+        transition: none;
         z-index: 10;
+       
+    }
+}
+
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+.press-center-top__background-slider-item.active ~ .press-center-top__background-slider-item {
+    .press-center-top__background-slider-image {
+        transform: translateZ(0) translate(-50%, -50%) scale(1.2) translateX(8.333%);
     }
 }
 
@@ -67,16 +83,19 @@
     top: 0;
     z-index: -1;
     @include objectFitCover();
-    transition: all 0s linear 1s;
-    opacity: 1;
-
+    transition: transform 0.5s ease-in;
+    left: 50%;
+    top: 50%;
+    transform: translateZ(0) translate(-50%, -50%) scale(1.2) translateX(-8.333%);
+    will-change: transform;
+    // opacity: 0;
+    // display: none;
     .press-center-top__background-slider-item.active & {
-        transform: translateX(0%);
-        transition: all .5s;
+        transform: translateZ(0) translate(-50%, -50%) scale(1.2) translateX(0) !important;
+        transition: transform .5s ease-out, opacity .2s;
+        // opacity: 1;
     }
 }
-
-
 
 .press-center-top__background-slider-overlay {
     position: absolute;
@@ -89,11 +108,11 @@
     background-repeat: no-repeat;
     background: linear-gradient(180deg, rgba(4, 0, 37, 0.8) 0.13%, rgba(4, 0, 37, 0.6) 34.89%, rgba(3, 0, 37, 0.9) 100%);
     z-index: 14;
-    opacity: .2;
-    transition: opacity .5s linear;
+    opacity: 0.4;
+    transition: opacity 0.3s;
     .press-center-top__background-slider-item.active & {
         opacity: 1;
-        transition: opacity .5s ease .8s; 
+        transition: opacity 0.3s ease 0.8s;
     }
 }
 
@@ -121,8 +140,6 @@
     }
 }
 
-
-
 .press-center-top__content-slider-wrapper {
     flex-grow: 1;
     margin-bottom: 6rem;
@@ -131,8 +148,6 @@
     justify-content: flex-end;
 }
 
-
-
 .press-center-top__content-slider-list {
     position: relative;
     flex-grow: 1;
@@ -140,8 +155,6 @@
     flex-direction: column;
     justify-content: flex-end;
 }
-
-
 
 .press-center-top__content-slider-list-item {
     position: absolute;
@@ -152,25 +165,30 @@
     z-index: 2;
     opacity: 0;
     visibility: hidden;
-    transition: opacity .2s, visibility 0s linear 1.5s;
+    transition: opacity 0.3s, visibility 0s linear 0.3s;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    transition: height .3s;
+    transition: all 0.2s;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: opacity;
     &.active {
         position: static;
         z-index: 10;
         opacity: 1;
         visibility: visible;
-        transition: all .3s ease 1.2s;
+        transition: all 0.3s;
     }
 }
-
-
 
 .press-center-top__content-slider-card {
     display: block;
     max-width: 82rem;
+    transform: translateZ(0) translateY(5rem);
+    transition: all 0.3s;
+    opacity: 0;
+    will-change: transform opacity;
     @include noHighlight();
     &:link,
     &:visited {
@@ -184,24 +202,26 @@
             background-color: $primary-color;
         }
     }
+
+    .press-center-top__content-slider-list-item.active & {
+        transform: translateZ(0) translateY(0);
+        opacity: 1;
+        transition: transform .4s ease 1s, opacity 0.3s ease 1s;
+    }
 }
-
-
 
 .press-center-top__content-slider-card-label {
     font-size: 1rem;
     line-height: 1.4;
     letter-spacing: 0.16em;
     background-color: $primary-color;
-    padding: .4rem 1rem;
+    padding: 0.4rem 1rem;
     border-radius: 3px;
     margin-bottom: 2rem;
     text-transform: uppercase;
     align-self: flex-start;
     display: inline-block;
 }
-
-
 
 .press-center-top__content-slider-card-heading {
     font-family: $montserrat;
@@ -216,8 +236,6 @@
     }
 }
 
-
-
 .press-center-top__content-slider-card-circle {
     display: inline-flex;
     flex-direction: column;
@@ -228,7 +246,7 @@
     border-radius: 50%;
     border: 1px solid white;
     flex-shrink: 0;
-    transition: all .2s;
+    transition: all 0.2s;
     @include breakpoint(small-mobile) {
         width: 5rem;
         height: 5rem;
@@ -249,7 +267,6 @@
     display: flex;
     flex-wrap: wrap;
     margin: -1.2rem;
-
 
     @include breakpoint(mobile) {
         flex-wrap: nowrap;
@@ -281,15 +298,14 @@
     }
 }
 
-
 .press-center-top__content-slider-navigation-card {
     display: flex;
     flex-direction: column;
     padding-top: 2.7rem;
     padding-bottom: 3.7rem;
     flex-grow: 1;
-    border-top: 1px solid rgba(#F4F4F4, .3);
-    transition: border-color .2s;
+    border-top: 1px solid rgba(#f4f4f4, 0.3);
+    transition: border-color 0.2s;
     user-select: none;
     @include noHighlight();
     &:link,
@@ -299,9 +315,9 @@
 
     .no-touch &:not(.active):hover,
     .touch &:not(.active):active {
-        border-color: rgba(#F4F4F4, .6);
+        border-color: rgba(#f4f4f4, 0.6);
         .press-center-top__content-slider-navigation-card-text {
-            color: rgba(white, .8);
+            color: rgba(white, 0.8);
         }
     }
 
@@ -317,22 +333,20 @@
     }
 }
 
-
 .press-center-top__content-slider-navigation-card-text {
-    color: rgba(white, .7);
+    color: rgba(white, 0.7);
     font-weight: 700;
     font-family: $montserrat;
     font-size: 1.4rem;
     line-height: 1.5;
     margin-bottom: 1rem;
-    transition: color .2s;
+    transition: color 0.2s;
 }
-
 
 .press-center-top__content-slider-navigation-card-date {
     font-family: $proxima;
     font-size: 1.2rem;
     line-height: 1.25;
-    color: rgba(white, .5);
+    color: rgba(white, 0.5);
     margin-top: auto;
 }
