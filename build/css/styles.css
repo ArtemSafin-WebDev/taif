@@ -4720,9 +4720,10 @@ img.lazyload:not([src]) {
   width: 100%;
   height: 100%;
   z-index: 2;
-  overflow: hidden;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0); }
+  opacity: 0;
+  -webkit-transition: opacity .2s ease .2s;
+  transition: opacity .2s ease .2s;
+  overflow: hidden; }
   .press-center-top__background-slider-item::before {
     content: '';
     position: absolute;
@@ -4736,8 +4737,6 @@ img.lazyload:not([src]) {
     opacity: 1;
     -webkit-transition: opacity 0.2s;
     transition: opacity 0.2s;
-    -webkit-transition: none;
-    transition: none;
     z-index: 10; }
 
 @-webkit-keyframes fade-in {
@@ -4751,10 +4750,6 @@ img.lazyload:not([src]) {
     opacity: 0; }
   to {
     opacity: 1; } }
-
-.press-center-top__background-slider-item.active ~ .press-center-top__background-slider-item .press-center-top__background-slider-image {
-  -webkit-transform: translateZ(0) translate(-50%, -50%) scale(1.2) translateX(8.333%);
-          transform: translateZ(0) translate(-50%, -50%) scale(1.2) translateX(8.333%); }
 
 .press-center-top__background-slider-image {
   width: 100%;
@@ -4771,19 +4766,7 @@ img.lazyload:not([src]) {
   -webkit-transition: -webkit-transform 0.5s ease-in;
   transition: -webkit-transform 0.5s ease-in;
   transition: transform 0.5s ease-in;
-  transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translateZ(0) translate(-50%, -50%) scale(1.2) translateX(-8.333%);
-          transform: translateZ(0) translate(-50%, -50%) scale(1.2) translateX(-8.333%);
-  will-change: transform; }
-  .press-center-top__background-slider-item.active .press-center-top__background-slider-image {
-    -webkit-transform: translateZ(0) translate(-50%, -50%) scale(1.2) translateX(0) !important;
-            transform: translateZ(0) translate(-50%, -50%) scale(1.2) translateX(0) !important;
-    -webkit-transition: opacity .2s, -webkit-transform .5s ease-out;
-    transition: opacity .2s, -webkit-transform .5s ease-out;
-    transition: transform .5s ease-out, opacity .2s;
-    transition: transform .5s ease-out, opacity .2s, -webkit-transform .5s ease-out; }
+  transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in; }
 
 .press-center-top__background-slider-overlay {
   position: absolute;
