@@ -1,6 +1,6 @@
 .main-nav {
     margin-left: auto;
-    margin-top: -.6rem;
+    margin-top: -0.6rem;
     @include breakpoint(mobile) {
         margin: 0;
         position: fixed;
@@ -62,7 +62,7 @@
             border-color: $primary-color;
         }
 
-        .main-nav__submenu-wrapper {
+        & > .main-nav__submenu-wrapper {
             opacity: 1;
             visibility: visible;
             transition: all 0.2s;
@@ -87,7 +87,6 @@
     &:visited {
         color: white;
     }
-
 
     .page-header--color & {
         color: black;
@@ -121,13 +120,9 @@
                 display: block;
                 margin-bottom: 0.2rem;
                 transition: transform 0.2s;
-               
             }
         }
-        
     }
-
-  
 
     &:hover {
         border-color: $primary-color;
@@ -153,6 +148,35 @@
     width: max-content;
     max-width: 40rem;
 
+    .main-nav__list-item:last-child > & {
+        left: auto; 
+        right: 2.5px;
+    }
+
+    .main-nav__submenu-wrapper & {
+        left: 100%;
+        top: 0;
+        padding: 0;
+        z-index: 40;
+        margin-left: -10px;
+        transform: translateY(0);
+        pointer-events: none;
+        max-width: 30rem;
+        @include breakpoint(laptop) {
+            left: auto;
+            right: 100%;
+            margin-left: 0;
+            margin-right: -10px;
+            max-width: none;
+        }
+
+        @include breakpoint(mobile) {
+            margin: 0;
+            max-height: none;
+            pointer-events: initial;
+        }
+    }
+
     @include breakpoint(laptop) {
         left: auto;
         right: 0;
@@ -177,8 +201,17 @@
 .main-nav__submenu-list {
     background-color: #fff;
     border-radius: 4px;
+    // overflow: hidden;
     padding: 1.5rem 0;
     box-shadow: 0 9px 24px rgba(black, 0.1);
+    .main-nav__submenu-wrapper .main-nav__submenu-wrapper & {
+        box-shadow: 0 9px 24px rgba(black, 0.2);
+        overflow: hidden;
+        padding: 0;
+        @include breakpoint(mobile) {
+            margin-top: 1.6rem;
+        }
+    }
     @include breakpoint(mobile) {
         box-shadow: none;
         border-radius: 0;
@@ -190,6 +223,30 @@
 }
 
 .main-nav__submenu-list-item {
+    position: relative;
+    .main-nav__submenu-wrapper .main-nav__submenu-wrapper & {
+        @include breakpoint(mobile) {
+            margin-bottom: 1.6rem;
+            padding-left: 2rem;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    &:hover {
+        & > .main-nav__submenu-link {
+            background: #f4f8fb;
+            color: $primary-color;
+        }
+        & > .main-nav__submenu-wrapper {
+            opacity: 1;
+            visibility: visible;
+            transition: all 0.2s;
+            transform: translateY(0);
+            pointer-events: initial;
+        }
+    }
+
     @include breakpoint(mobile) {
         margin-bottom: 1.6rem;
         &:last-child {
@@ -212,11 +269,21 @@
         color: black;
     }
 
-    .no-touch &:hover,
-    .touch &:active {
+
+    &:hover {
         background: #f4f8fb;
         color: $primary-color;
     }
+
+    &:hover ~ .main-nav__submenu-wrapper {
+        opacity: 1;
+        visibility: visible;
+        transition: all 0.2s;
+        transform: translateY(0);
+        pointer-events: initial;
+    }
+
+    
 
     @include breakpoint(mobile) {
         font-size: 1.1rem;

@@ -9,7 +9,8 @@ class MainMenu {
             nav: element.querySelector('.main-nav'),
             navOpen: element.querySelector('.page-header__burger-btn'),
             navClose: element.querySelector('.main-nav__mobile-top-row-menu-close'),
-            submenuLinks: Array.from(element.querySelectorAll('.main-nav__link--has-submenu'))
+            submenuLinks: Array.from(element.querySelectorAll('.main-nav__link--has-submenu')),
+            submenuLinksDeep: Array.from(element.querySelectorAll('.main-nav__submenu-link--has-submenu'))
         };
 
         this.state = {
@@ -36,9 +37,16 @@ class MainMenu {
             this.closeMenu();
         });
 
-        this.elements.submenuLinks.forEach(link => {
+        const allSubmenuLinks = this.elements.submenuLinks.concat(this.elements.submenuLinksDeep);
+
+        allSubmenuLinks.forEach(link => {
             link.addEventListener('click', event => {
                 if (detectIt.hasTouch) event.preventDefault();
+            });
+        });
+
+        this.elements.submenuLinks.forEach(link => {
+            link.addEventListener('click', event => {
                 if (!window.matchMedia(`(max-width: ${MOBILE_WIDTH}px)`).matches) {
                     return;
                 }

@@ -1,5 +1,6 @@
 import Swiper from "swiper"
 
+
 class PhotoSlider {
     constructor(element) {
         this.elements = {

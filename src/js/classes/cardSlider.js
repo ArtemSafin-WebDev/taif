@@ -3,6 +3,7 @@ import debounce from '../functions/debounce';
 class CardSlider {
     constructor(element) {
         this.elements = {
+            root: element,
             slides: Array.from(element.querySelectorAll('.card-slider__slide')),
             wrapper: element.querySelector('.card-slider__wrapper'),
             prevButton: element.querySelector('.card-slider__button--prev'),
@@ -323,6 +324,7 @@ class CardSlider {
         this.changeSlide(this.state.activeSlideIndex);
         this.bindListeners();
         this.createPagination();
+        this.elements.root.classList.add('initialized');
     }
 
     update() {

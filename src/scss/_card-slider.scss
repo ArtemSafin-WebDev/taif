@@ -21,6 +21,8 @@
     width: 80%;
     transform-origin: left center;
     transition: all .4s;
+    display: flex;
+    flex-direction: column;
     @include breakpoint(small-tablet) {
         width: 70%;
         margin-right: 3rem;
@@ -46,17 +48,21 @@
     display: flex;
     flex-direction: column;
     padding: 4.5rem 5rem;
+    padding-top: 8rem;
     border-radius: 4px;
     overflow: hidden;
     backface-visibility: hidden;
-    pointer-events: none;
     user-select: none;
     box-shadow: 0px 0px 1.5rem rgba($blue, .2);
+    .card-slider.initialized & {
+        pointer-events: none;
+    }
     .current & {
-        pointer-events: initial;
+        pointer-events: initial !important;
     }
     @include breakpoint(mobile) {
         padding: 2rem;
+        padding-top: 6.5rem;
     }
     &:link,
     &:visited {
